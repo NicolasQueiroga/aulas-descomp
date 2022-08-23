@@ -22,14 +22,14 @@ architecture assincrona of memoriaROM is
   begin
       -- Palavra de Controle = SelMUX, Habilita_A, Reset_A, Operacao_ULA
       -- Inicializa os endereços:
-        tmp(0)  := "0001";   -- Desta posicao para baixo, é necessário acertar os valores
-        tmp(1)  := "0010";
-        tmp(2)  := "0011";
-        tmp(3)  := "0100";
-        tmp(4)  := "0101";
-        tmp(5)  := "0110";
-        tmp(6)  := "0111";
-        tmp(7)  := "1111";
+        tmp(0)  := "1011";   -- reset
+        tmp(1)  := "1101";   -- +x
+        tmp(2)  := "1101";   -- +x
+        tmp(3)  := "1101";   -- +x
+        tmp(4)  := "1100";   -- -x
+        tmp(5)  := "0000";
+        tmp(6)  := "0000";
+        tmp(7)  := "0000";
         return tmp;
     end initMemory;
 
