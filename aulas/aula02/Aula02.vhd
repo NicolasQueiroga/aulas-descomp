@@ -12,8 +12,7 @@ entity Aula02 is
     KEY: in std_logic_vector(3 downto 0);
     SW: in std_logic_vector(9 downto 0);
     PC_OUT: out std_logic_vector(larguraEnderecos-1 downto 0);
-    LEDR  : out std_logic_vector(9 downto 0);
-	 ROM_OUT : out  std_logic_vector(3 downto 0)
+    LEDR  : out std_logic_vector(9 downto 0)
   );
 end entity;
 
@@ -80,7 +79,6 @@ selMUX <= Sinais_Controle(3);
 Habilita_A <= Sinais_Controle(2);
 Reset_A <= Sinais_Controle(1);
 Operacao_ULA <= Sinais_Controle(0);
-ROM_OUT <= Sinais_Controle;
 
 -- I/O
 chavesY_MUX_A <= SW(3 downto 0);

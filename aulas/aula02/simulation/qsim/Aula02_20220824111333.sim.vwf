@@ -1,50 +1,3 @@
-/*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source="C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf" --testbench_file="C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source="C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf" --testbench_file="C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/" Aula02 -c Aula02</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/" Aula02 -c Aula02</tnetlist_cmd>
-<modelsim_script>onerror {exit -code 1}
-vlib work
-vcom -work work Aula02.vho
-vcom -work work Waveform.vwf.vht
-vsim  -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Aula02_vhd_vec_tst
-vcd file -direction Aula02.msim.vcd
-vcd add -internal Aula02_vhd_vec_tst/*
-vcd add -internal Aula02_vhd_vec_tst/i1/*
-proc simTimestamp {} {
-    echo "Simulation time: $::now ps"
-    if { [string equal running [runStatus]] } {
-        after 2500 simTimestamp
-    }
-}
-after 2500 simTimestamp
-run -all
-quit -f
-
-
-</modelsim_script>
-<modelsim_script_timing>onerror {exit -code 1}
-vlib work
-vcom -work work Aula02.vho
-vcom -work work Waveform.vwf.vht
-vsim -novopt -c -t 1ps -sdfmax Aula02_vhd_vec_tst/i1=Aula02_vhd.sdo -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Aula02_vhd_vec_tst
-vcd file -direction Aula02.msim.vcd
-vcd add -internal Aula02_vhd_vec_tst/*
-vcd add -internal Aula02_vhd_vec_tst/i1/*
-proc simTimestamp {} {
-    echo "Simulation time: $::now ps"
-    if { [string equal running [runStatus]] } {
-        after 2500 simTimestamp
-    }
-}
-after 2500 simTimestamp
-run -all
-quit -f
-
-
-</modelsim_script_timing>
-<hdl_lang>vhdl</hdl_lang>
-</simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
 editor if you plan to continue editing the block that represents it in
@@ -79,16 +32,6 @@ HEADER
 	GRID_DUTY_CYCLE = 50;
 }
 
-SIGNAL("CLOCK_50")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "";
-}
-
 SIGNAL("LEDR[9]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -96,7 +39,7 @@ SIGNAL("LEDR[9]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("LEDR[8]")
@@ -106,7 +49,7 @@ SIGNAL("LEDR[8]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("LEDR[7]")
@@ -116,7 +59,7 @@ SIGNAL("LEDR[7]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("LEDR[6]")
@@ -126,7 +69,7 @@ SIGNAL("LEDR[6]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("LEDR[3]")
@@ -136,7 +79,7 @@ SIGNAL("LEDR[3]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("LEDR[2]")
@@ -146,7 +89,7 @@ SIGNAL("LEDR[2]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("LEDR[1]")
@@ -156,7 +99,7 @@ SIGNAL("LEDR[1]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("LEDR[0]")
@@ -166,7 +109,7 @@ SIGNAL("LEDR[0]")
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "LEDR";
+	PARENT = "";
 }
 
 SIGNAL("PC_OUT")
@@ -209,27 +152,7 @@ SIGNAL("PC_OUT[0]")
 	PARENT = "PC_OUT";
 }
 
-GROUP("OP")
-{
-	MEMBERS = "LEDR[9]", "LEDR[8]", "LEDR[7]", "LEDR[6]";
-}
-
-GROUP("ULA_OUT")
-{
-	MEMBERS = "LEDR[3]", "LEDR[2]", "LEDR[1]", "LEDR[0]";
-}
-
-SIGNAL("SW[6]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "";
-}
-
-SIGNAL("SW[7]")
+SIGNAL("SW[9]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -249,7 +172,7 @@ SIGNAL("SW[8]")
 	PARENT = "";
 }
 
-SIGNAL("SW[9]")
+SIGNAL("SW[7]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -259,25 +182,39 @@ SIGNAL("SW[9]")
 	PARENT = "";
 }
 
-GROUP("X")
+SIGNAL("SW[6]")
 {
-	MEMBERS = "SW[6]", "SW[7]", "SW[8]", "SW[9]";
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
 }
 
-TRANSITION_LIST("CLOCK_50")
+SIGNAL("KEY[0]")
 {
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 1 FOR 100.0;
-		NODE
-		{
-			REPEAT = 4;
-			LEVEL 0 FOR 100.0;
-			LEVEL 1 FOR 100.0;
-		}
-		LEVEL 0 FOR 100.0;
-	}
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+GROUP("OPERATION")
+{
+	MEMBERS = "LEDR[9]", "LEDR[8]", "LEDR[7]", "LEDR[6]";
+}
+
+GROUP("ULA_OUT")
+{
+	MEMBERS = "LEDR[3]", "LEDR[2]", "LEDR[1]", "LEDR[0]";
+}
+
+GROUP("X")
+{
+	MEMBERS = "SW[9]", "SW[8]", "SW[7]", "SW[6]";
 }
 
 TRANSITION_LIST("LEDR[9]")
@@ -285,7 +222,11 @@ TRANSITION_LIST("LEDR[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 1000.0;
+		}
 	}
 }
 
@@ -294,7 +235,12 @@ TRANSITION_LIST("LEDR[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 800.0;
+		}
 	}
 }
 
@@ -303,7 +249,12 @@ TRANSITION_LIST("LEDR[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 200.0;
+			LEVEL 0 FOR 800.0;
+		}
 	}
 }
 
@@ -312,7 +263,12 @@ TRANSITION_LIST("LEDR[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 800.0;
+			LEVEL 0 FOR 200.0;
+		}
 	}
 }
 
@@ -321,7 +277,11 @@ TRANSITION_LIST("LEDR[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -330,7 +290,11 @@ TRANSITION_LIST("LEDR[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
 	}
 }
 
@@ -339,7 +303,12 @@ TRANSITION_LIST("LEDR[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 600.0;
+			LEVEL 1 FOR 400.0;
+		}
 	}
 }
 
@@ -348,7 +317,13 @@ TRANSITION_LIST("LEDR[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 400.0;
+			LEVEL 1 FOR 200.0;
+			LEVEL 0 FOR 400.0;
+		}
 	}
 }
 
@@ -357,7 +332,12 @@ TRANSITION_LIST("PC_OUT[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 800.0;
+			LEVEL 1 FOR 200.0;
+		}
 	}
 }
 
@@ -366,7 +346,13 @@ TRANSITION_LIST("PC_OUT[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 400.0;
+			LEVEL 1 FOR 400.0;
+			LEVEL 0 FOR 200.0;
+		}
 	}
 }
 
@@ -375,36 +361,15 @@ TRANSITION_LIST("PC_OUT[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("SW[6]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("SW[7]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("SW[8]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 800.0;
-		LEVEL 1 FOR 100.0;
-		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 200.0;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 200.0;
+			LEVEL 0 FOR 200.0;
+		}
 	}
 }
 
@@ -413,15 +378,82 @@ TRANSITION_LIST("SW[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 200.0;
-		LEVEL 1 FOR 500.0;
-		LEVEL 0 FOR 300.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("SW[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("SW[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 800.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+		}
+	}
+}
+
+TRANSITION_LIST("SW[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 500.0;
+			LEVEL 0 FOR 300.0;
+		}
+	}
+}
+
+TRANSITION_LIST("KEY[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 100.0;
+			LEVEL 0 FOR 100.0;
+		}
 	}
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "CLOCK_50";
+	CHANNEL = "KEY[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 0;
@@ -431,7 +463,7 @@ DISPLAY_LINE
 DISPLAY_LINE
 {
 	CHANNEL = "X";
-	EXPAND_STATUS = EXPANDED;
+	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 1;
 	TREE_LEVEL = 0;
@@ -440,7 +472,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "SW[6]";
+	CHANNEL = "SW[9]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 2;
@@ -450,7 +482,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "SW[7]";
+	CHANNEL = "SW[8]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;
@@ -460,7 +492,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "SW[8]";
+	CHANNEL = "SW[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 4;
@@ -470,7 +502,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "SW[9]";
+	CHANNEL = "SW[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 5;
@@ -480,7 +512,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "OP";
+	CHANNEL = "OPERATION";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 6;
@@ -582,7 +614,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "PC_OUT";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 16;
 	TREE_LEVEL = 0;
 	CHILDREN = 17, 18, 19;
@@ -592,7 +624,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "PC_OUT[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 17;
 	TREE_LEVEL = 1;
 	PARENT = 16;
@@ -602,7 +634,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "PC_OUT[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 18;
 	TREE_LEVEL = 1;
 	PARENT = 16;
@@ -612,7 +644,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "PC_OUT[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 19;
 	TREE_LEVEL = 1;
 	PARENT = 16;

@@ -1,5 +1,5 @@
 Flow report for Aula02
-Tue Aug 23 14:36:52 2022
+Wed Aug 24 11:40:23 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Aug 23 14:36:46 2022       ;
+; Flow Status                     ; Successful - Wed Aug 24 11:40:23 2022       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; Aula02                                      ;
 ; Top-level Entity Name           ; Aula02                                      ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/23/2022 14:36:12 ;
+; Start date & time ; 08/24/2022 10:13:34 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Aula02              ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 163580567889482.166127617206928        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 163580567889482.166134681415924        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -101,11 +101,42 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4848 MB             ; 00:00:24                           ;
-; Fitter               ; 00:00:18     ; 1.0                     ; 6237 MB             ; 00:00:30                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4810 MB             ; 00:00:04                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4848 MB             ; 00:00:23                           ;
+; Fitter               ; 00:00:17     ; 1.0                     ; 6241 MB             ; 00:00:28                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4815 MB             ; 00:00:04                           ;
 ; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 5052 MB             ; 00:00:05                           ;
-; Total                ; 00:00:38     ; --                      ; --                  ; 00:01:03                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; Total                ; 00:01:11     ; --                      ; --                  ; 00:01:31                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -118,6 +149,37 @@ refer to the applicable agreement for further details.
 ; Fitter               ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ENGNUC-06        ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -128,6 +190,37 @@ quartus_map --read_settings_files=on --write_settings_files=off Aula02 -c Aula02
 quartus_fit --read_settings_files=off --write_settings_files=off Aula02 -c Aula02
 quartus_asm --read_settings_files=off --write_settings_files=off Aula02 -c Aula02
 quartus_sta Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf --testbench_file=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf --testbench_file=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf --testbench_file=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/modelsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf --testbench_file=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf --testbench_file=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/Waveform.vwf --testbench_file=C:/Users/nicol/Documents/insper/descomp/aulas/aula02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula02 -c Aula02 --vector_source=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/Waveform1.vwf --testbench_file=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/nicolasmq/Documents/nicolasmq/aulas-descomp/aulas/aula02/simulation/qsim/ Aula02 -c Aula02
 
 
 
