@@ -5,12 +5,13 @@ ENTITY Aula04 IS
         GENERIC (
                 larguraDados : NATURAL := 8;
                 larguraEnderecos : NATURAL := 8;
-                simulacao : BOOLEAN := TRUE -- para gravar na placa, altere de TRUE para FALSE
+                simulacao : BOOLEAN := FALSE -- para gravar na placa, altere de TRUE para FALSE
         );
         PORT (
                 CLOCK_50 : IN STD_LOGIC;
                 KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
                 SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+					 HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
                 PC_OUT : OUT STD_LOGIC_VECTOR(larguraEnderecos - 1 DOWNTO 0);
                 LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
                 REG_OUT : OUT STD_LOGIC_VECTOR(larguraDados - 1 DOWNTO 0)
@@ -91,7 +92,7 @@ BEGIN
                         saida_MUX => MUX_OUT
                 );
 
-        REGA_IN <= MUX_OUT;
+        REGA_IN <= ALU_OUT;
         REGA_ENABLE <= DECODER_OUT(4);
         REGA : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => larguraDados)
                 PORT MAP(
@@ -141,6 +142,61 @@ BEGIN
                         dado_out => MEM_OUT,
                         clk => CLK
                 );
+					 
+					 
+			ACUMULADOR_LO :  entity work.conversorHex7Seg
+			PORT MAP(
+						dadoHex => REGA_OUT(3 DOWNTO 0),
+						apaga =>  '0',
+						negativo => '0',
+						overFlow =>  '0',
+						saida7seg => HEX0
+						);
+			
+			ACUMULADOR_HI :  entity work.conversorHex7Seg
+			PORT MAP(
+						dadoHex => REGA_OUT(7 DOWNTO 4),
+						apaga =>  '0',
+						negativo => '0',
+						overFlow =>  '0',
+						saida7seg => HEX1
+						);
+			
+			MUX_A_LO :  entity work.conversorHex7Seg
+			PORT MAP(
+						dadoHex => MUX_A(3 DOWNTO 0),
+						apaga =>  '0',
+						negativo => '0',
+						overFlow =>  '0',
+						saida7seg => HEX2
+						);
+						
+			MUX_A_HI :  entity work.conversorHex7Seg
+			PORT MAP(
+						dadoHex => MUX_A(7 DOWNTO 4),
+						apaga =>  '0',
+						negativo => '0',
+						overFlow =>  '0',
+						saida7seg => HEX3
+						);
+			
+			MUX_B_LO :  entity work.conversorHex7Seg
+			PORT MAP(
+						dadoHex => MUX_B(3 DOWNTO 0),
+						apaga =>  '0',
+						negativo => '0',
+						overFlow =>  '0',
+						saida7seg => HEX4
+						);
+						
+			MUX_B_HI :  entity work.conversorHex7Seg
+			PORT MAP(
+						dadoHex => MUX_B(7 DOWNTO 4),
+						apaga =>  '0',
+						negativo => '0',
+						overFlow =>  '0',
+						saida7seg => HEX5
+						);
 
         REG_OUT <= ALU_OUT;
         PC_OUT <= Endereco;
