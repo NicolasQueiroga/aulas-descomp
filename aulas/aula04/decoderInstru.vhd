@@ -23,6 +23,6 @@ BEGIN
     "010110" WHEN opcode = SOMA ELSE
     "010010" WHEN opcode = SUB ELSE
     "111000" WHEN opcode = LDI ELSE
-	 "X1XX01" WHEN opcode = STA ELSE
+	 "X0XX01" WHEN opcode = STA ELSE
     "000000"; -- NOP para os opcodes Indefinidos
 END ARCHITECTURE;
