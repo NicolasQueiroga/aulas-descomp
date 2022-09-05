@@ -12,7 +12,8 @@ ENTITY Aula04 IS
 					 KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 					 SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
                 HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-                PC_OUT : OUT STD_LOGIC_VECTOR(larguraEnderecos - 1 DOWNTO 0)
+                PC_OUT : OUT STD_LOGIC_VECTOR(larguraEnderecos - 1 DOWNTO 0);
+					 LEDR  : out std_logic_vector(9 downto 0)
         );
 END ENTITY;
 
@@ -64,7 +65,7 @@ BEGIN
                         );
                 END GENERATE;
 
-        PC : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => larguraEnderecos)
+        PC : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => larguraDados)
                 PORT MAP(
                         DIN => proxPC,
                         DOUT => Endereco,
@@ -73,7 +74,7 @@ BEGIN
                         RST => '0'
                 );
 
-        incrementaPC : ENTITY work.somaConstante GENERIC MAP (larguraDados => larguraEnderecos, constante => 1)
+        incrementaPC : ENTITY work.somaConstante GENERIC MAP (larguraDados => larguraDados, constante => 1)
                 PORT MAP(
                         entrada => Endereco,
                         saida => proxPC
@@ -127,9 +128,10 @@ BEGIN
                         clk => CLK
                 );
 					 
-			PC_OUT <= Endereco;
+	PC_OUT <= Endereco;
+	LEDR(7 DOWNTO 0) <= REGA_OUT;
 			
-			MUX2 : ENTITY work.muxGenerico2x1 GENERIC MAP (larguraDados => 24)
+	MUX2 : ENTITY work.muxGenerico2x1 GENERIC MAP (larguraDados => 24)
                 PORT MAP(
                         entradaA_MUX => PC_OUT & MEM_ADDRESS & MEM_OUT,
                         entradaB_MUX => MUX_A & MUX_B & REGA_OUT,

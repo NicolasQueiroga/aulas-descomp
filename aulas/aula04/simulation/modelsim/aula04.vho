@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition"
 
--- DATE "09/02/2022 15:10:38"
+-- DATE "09/05/2022 15:17:43"
 
 -- 
 -- Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -41,13 +41,14 @@ ENTITY 	Aula04 IS
 	CLOCK_50 : IN std_logic;
 	KEY : IN std_logic_vector(3 DOWNTO 0);
 	SW : IN std_logic_vector(9 DOWNTO 0);
-	HEX0 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX1 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX2 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX3 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX4 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX5 : OUT std_logic_vector(6 DOWNTO 0);
-	PC_OUT : OUT std_logic_vector(7 DOWNTO 0)
+	HEX0 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX1 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX2 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX3 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX4 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX5 : BUFFER std_logic_vector(6 DOWNTO 0);
+	PC_OUT : BUFFER std_logic_vector(7 DOWNTO 0);
+	LEDR : BUFFER std_logic_vector(9 DOWNTO 0)
 	);
 END Aula04;
 
@@ -106,14 +107,24 @@ END Aula04;
 -- HEX5[4]	=>  Location: PIN_C1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
 -- HEX5[5]	=>  Location: PIN_C2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
 -- HEX5[6]	=>  Location: PIN_W19,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
--- PC_OUT[0]	=>  Location: PIN_T19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- PC_OUT[1]	=>  Location: PIN_J17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- PC_OUT[2]	=>  Location: PIN_T17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- PC_OUT[3]	=>  Location: PIN_U8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- PC_OUT[4]	=>  Location: PIN_T20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- PC_OUT[5]	=>  Location: PIN_R15,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- PC_OUT[6]	=>  Location: PIN_H10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- PC_OUT[0]	=>  Location: PIN_H16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- PC_OUT[1]	=>  Location: PIN_T17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- PC_OUT[2]	=>  Location: PIN_K16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- PC_OUT[3]	=>  Location: PIN_R7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- PC_OUT[4]	=>  Location: PIN_T19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- PC_OUT[5]	=>  Location: PIN_T20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- PC_OUT[6]	=>  Location: PIN_F13,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- PC_OUT[7]	=>  Location: PIN_T18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- LEDR[0]	=>  Location: PIN_AA2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[1]	=>  Location: PIN_AA1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[2]	=>  Location: PIN_W2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[3]	=>  Location: PIN_Y3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[4]	=>  Location: PIN_N2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[5]	=>  Location: PIN_N1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[6]	=>  Location: PIN_U2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[7]	=>  Location: PIN_U1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[8]	=>  Location: PIN_L2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
+-- LEDR[9]	=>  Location: PIN_L1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
 -- SW[9]	=>  Location: PIN_AB12,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- KEY[0]	=>  Location: PIN_U7,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- CLOCK_50	=>  Location: PIN_M9,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
@@ -139,6 +150,7 @@ SIGNAL ww_HEX3 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_HEX4 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_HEX5 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_PC_OUT : std_logic_vector(7 DOWNTO 0);
+SIGNAL ww_LEDR : std_logic_vector(9 DOWNTO 0);
 SIGNAL \KEY[1]~input_o\ : std_logic;
 SIGNAL \KEY[2]~input_o\ : std_logic;
 SIGNAL \KEY[3]~input_o\ : std_logic;
@@ -164,54 +176,53 @@ SIGNAL \incrementaPC|Add0~10\ : std_logic;
 SIGNAL \incrementaPC|Add0~5_sumout\ : std_logic;
 SIGNAL \incrementaPC|Add0~6\ : std_logic;
 SIGNAL \incrementaPC|Add0~1_sumout\ : std_logic;
-SIGNAL \ROM1|memROM~0_combout\ : std_logic;
 SIGNAL \ROM1|memROM~6_combout\ : std_logic;
-SIGNAL \ROM1|memROM~4_combout\ : std_logic;
 SIGNAL \ROM1|memROM~5_combout\ : std_logic;
-SIGNAL \DECODER_INSTRU|Equal1~0_combout\ : std_logic;
+SIGNAL \ROM1|memROM~4_combout\ : std_logic;
 SIGNAL \DECODER_INSTRU|saida[3]~0_combout\ : std_logic;
+SIGNAL \DECODER_INSTRU|Equal1~0_combout\ : std_logic;
 SIGNAL \DECODER_INSTRU|Equal1~1_combout\ : std_logic;
+SIGNAL \ROM1|memROM~3_combout\ : std_logic;
+SIGNAL \ROM1|memROM~0_combout\ : std_logic;
+SIGNAL \ROM1|memROM~1_combout\ : std_logic;
+SIGNAL \RAM1|ram~165_combout\ : std_logic;
+SIGNAL \RAM1|ram~35_q\ : std_logic;
+SIGNAL \RAM1|ram~152_combout\ : std_logic;
+SIGNAL \RAM1|ram~166_combout\ : std_logic;
+SIGNAL \RAM1|ram~27_q\ : std_logic;
+SIGNAL \RAM1|ram~151_combout\ : std_logic;
+SIGNAL \RAM1|ram~153_combout\ : std_logic;
 SIGNAL \DECODER_INSTRU|saida~1_combout\ : std_logic;
+SIGNAL \RAM1|ram~33_q\ : std_logic;
+SIGNAL \RAM1|ram~148_combout\ : std_logic;
+SIGNAL \RAM1|ram~25_q\ : std_logic;
+SIGNAL \RAM1|ram~147_combout\ : std_logic;
+SIGNAL \RAM1|ram~149_combout\ : std_logic;
 SIGNAL \ULA1|Add0~34_cout\ : std_logic;
 SIGNAL \ULA1|Add0~5_sumout\ : std_logic;
 SIGNAL \ULA1|saida[0]~1_combout\ : std_logic;
-SIGNAL \REGA|DOUT[0]~DUPLICATE_q\ : std_logic;
-SIGNAL \RAM1|ram~166_combout\ : std_logic;
-SIGNAL \RAM1|ram~25_q\ : std_logic;
-SIGNAL \RAM1|ram~147_combout\ : std_logic;
-SIGNAL \RAM1|ram~165_combout\ : std_logic;
-SIGNAL \RAM1|ram~33_q\ : std_logic;
-SIGNAL \RAM1|ram~148_combout\ : std_logic;
-SIGNAL \ROM1|memROM~1_combout\ : std_logic;
-SIGNAL \RAM1|ram~149_combout\ : std_logic;
-SIGNAL \MUX2|saida_MUX[0]~0_combout\ : std_logic;
-SIGNAL \ROM1|memROM~3_combout\ : std_logic;
-SIGNAL \ROM1|memROM~2_combout\ : std_logic;
-SIGNAL \RAM1|ram~36_q\ : std_logic;
-SIGNAL \RAM1|ram~28_q\ : std_logic;
-SIGNAL \RAM1|ram~145_combout\ : std_logic;
-SIGNAL \RAM1|ram~146_combout\ : std_logic;
-SIGNAL \RAM1|ram~27_q\ : std_logic;
-SIGNAL \RAM1|ram~151_combout\ : std_logic;
-SIGNAL \RAM1|ram~35_q\ : std_logic;
-SIGNAL \RAM1|ram~152_combout\ : std_logic;
-SIGNAL \RAM1|ram~153_combout\ : std_logic;
 SIGNAL \ULA1|Add0~6\ : std_logic;
 SIGNAL \ULA1|Add0~9_sumout\ : std_logic;
 SIGNAL \ULA1|saida[1]~2_combout\ : std_logic;
-SIGNAL \RAM1|ram~26_q\ : std_logic;
 SIGNAL \RAM1|ram~34_q\ : std_logic;
+SIGNAL \RAM1|ram~26_q\ : std_logic;
 SIGNAL \RAM1|ram~150_combout\ : std_logic;
+SIGNAL \ROM1|memROM~2_combout\ : std_logic;
 SIGNAL \RAM1|ram~163_combout\ : std_logic;
 SIGNAL \ULA1|Add0~10\ : std_logic;
 SIGNAL \ULA1|Add0~13_sumout\ : std_logic;
 SIGNAL \ULA1|saida[2]~3_combout\ : std_logic;
+SIGNAL \REGA|DOUT[2]~DUPLICATE_q\ : std_logic;
+SIGNAL \MUX2|saida_MUX[2]~2_combout\ : std_logic;
+SIGNAL \MUX2|saida_MUX[1]~1_combout\ : std_logic;
 SIGNAL \ULA1|Add0~14\ : std_logic;
 SIGNAL \ULA1|Add0~1_sumout\ : std_logic;
 SIGNAL \ULA1|saida[3]~0_combout\ : std_logic;
-SIGNAL \REGA|DOUT[3]~DUPLICATE_q\ : std_logic;
-SIGNAL \MUX2|saida_MUX[1]~1_combout\ : std_logic;
-SIGNAL \MUX2|saida_MUX[2]~2_combout\ : std_logic;
+SIGNAL \RAM1|ram~36_q\ : std_logic;
+SIGNAL \RAM1|ram~28_q\ : std_logic;
+SIGNAL \RAM1|ram~145_combout\ : std_logic;
+SIGNAL \RAM1|ram~146_combout\ : std_logic;
+SIGNAL \MUX2|saida_MUX[0]~0_combout\ : std_logic;
 SIGNAL \HEX0_SEVENSEG|rascSaida7seg[0]~0_combout\ : std_logic;
 SIGNAL \MUX2|saida_MUX[3]~3_combout\ : std_logic;
 SIGNAL \HEX0_SEVENSEG|rascSaida7seg[1]~1_combout\ : std_logic;
@@ -220,25 +231,27 @@ SIGNAL \HEX0_SEVENSEG|rascSaida7seg[3]~3_combout\ : std_logic;
 SIGNAL \HEX0_SEVENSEG|rascSaida7seg[4]~4_combout\ : std_logic;
 SIGNAL \HEX0_SEVENSEG|rascSaida7seg[5]~5_combout\ : std_logic;
 SIGNAL \HEX0_SEVENSEG|rascSaida7seg[6]~6_combout\ : std_logic;
-SIGNAL \RAM1|ram~40_q\ : std_logic;
-SIGNAL \RAM1|ram~32_q\ : std_logic;
-SIGNAL \RAM1|ram~154_combout\ : std_logic;
-SIGNAL \RAM1|ram~155_combout\ : std_logic;
-SIGNAL \ULA1|Add0~2\ : std_logic;
-SIGNAL \ULA1|Add0~21_sumout\ : std_logic;
-SIGNAL \ULA1|saida[4]~6_combout\ : std_logic;
+SIGNAL \RAM1|ram~30_q\ : std_logic;
+SIGNAL \RAM1|ram~38_q\ : std_logic;
+SIGNAL \RAM1|ram~159_combout\ : std_logic;
+SIGNAL \RAM1|ram~164_combout\ : std_logic;
 SIGNAL \RAM1|ram~37_q\ : std_logic;
 SIGNAL \RAM1|ram~157_combout\ : std_logic;
 SIGNAL \RAM1|ram~29_q\ : std_logic;
 SIGNAL \RAM1|ram~156_combout\ : std_logic;
 SIGNAL \RAM1|ram~158_combout\ : std_logic;
+SIGNAL \ULA1|Add0~2\ : std_logic;
+SIGNAL \ULA1|Add0~21_sumout\ : std_logic;
+SIGNAL \ULA1|saida[4]~6_combout\ : std_logic;
+SIGNAL \REGA|DOUT[4]~DUPLICATE_q\ : std_logic;
 SIGNAL \ULA1|Add0~22\ : std_logic;
 SIGNAL \ULA1|Add0~25_sumout\ : std_logic;
 SIGNAL \ULA1|saida[5]~5_combout\ : std_logic;
-SIGNAL \RAM1|ram~38_q\ : std_logic;
-SIGNAL \RAM1|ram~30_q\ : std_logic;
-SIGNAL \RAM1|ram~159_combout\ : std_logic;
-SIGNAL \RAM1|ram~164_combout\ : std_logic;
+SIGNAL \MUX2|saida_MUX[5]~5_combout\ : std_logic;
+SIGNAL \RAM1|ram~32_q\ : std_logic;
+SIGNAL \RAM1|ram~40_q\ : std_logic;
+SIGNAL \RAM1|ram~154_combout\ : std_logic;
+SIGNAL \RAM1|ram~155_combout\ : std_logic;
 SIGNAL \ULA1|Add0~26\ : std_logic;
 SIGNAL \ULA1|Add0~29_sumout\ : std_logic;
 SIGNAL \ULA1|saida[6]~4_combout\ : std_logic;
@@ -252,9 +265,8 @@ SIGNAL \ULA1|Add0~30\ : std_logic;
 SIGNAL \ULA1|Add0~17_sumout\ : std_logic;
 SIGNAL \ULA1|saida[7]~7_combout\ : std_logic;
 SIGNAL \REGA|DOUT[7]~DUPLICATE_q\ : std_logic;
-SIGNAL \MUX2|saida_MUX[5]~5_combout\ : std_logic;
-SIGNAL \MUX2|saida_MUX[6]~6_combout\ : std_logic;
 SIGNAL \MUX2|saida_MUX[4]~4_combout\ : std_logic;
+SIGNAL \MUX2|saida_MUX[6]~6_combout\ : std_logic;
 SIGNAL \HEX1_SEVENSEG|rascSaida7seg[0]~0_combout\ : std_logic;
 SIGNAL \MUX2|saida_MUX[7]~7_combout\ : std_logic;
 SIGNAL \HEX1_SEVENSEG|rascSaida7seg[1]~1_combout\ : std_logic;
@@ -280,17 +292,19 @@ SIGNAL \HEX4_SEVENSEG|rascSaida7seg[3]~3_combout\ : std_logic;
 SIGNAL \HEX4_SEVENSEG|rascSaida7seg[4]~4_combout\ : std_logic;
 SIGNAL \HEX4_SEVENSEG|rascSaida7seg[5]~5_combout\ : std_logic;
 SIGNAL \HEX4_SEVENSEG|rascSaida7seg[6]~6_combout\ : std_logic;
+SIGNAL \PC|DOUT[5]~DUPLICATE_q\ : std_logic;
 SIGNAL \incrementaPC|Add0~2\ : std_logic;
 SIGNAL \incrementaPC|Add0~17_sumout\ : std_logic;
-SIGNAL \MUX2|saida_MUX[20]~12_combout\ : std_logic;
 SIGNAL \incrementaPC|Add0~18\ : std_logic;
 SIGNAL \incrementaPC|Add0~21_sumout\ : std_logic;
+SIGNAL \MUX2|saida_MUX[21]~13_combout\ : std_logic;
 SIGNAL \incrementaPC|Add0~22\ : std_logic;
 SIGNAL \incrementaPC|Add0~25_sumout\ : std_logic;
-SIGNAL \MUX2|saida_MUX[22]~14_combout\ : std_logic;
 SIGNAL \incrementaPC|Add0~26\ : std_logic;
 SIGNAL \incrementaPC|Add0~13_sumout\ : std_logic;
-SIGNAL \MUX2|saida_MUX[21]~13_combout\ : std_logic;
+SIGNAL \MUX2|saida_MUX[22]~14_combout\ : std_logic;
+SIGNAL \PC|DOUT[4]~DUPLICATE_q\ : std_logic;
+SIGNAL \MUX2|saida_MUX[20]~12_combout\ : std_logic;
 SIGNAL \HEX5_SEVENSEG|rascSaida7seg[0]~0_combout\ : std_logic;
 SIGNAL \MUX2|saida_MUX[23]~15_combout\ : std_logic;
 SIGNAL \HEX5_SEVENSEG|rascSaida7seg[1]~1_combout\ : std_logic;
@@ -302,85 +316,87 @@ SIGNAL \HEX5_SEVENSEG|rascSaida7seg[6]~6_combout\ : std_logic;
 SIGNAL \REGA|DOUT\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \PC|DOUT\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \ULA1|ALT_INV_Add0~21_sumout\ : std_logic;
-SIGNAL \ULA1|ALT_INV_Add0~9_sumout\ : std_logic;
-SIGNAL \ULA1|ALT_INV_Add0~17_sumout\ : std_logic;
-SIGNAL \ULA1|ALT_INV_Add0~13_sumout\ : std_logic;
-SIGNAL \ULA1|ALT_INV_Add0~1_sumout\ : std_logic;
 SIGNAL \ULA1|ALT_INV_Add0~5_sumout\ : std_logic;
-SIGNAL \ULA1|ALT_INV_Add0~25_sumout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~28_q\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~36_q\ : std_logic;
-SIGNAL \PC|ALT_INV_DOUT\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \REGA|ALT_INV_DOUT\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \ULA1|ALT_INV_Add0~13_sumout\ : std_logic;
 SIGNAL \ULA1|ALT_INV_Add0~29_sumout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~35_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~146_combout\ : std_logic;
-SIGNAL \ROM1|ALT_INV_memROM~3_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~148_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~154_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~27_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~155_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~37_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~147_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~145_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~149_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[2]~2_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~157_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~158_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~152_combout\ : std_logic;
-SIGNAL \ROM1|ALT_INV_memROM~1_combout\ : std_logic;
+SIGNAL \ULA1|ALT_INV_Add0~17_sumout\ : std_logic;
+SIGNAL \REGA|ALT_INV_DOUT\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \RAM1|ALT_INV_ram~28_q\ : std_logic;
+SIGNAL \PC|ALT_INV_DOUT\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \ULA1|ALT_INV_Add0~25_sumout\ : std_logic;
 SIGNAL \ROM1|ALT_INV_memROM~0_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[4]~4_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~25_q\ : std_logic;
+SIGNAL \ROM1|ALT_INV_memROM~1_combout\ : std_logic;
+SIGNAL \ULA1|ALT_INV_Add0~9_sumout\ : std_logic;
+SIGNAL \ULA1|ALT_INV_Add0~1_sumout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~145_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[6]~6_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[1]~1_combout\ : std_logic;
+SIGNAL \ROM1|ALT_INV_memROM~3_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~149_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~40_q\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~155_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~158_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~148_combout\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~33_q\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~26_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~29_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~38_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~159_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[5]~5_combout\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~34_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~156_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~31_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~39_q\ : std_logic;
-SIGNAL \ROM1|ALT_INV_memROM~2_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[0]~0_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~161_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~32_q\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~40_q\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~150_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~30_q\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[0]~0_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~27_q\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~152_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~154_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~35_q\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[4]~4_combout\ : std_logic;
 SIGNAL \MUX2|ALT_INV_saida_MUX[3]~3_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[1]~1_combout\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~151_combout\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~153_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~30_q\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~38_q\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~159_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~29_q\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~160_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~39_q\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~157_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~161_combout\ : std_logic;
 SIGNAL \RAM1|ALT_INV_ram~162_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[6]~6_combout\ : std_logic;
 SIGNAL \MUX2|ALT_INV_saida_MUX[7]~7_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[17]~9_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[20]~12_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[22]~14_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[23]~15_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~164_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[21]~13_combout\ : std_logic;
-SIGNAL \ROM1|ALT_INV_memROM~5_combout\ : std_logic;
-SIGNAL \RAM1|ALT_INV_ram~163_combout\ : std_logic;
-SIGNAL \DECODER_INSTRU|ALT_INV_Equal1~0_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~31_q\ : std_logic;
+SIGNAL \ROM1|ALT_INV_memROM~2_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~147_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[5]~5_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~146_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~25_q\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[2]~2_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~156_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~37_q\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~32_q\ : std_logic;
 SIGNAL \DECODER_INSTRU|ALT_INV_Equal1~1_combout\ : std_logic;
-SIGNAL \ROM1|ALT_INV_memROM~4_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[19]~11_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[18]~10_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[20]~12_combout\ : std_logic;
+SIGNAL \ROM1|ALT_INV_memROM~5_combout\ : std_logic;
 SIGNAL \ROM1|ALT_INV_memROM~6_combout\ : std_logic;
-SIGNAL \MUX2|ALT_INV_saida_MUX[16]~8_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~164_combout\ : std_logic;
+SIGNAL \RAM1|ALT_INV_ram~163_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[19]~11_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[22]~14_combout\ : std_logic;
 SIGNAL \HEX2_SEVENSEG|ALT_INV_rascSaida7seg[6]~4_combout\ : std_logic;
+SIGNAL \DECODER_INSTRU|ALT_INV_Equal1~0_combout\ : std_logic;
 SIGNAL \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\ : std_logic;
 SIGNAL \gravar:detectorSub0|ALT_INV_saidaQ~q\ : std_logic;
-SIGNAL \REGA|ALT_INV_DOUT[0]~DUPLICATE_q\ : std_logic;
-SIGNAL \REGA|ALT_INV_DOUT[6]~DUPLICATE_q\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[17]~9_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[18]~10_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[21]~13_combout\ : std_logic;
+SIGNAL \ROM1|ALT_INV_memROM~4_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[16]~8_combout\ : std_logic;
+SIGNAL \MUX2|ALT_INV_saida_MUX[23]~15_combout\ : std_logic;
 SIGNAL \ALT_INV_SW[9]~input_o\ : std_logic;
-SIGNAL \REGA|ALT_INV_DOUT[3]~DUPLICATE_q\ : std_logic;
 SIGNAL \ALT_INV_KEY[0]~input_o\ : std_logic;
 SIGNAL \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\ : std_logic;
+SIGNAL \REGA|ALT_INV_DOUT[4]~DUPLICATE_q\ : std_logic;
+SIGNAL \REGA|ALT_INV_DOUT[2]~DUPLICATE_q\ : std_logic;
+SIGNAL \REGA|ALT_INV_DOUT[6]~DUPLICATE_q\ : std_logic;
+SIGNAL \PC|ALT_INV_DOUT[5]~DUPLICATE_q\ : std_logic;
+SIGNAL \PC|ALT_INV_DOUT[4]~DUPLICATE_q\ : std_logic;
 
 BEGIN
 
@@ -394,103 +410,105 @@ HEX3 <= ww_HEX3;
 HEX4 <= ww_HEX4;
 HEX5 <= ww_HEX5;
 PC_OUT <= ww_PC_OUT;
+LEDR <= ww_LEDR;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
 \ULA1|ALT_INV_Add0~21_sumout\ <= NOT \ULA1|Add0~21_sumout\;
-\ULA1|ALT_INV_Add0~9_sumout\ <= NOT \ULA1|Add0~9_sumout\;
-\ULA1|ALT_INV_Add0~17_sumout\ <= NOT \ULA1|Add0~17_sumout\;
-\ULA1|ALT_INV_Add0~13_sumout\ <= NOT \ULA1|Add0~13_sumout\;
-\ULA1|ALT_INV_Add0~1_sumout\ <= NOT \ULA1|Add0~1_sumout\;
 \ULA1|ALT_INV_Add0~5_sumout\ <= NOT \ULA1|Add0~5_sumout\;
-\ULA1|ALT_INV_Add0~25_sumout\ <= NOT \ULA1|Add0~25_sumout\;
-\RAM1|ALT_INV_ram~28_q\ <= NOT \RAM1|ram~28_q\;
 \RAM1|ALT_INV_ram~36_q\ <= NOT \RAM1|ram~36_q\;
-\PC|ALT_INV_DOUT\(3) <= NOT \PC|DOUT\(3);
-\REGA|ALT_INV_DOUT\(3) <= NOT \REGA|DOUT\(3);
+\ULA1|ALT_INV_Add0~13_sumout\ <= NOT \ULA1|Add0~13_sumout\;
 \ULA1|ALT_INV_Add0~29_sumout\ <= NOT \ULA1|Add0~29_sumout\;
-\REGA|ALT_INV_DOUT\(0) <= NOT \REGA|DOUT\(0);
-\RAM1|ALT_INV_ram~35_q\ <= NOT \RAM1|ram~35_q\;
-\RAM1|ALT_INV_ram~146_combout\ <= NOT \RAM1|ram~146_combout\;
+\ULA1|ALT_INV_Add0~17_sumout\ <= NOT \ULA1|Add0~17_sumout\;
+\REGA|ALT_INV_DOUT\(3) <= NOT \REGA|DOUT\(3);
+\RAM1|ALT_INV_ram~28_q\ <= NOT \RAM1|ram~28_q\;
+\PC|ALT_INV_DOUT\(3) <= NOT \PC|DOUT\(3);
+\PC|ALT_INV_DOUT\(2) <= NOT \PC|DOUT\(2);
 \PC|ALT_INV_DOUT\(1) <= NOT \PC|DOUT\(1);
-\ROM1|ALT_INV_memROM~3_combout\ <= NOT \ROM1|memROM~3_combout\;
-\RAM1|ALT_INV_ram~148_combout\ <= NOT \RAM1|ram~148_combout\;
-\RAM1|ALT_INV_ram~154_combout\ <= NOT \RAM1|ram~154_combout\;
-\RAM1|ALT_INV_ram~27_q\ <= NOT \RAM1|ram~27_q\;
-\RAM1|ALT_INV_ram~155_combout\ <= NOT \RAM1|ram~155_combout\;
-\RAM1|ALT_INV_ram~37_q\ <= NOT \RAM1|ram~37_q\;
-\RAM1|ALT_INV_ram~147_combout\ <= NOT \RAM1|ram~147_combout\;
-\RAM1|ALT_INV_ram~145_combout\ <= NOT \RAM1|ram~145_combout\;
-\PC|ALT_INV_DOUT\(0) <= NOT \PC|DOUT\(0);
-\RAM1|ALT_INV_ram~149_combout\ <= NOT \RAM1|ram~149_combout\;
-\MUX2|ALT_INV_saida_MUX[2]~2_combout\ <= NOT \MUX2|saida_MUX[2]~2_combout\;
-\RAM1|ALT_INV_ram~157_combout\ <= NOT \RAM1|ram~157_combout\;
-\RAM1|ALT_INV_ram~158_combout\ <= NOT \RAM1|ram~158_combout\;
-\RAM1|ALT_INV_ram~152_combout\ <= NOT \RAM1|ram~152_combout\;
-\ROM1|ALT_INV_memROM~1_combout\ <= NOT \ROM1|memROM~1_combout\;
+\ULA1|ALT_INV_Add0~25_sumout\ <= NOT \ULA1|Add0~25_sumout\;
 \ROM1|ALT_INV_memROM~0_combout\ <= NOT \ROM1|memROM~0_combout\;
-\REGA|ALT_INV_DOUT\(7) <= NOT \REGA|DOUT\(7);
-\MUX2|ALT_INV_saida_MUX[4]~4_combout\ <= NOT \MUX2|saida_MUX[4]~4_combout\;
-\RAM1|ALT_INV_ram~25_q\ <= NOT \RAM1|ram~25_q\;
+\PC|ALT_INV_DOUT\(0) <= NOT \PC|DOUT\(0);
+\ROM1|ALT_INV_memROM~1_combout\ <= NOT \ROM1|memROM~1_combout\;
+\ULA1|ALT_INV_Add0~9_sumout\ <= NOT \ULA1|Add0~9_sumout\;
+\ULA1|ALT_INV_Add0~1_sumout\ <= NOT \ULA1|Add0~1_sumout\;
+\RAM1|ALT_INV_ram~145_combout\ <= NOT \RAM1|ram~145_combout\;
+\MUX2|ALT_INV_saida_MUX[6]~6_combout\ <= NOT \MUX2|saida_MUX[6]~6_combout\;
+\MUX2|ALT_INV_saida_MUX[1]~1_combout\ <= NOT \MUX2|saida_MUX[1]~1_combout\;
+\ROM1|ALT_INV_memROM~3_combout\ <= NOT \ROM1|memROM~3_combout\;
+\RAM1|ALT_INV_ram~149_combout\ <= NOT \RAM1|ram~149_combout\;
+\RAM1|ALT_INV_ram~40_q\ <= NOT \RAM1|ram~40_q\;
+\RAM1|ALT_INV_ram~155_combout\ <= NOT \RAM1|ram~155_combout\;
+\RAM1|ALT_INV_ram~158_combout\ <= NOT \RAM1|ram~158_combout\;
+\RAM1|ALT_INV_ram~148_combout\ <= NOT \RAM1|ram~148_combout\;
 \RAM1|ALT_INV_ram~33_q\ <= NOT \RAM1|ram~33_q\;
-\REGA|ALT_INV_DOUT\(1) <= NOT \REGA|DOUT\(1);
+\REGA|ALT_INV_DOUT\(0) <= NOT \REGA|DOUT\(0);
 \RAM1|ALT_INV_ram~26_q\ <= NOT \RAM1|ram~26_q\;
-\RAM1|ALT_INV_ram~29_q\ <= NOT \RAM1|ram~29_q\;
+\RAM1|ALT_INV_ram~34_q\ <= NOT \RAM1|ram~34_q\;
+\RAM1|ALT_INV_ram~150_combout\ <= NOT \RAM1|ram~150_combout\;
+\MUX2|ALT_INV_saida_MUX[0]~0_combout\ <= NOT \MUX2|saida_MUX[0]~0_combout\;
+\REGA|ALT_INV_DOUT\(2) <= NOT \REGA|DOUT\(2);
+\RAM1|ALT_INV_ram~27_q\ <= NOT \RAM1|ram~27_q\;
+\RAM1|ALT_INV_ram~152_combout\ <= NOT \RAM1|ram~152_combout\;
+\RAM1|ALT_INV_ram~154_combout\ <= NOT \RAM1|ram~154_combout\;
+\RAM1|ALT_INV_ram~35_q\ <= NOT \RAM1|ram~35_q\;
+\MUX2|ALT_INV_saida_MUX[4]~4_combout\ <= NOT \MUX2|saida_MUX[4]~4_combout\;
+\MUX2|ALT_INV_saida_MUX[3]~3_combout\ <= NOT \MUX2|saida_MUX[3]~3_combout\;
+\RAM1|ALT_INV_ram~151_combout\ <= NOT \RAM1|ram~151_combout\;
+\RAM1|ALT_INV_ram~153_combout\ <= NOT \RAM1|ram~153_combout\;
+\REGA|ALT_INV_DOUT\(7) <= NOT \REGA|DOUT\(7);
+\REGA|ALT_INV_DOUT\(5) <= NOT \REGA|DOUT\(5);
+\RAM1|ALT_INV_ram~30_q\ <= NOT \RAM1|ram~30_q\;
 \RAM1|ALT_INV_ram~38_q\ <= NOT \RAM1|ram~38_q\;
 \RAM1|ALT_INV_ram~159_combout\ <= NOT \RAM1|ram~159_combout\;
-\PC|ALT_INV_DOUT\(2) <= NOT \PC|DOUT\(2);
+\RAM1|ALT_INV_ram~29_q\ <= NOT \RAM1|ram~29_q\;
+\RAM1|ALT_INV_ram~160_combout\ <= NOT \RAM1|ram~160_combout\;
+\RAM1|ALT_INV_ram~39_q\ <= NOT \RAM1|ram~39_q\;
+\RAM1|ALT_INV_ram~157_combout\ <= NOT \RAM1|ram~157_combout\;
+\RAM1|ALT_INV_ram~161_combout\ <= NOT \RAM1|ram~161_combout\;
+\RAM1|ALT_INV_ram~162_combout\ <= NOT \RAM1|ram~162_combout\;
+\MUX2|ALT_INV_saida_MUX[7]~7_combout\ <= NOT \MUX2|saida_MUX[7]~7_combout\;
+\RAM1|ALT_INV_ram~31_q\ <= NOT \RAM1|ram~31_q\;
+\ROM1|ALT_INV_memROM~2_combout\ <= NOT \ROM1|memROM~2_combout\;
+\RAM1|ALT_INV_ram~147_combout\ <= NOT \RAM1|ram~147_combout\;
 \MUX2|ALT_INV_saida_MUX[5]~5_combout\ <= NOT \MUX2|saida_MUX[5]~5_combout\;
-\RAM1|ALT_INV_ram~34_q\ <= NOT \RAM1|ram~34_q\;
-\REGA|ALT_INV_DOUT\(2) <= NOT \REGA|DOUT\(2);
+\RAM1|ALT_INV_ram~146_combout\ <= NOT \RAM1|ram~146_combout\;
+\RAM1|ALT_INV_ram~25_q\ <= NOT \RAM1|ram~25_q\;
+\MUX2|ALT_INV_saida_MUX[2]~2_combout\ <= NOT \MUX2|saida_MUX[2]~2_combout\;
+\REGA|ALT_INV_DOUT\(1) <= NOT \REGA|DOUT\(1);
 \RAM1|ALT_INV_ram~156_combout\ <= NOT \RAM1|ram~156_combout\;
 \REGA|ALT_INV_DOUT\(6) <= NOT \REGA|DOUT\(6);
-\RAM1|ALT_INV_ram~31_q\ <= NOT \RAM1|ram~31_q\;
-\RAM1|ALT_INV_ram~39_q\ <= NOT \RAM1|ram~39_q\;
-\ROM1|ALT_INV_memROM~2_combout\ <= NOT \ROM1|memROM~2_combout\;
-\MUX2|ALT_INV_saida_MUX[0]~0_combout\ <= NOT \MUX2|saida_MUX[0]~0_combout\;
-\RAM1|ALT_INV_ram~161_combout\ <= NOT \RAM1|ram~161_combout\;
+\RAM1|ALT_INV_ram~37_q\ <= NOT \RAM1|ram~37_q\;
 \RAM1|ALT_INV_ram~32_q\ <= NOT \RAM1|ram~32_q\;
-\RAM1|ALT_INV_ram~40_q\ <= NOT \RAM1|ram~40_q\;
-\RAM1|ALT_INV_ram~150_combout\ <= NOT \RAM1|ram~150_combout\;
-\REGA|ALT_INV_DOUT\(4) <= NOT \REGA|DOUT\(4);
-\RAM1|ALT_INV_ram~30_q\ <= NOT \RAM1|ram~30_q\;
-\MUX2|ALT_INV_saida_MUX[3]~3_combout\ <= NOT \MUX2|saida_MUX[3]~3_combout\;
-\MUX2|ALT_INV_saida_MUX[1]~1_combout\ <= NOT \MUX2|saida_MUX[1]~1_combout\;
-\RAM1|ALT_INV_ram~151_combout\ <= NOT \RAM1|ram~151_combout\;
-\REGA|ALT_INV_DOUT\(5) <= NOT \REGA|DOUT\(5);
-\RAM1|ALT_INV_ram~153_combout\ <= NOT \RAM1|ram~153_combout\;
-\RAM1|ALT_INV_ram~160_combout\ <= NOT \RAM1|ram~160_combout\;
-\RAM1|ALT_INV_ram~162_combout\ <= NOT \RAM1|ram~162_combout\;
-\MUX2|ALT_INV_saida_MUX[6]~6_combout\ <= NOT \MUX2|saida_MUX[6]~6_combout\;
-\MUX2|ALT_INV_saida_MUX[7]~7_combout\ <= NOT \MUX2|saida_MUX[7]~7_combout\;
-\MUX2|ALT_INV_saida_MUX[17]~9_combout\ <= NOT \MUX2|saida_MUX[17]~9_combout\;
-\PC|ALT_INV_DOUT\(7) <= NOT \PC|DOUT\(7);
-\PC|ALT_INV_DOUT\(6) <= NOT \PC|DOUT\(6);
-\PC|ALT_INV_DOUT\(5) <= NOT \PC|DOUT\(5);
-\PC|ALT_INV_DOUT\(4) <= NOT \PC|DOUT\(4);
-\MUX2|ALT_INV_saida_MUX[20]~12_combout\ <= NOT \MUX2|saida_MUX[20]~12_combout\;
-\MUX2|ALT_INV_saida_MUX[22]~14_combout\ <= NOT \MUX2|saida_MUX[22]~14_combout\;
-\MUX2|ALT_INV_saida_MUX[23]~15_combout\ <= NOT \MUX2|saida_MUX[23]~15_combout\;
-\RAM1|ALT_INV_ram~164_combout\ <= NOT \RAM1|ram~164_combout\;
-\MUX2|ALT_INV_saida_MUX[21]~13_combout\ <= NOT \MUX2|saida_MUX[21]~13_combout\;
-\ROM1|ALT_INV_memROM~5_combout\ <= NOT \ROM1|memROM~5_combout\;
-\RAM1|ALT_INV_ram~163_combout\ <= NOT \RAM1|ram~163_combout\;
-\DECODER_INSTRU|ALT_INV_Equal1~0_combout\ <= NOT \DECODER_INSTRU|Equal1~0_combout\;
 \DECODER_INSTRU|ALT_INV_Equal1~1_combout\ <= NOT \DECODER_INSTRU|Equal1~1_combout\;
-\ROM1|ALT_INV_memROM~4_combout\ <= NOT \ROM1|memROM~4_combout\;
-\MUX2|ALT_INV_saida_MUX[19]~11_combout\ <= NOT \MUX2|saida_MUX[19]~11_combout\;
-\MUX2|ALT_INV_saida_MUX[18]~10_combout\ <= NOT \MUX2|saida_MUX[18]~10_combout\;
+\MUX2|ALT_INV_saida_MUX[20]~12_combout\ <= NOT \MUX2|saida_MUX[20]~12_combout\;
+\ROM1|ALT_INV_memROM~5_combout\ <= NOT \ROM1|memROM~5_combout\;
 \ROM1|ALT_INV_memROM~6_combout\ <= NOT \ROM1|memROM~6_combout\;
-\MUX2|ALT_INV_saida_MUX[16]~8_combout\ <= NOT \MUX2|saida_MUX[16]~8_combout\;
+\RAM1|ALT_INV_ram~164_combout\ <= NOT \RAM1|ram~164_combout\;
+\PC|ALT_INV_DOUT\(7) <= NOT \PC|DOUT\(7);
+\RAM1|ALT_INV_ram~163_combout\ <= NOT \RAM1|ram~163_combout\;
+\PC|ALT_INV_DOUT\(6) <= NOT \PC|DOUT\(6);
+\MUX2|ALT_INV_saida_MUX[19]~11_combout\ <= NOT \MUX2|saida_MUX[19]~11_combout\;
+\MUX2|ALT_INV_saida_MUX[22]~14_combout\ <= NOT \MUX2|saida_MUX[22]~14_combout\;
+\PC|ALT_INV_DOUT\(4) <= NOT \PC|DOUT\(4);
 \HEX2_SEVENSEG|ALT_INV_rascSaida7seg[6]~4_combout\ <= NOT \HEX2_SEVENSEG|rascSaida7seg[6]~4_combout\;
+\DECODER_INSTRU|ALT_INV_Equal1~0_combout\ <= NOT \DECODER_INSTRU|Equal1~0_combout\;
 \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\ <= NOT \DECODER_INSTRU|saida[3]~0_combout\;
+\PC|ALT_INV_DOUT\(5) <= NOT \PC|DOUT\(5);
 \gravar:detectorSub0|ALT_INV_saidaQ~q\ <= NOT \gravar:detectorSub0|saidaQ~q\;
-\REGA|ALT_INV_DOUT[0]~DUPLICATE_q\ <= NOT \REGA|DOUT[0]~DUPLICATE_q\;
-\REGA|ALT_INV_DOUT[6]~DUPLICATE_q\ <= NOT \REGA|DOUT[6]~DUPLICATE_q\;
+\MUX2|ALT_INV_saida_MUX[17]~9_combout\ <= NOT \MUX2|saida_MUX[17]~9_combout\;
+\MUX2|ALT_INV_saida_MUX[18]~10_combout\ <= NOT \MUX2|saida_MUX[18]~10_combout\;
+\MUX2|ALT_INV_saida_MUX[21]~13_combout\ <= NOT \MUX2|saida_MUX[21]~13_combout\;
+\ROM1|ALT_INV_memROM~4_combout\ <= NOT \ROM1|memROM~4_combout\;
+\MUX2|ALT_INV_saida_MUX[16]~8_combout\ <= NOT \MUX2|saida_MUX[16]~8_combout\;
+\MUX2|ALT_INV_saida_MUX[23]~15_combout\ <= NOT \MUX2|saida_MUX[23]~15_combout\;
 \ALT_INV_SW[9]~input_o\ <= NOT \SW[9]~input_o\;
-\REGA|ALT_INV_DOUT[3]~DUPLICATE_q\ <= NOT \REGA|DOUT[3]~DUPLICATE_q\;
 \ALT_INV_KEY[0]~input_o\ <= NOT \KEY[0]~input_o\;
 \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\ <= NOT \REGA|DOUT[7]~DUPLICATE_q\;
+\REGA|ALT_INV_DOUT[4]~DUPLICATE_q\ <= NOT \REGA|DOUT[4]~DUPLICATE_q\;
+\REGA|ALT_INV_DOUT[2]~DUPLICATE_q\ <= NOT \REGA|DOUT[2]~DUPLICATE_q\;
+\REGA|ALT_INV_DOUT[6]~DUPLICATE_q\ <= NOT \REGA|DOUT[6]~DUPLICATE_q\;
+\PC|ALT_INV_DOUT[5]~DUPLICATE_q\ <= NOT \PC|DOUT[5]~DUPLICATE_q\;
+\PC|ALT_INV_DOUT[4]~DUPLICATE_q\ <= NOT \PC|DOUT[4]~DUPLICATE_q\;
 
 -- Location: IOOBUF_X52_Y0_N53
 \HEX0[0]~output\ : cyclonev_io_obuf
@@ -1038,7 +1056,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => ww_HEX5(6));
 
--- Location: IOOBUF_X54_Y14_N79
+-- Location: IOOBUF_X44_Y45_N2
 \PC_OUT[0]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1051,7 +1069,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => ww_PC_OUT(0));
 
--- Location: IOOBUF_X44_Y45_N36
+-- Location: IOOBUF_X54_Y14_N62
 \PC_OUT[1]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1064,7 +1082,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => ww_PC_OUT(1));
 
--- Location: IOOBUF_X54_Y14_N62
+-- Location: IOOBUF_X44_Y45_N53
 \PC_OUT[2]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1077,7 +1095,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => ww_PC_OUT(2));
 
--- Location: IOOBUF_X10_Y0_N76
+-- Location: IOOBUF_X14_Y0_N53
 \PC_OUT[3]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1090,7 +1108,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => ww_PC_OUT(3));
 
--- Location: IOOBUF_X54_Y14_N96
+-- Location: IOOBUF_X54_Y14_N79
 \PC_OUT[4]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1099,11 +1117,11 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \PC|DOUT\(4),
+	i => \PC|DOUT[4]~DUPLICATE_q\,
 	devoe => ww_devoe,
 	o => ww_PC_OUT(4));
 
--- Location: IOOBUF_X54_Y15_N22
+-- Location: IOOBUF_X54_Y14_N96
 \PC_OUT[5]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1116,7 +1134,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => ww_PC_OUT(5));
 
--- Location: IOOBUF_X40_Y45_N93
+-- Location: IOOBUF_X40_Y45_N59
 \PC_OUT[6]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1141,6 +1159,136 @@ PORT MAP (
 	i => \PC|DOUT\(7),
 	devoe => ww_devoe,
 	o => ww_PC_OUT(7));
+
+-- Location: IOOBUF_X0_Y18_N79
+\LEDR[0]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT\(0),
+	devoe => ww_devoe,
+	o => ww_LEDR(0));
+
+-- Location: IOOBUF_X0_Y18_N96
+\LEDR[1]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT\(1),
+	devoe => ww_devoe,
+	o => ww_LEDR(1));
+
+-- Location: IOOBUF_X0_Y18_N62
+\LEDR[2]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT[2]~DUPLICATE_q\,
+	devoe => ww_devoe,
+	o => ww_LEDR(2));
+
+-- Location: IOOBUF_X0_Y18_N45
+\LEDR[3]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT\(3),
+	devoe => ww_devoe,
+	o => ww_LEDR(3));
+
+-- Location: IOOBUF_X0_Y19_N39
+\LEDR[4]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT[4]~DUPLICATE_q\,
+	devoe => ww_devoe,
+	o => ww_LEDR(4));
+
+-- Location: IOOBUF_X0_Y19_N56
+\LEDR[5]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT\(5),
+	devoe => ww_devoe,
+	o => ww_LEDR(5));
+
+-- Location: IOOBUF_X0_Y19_N5
+\LEDR[6]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT[6]~DUPLICATE_q\,
+	devoe => ww_devoe,
+	o => ww_LEDR(6));
+
+-- Location: IOOBUF_X0_Y19_N22
+\LEDR[7]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \REGA|DOUT[7]~DUPLICATE_q\,
+	devoe => ww_devoe,
+	o => ww_LEDR(7));
+
+-- Location: IOOBUF_X0_Y20_N39
+\LEDR[8]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => GND,
+	devoe => ww_devoe,
+	o => ww_LEDR(8));
+
+-- Location: IOOBUF_X0_Y20_N56
+\LEDR[9]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => GND,
+	devoe => ww_devoe,
+	o => ww_LEDR(9));
 
 -- Location: IOIBUF_X33_Y0_N75
 \SW[9]~input\ : cyclonev_io_ibuf
@@ -1204,38 +1352,38 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \gravar:detectorSub0|saidaQ~q\);
 
--- Location: LABCELL_X43_Y3_N15
+-- Location: MLABCELL_X42_Y1_N36
 \gravar:detectorSub0|saida\ : cyclonev_lcell_comb
 -- Equation(s):
--- \gravar:detectorSub0|saida~combout\ = LCELL(( !\gravar:detectorSub0|saidaQ~q\ & ( !\KEY[0]~input_o\ ) ))
+-- \gravar:detectorSub0|saida~combout\ = LCELL((!\KEY[0]~input_o\ & !\gravar:detectorSub0|saidaQ~q\))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1111000011110000111100001111000000000000000000000000000000000000",
+	lut_mask => "1111000000000000111100000000000011110000000000001111000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	datac => \ALT_INV_KEY[0]~input_o\,
-	dataf => \gravar:detectorSub0|ALT_INV_saidaQ~q\,
+	datad => \gravar:detectorSub0|ALT_INV_saidaQ~q\,
 	combout => \gravar:detectorSub0|saida~combout\);
 
--- Location: LABCELL_X40_Y3_N6
+-- Location: LABCELL_X44_Y1_N15
 \PC|DOUT[0]~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \PC|DOUT[0]~0_combout\ = !\PC|DOUT\(0)
+-- \PC|DOUT[0]~0_combout\ = ( !\PC|DOUT\(0) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1100110011001100110011001100110011001100110011001100110011001100",
+	lut_mask => "1111111111111111111111111111111100000000000000000000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(0),
 	combout => \PC|DOUT[0]~0_combout\);
 
--- Location: FF_X41_Y3_N44
+-- Location: FF_X44_Y1_N2
 \PC|DOUT[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1250,26 +1398,26 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(0));
 
--- Location: LABCELL_X40_Y3_N30
+-- Location: LABCELL_X41_Y1_N30
 \incrementaPC|Add0~9\ : cyclonev_lcell_comb
 -- Equation(s):
--- \incrementaPC|Add0~9_sumout\ = SUM(( \PC|DOUT\(0) ) + ( \PC|DOUT\(1) ) + ( !VCC ))
--- \incrementaPC|Add0~10\ = CARRY(( \PC|DOUT\(0) ) + ( \PC|DOUT\(1) ) + ( !VCC ))
+-- \incrementaPC|Add0~9_sumout\ = SUM(( \PC|DOUT\(1) ) + ( \PC|DOUT\(0) ) + ( !VCC ))
+-- \incrementaPC|Add0~10\ = CARRY(( \PC|DOUT\(1) ) + ( \PC|DOUT\(0) ) + ( !VCC ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000111100001111000000000000000000000011001100110011",
+	lut_mask => "0000000000000000110011001100110000000000000000000000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(1),
+	datad => \PC|ALT_INV_DOUT\(1),
 	cin => GND,
 	sumout => \incrementaPC|Add0~9_sumout\,
 	cout => \incrementaPC|Add0~10\);
 
--- Location: FF_X41_Y3_N41
+-- Location: FF_X44_Y1_N17
 \PC|DOUT[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1284,7 +1432,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(1));
 
--- Location: LABCELL_X40_Y3_N33
+-- Location: LABCELL_X41_Y1_N33
 \incrementaPC|Add0~5\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \incrementaPC|Add0~5_sumout\ = SUM(( \PC|DOUT\(2) ) + ( GND ) + ( \incrementaPC|Add0~10\ ))
@@ -1293,16 +1441,16 @@ PORT MAP (
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000111111111111111100000000000000000101010101010101",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(2),
+	datad => \PC|ALT_INV_DOUT\(2),
 	cin => \incrementaPC|Add0~10\,
 	sumout => \incrementaPC|Add0~5_sumout\,
 	cout => \incrementaPC|Add0~6\);
 
--- Location: FF_X41_Y3_N35
+-- Location: FF_X44_Y1_N20
 \PC|DOUT[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1317,7 +1465,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(2));
 
--- Location: LABCELL_X40_Y3_N36
+-- Location: LABCELL_X41_Y1_N36
 \incrementaPC|Add0~1\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \incrementaPC|Add0~1_sumout\ = SUM(( \PC|DOUT\(3) ) + ( GND ) + ( \incrementaPC|Add0~6\ ))
@@ -1335,7 +1483,7 @@ PORT MAP (
 	sumout => \incrementaPC|Add0~1_sumout\,
 	cout => \incrementaPC|Add0~2\);
 
--- Location: FF_X41_Y3_N53
+-- Location: FF_X44_Y1_N32
 \PC|DOUT[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1350,42 +1498,43 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(3));
 
--- Location: LABCELL_X41_Y3_N27
-\ROM1|memROM~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \ROM1|memROM~0_combout\ = ( \PC|DOUT\(1) & ( (!\PC|DOUT\(2) & !\PC|DOUT\(3)) ) ) # ( !\PC|DOUT\(1) & ( (\PC|DOUT\(2) & !\PC|DOUT\(3)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0101010100000000010101010000000010101010000000001010101000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(2),
-	datad => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(1),
-	combout => \ROM1|memROM~0_combout\);
-
--- Location: LABCELL_X41_Y3_N0
+-- Location: LABCELL_X44_Y1_N36
 \ROM1|memROM~6\ : cyclonev_lcell_comb
 -- Equation(s):
--- \ROM1|memROM~6_combout\ = ( \PC|DOUT\(1) & ( (!\PC|DOUT\(0) & (\PC|DOUT\(2) & !\PC|DOUT\(3))) ) ) # ( !\PC|DOUT\(1) & ( (\PC|DOUT\(2) & !\PC|DOUT\(3)) ) )
+-- \ROM1|memROM~6_combout\ = ( \PC|DOUT\(2) & ( (!\PC|DOUT\(3) & ((!\PC|DOUT\(1)) # (!\PC|DOUT\(0)))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000111100000000000011110000000000001100000000000000110000000000",
+	lut_mask => "0000000000000000000000000000000011110000110000001111000011000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(2),
-	datad => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(1),
+	datab => \PC|ALT_INV_DOUT\(1),
+	datac => \PC|ALT_INV_DOUT\(3),
+	datad => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(2),
 	combout => \ROM1|memROM~6_combout\);
 
--- Location: LABCELL_X41_Y3_N54
+-- Location: LABCELL_X44_Y1_N42
+\ROM1|memROM~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ROM1|memROM~5_combout\ = ( \PC|DOUT\(2) & ( (\PC|DOUT\(1) & (!\PC|DOUT\(3) & !\PC|DOUT\(0))) ) ) # ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & \PC|DOUT\(0)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000011110000000000001111000000110000000000000011000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \PC|ALT_INV_DOUT\(1),
+	datac => \PC|ALT_INV_DOUT\(3),
+	datad => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \ROM1|memROM~5_combout\);
+
+-- Location: LABCELL_X44_Y1_N24
 \ROM1|memROM~4\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \ROM1|memROM~4_combout\ = ( !\PC|DOUT\(2) & ( !\PC|DOUT\(3) ) )
@@ -1393,36 +1542,52 @@ PORT MAP (
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1010101010101010101010101010101000000000000000000000000000000000",
+	lut_mask => "1100110011001100110011001100110000000000000000000000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(3),
+	datab => \PC|ALT_INV_DOUT\(3),
 	dataf => \PC|ALT_INV_DOUT\(2),
 	combout => \ROM1|memROM~4_combout\);
 
--- Location: LABCELL_X41_Y3_N12
-\ROM1|memROM~5\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X45_Y1_N57
+\DECODER_INSTRU|saida[3]~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \ROM1|memROM~5_combout\ = ( \PC|DOUT\(1) & ( (!\PC|DOUT\(3) & (!\PC|DOUT\(0) $ (!\PC|DOUT\(2)))) ) ) # ( !\PC|DOUT\(1) & ( (\PC|DOUT\(0) & (!\PC|DOUT\(2) & !\PC|DOUT\(3))) ) )
+-- \DECODER_INSTRU|saida[3]~0_combout\ = ( !\ROM1|memROM~5_combout\ & ( \ROM1|memROM~4_combout\ & ( !\ROM1|memROM~6_combout\ ) ) ) # ( \ROM1|memROM~5_combout\ & ( !\ROM1|memROM~4_combout\ & ( !\ROM1|memROM~6_combout\ ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0011000000000000001100000000000000111100000000000011110000000000",
+	lut_mask => "0000000000000000101010101010101010101010101010100000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(2),
-	datad => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(1),
-	combout => \ROM1|memROM~5_combout\);
+	dataa => \ROM1|ALT_INV_memROM~6_combout\,
+	datae => \ROM1|ALT_INV_memROM~5_combout\,
+	dataf => \ROM1|ALT_INV_memROM~4_combout\,
+	combout => \DECODER_INSTRU|saida[3]~0_combout\);
 
--- Location: LABCELL_X41_Y3_N18
+-- Location: LABCELL_X44_Y1_N9
 \DECODER_INSTRU|Equal1~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \DECODER_INSTRU|Equal1~0_combout\ = ( !\ROM1|memROM~5_combout\ & ( (!\ROM1|memROM~6_combout\ & \ROM1|memROM~4_combout\) ) )
+-- \DECODER_INSTRU|Equal1~0_combout\ = ( \ROM1|memROM~4_combout\ & ( (!\ROM1|memROM~5_combout\ & !\ROM1|memROM~6_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000011110000000000001111000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \ROM1|ALT_INV_memROM~5_combout\,
+	datad => \ROM1|ALT_INV_memROM~6_combout\,
+	dataf => \ROM1|ALT_INV_memROM~4_combout\,
+	combout => \DECODER_INSTRU|Equal1~0_combout\);
+
+-- Location: LABCELL_X44_Y1_N57
+\DECODER_INSTRU|Equal1~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \DECODER_INSTRU|Equal1~1_combout\ = ( !\ROM1|memROM~4_combout\ & ( (!\ROM1|memROM~5_combout\ & \ROM1|memROM~6_combout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1431,63 +1596,365 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datac => \ROM1|ALT_INV_memROM~6_combout\,
-	datad => \ROM1|ALT_INV_memROM~4_combout\,
-	dataf => \ROM1|ALT_INV_memROM~5_combout\,
-	combout => \DECODER_INSTRU|Equal1~0_combout\);
+	datac => \ROM1|ALT_INV_memROM~5_combout\,
+	datad => \ROM1|ALT_INV_memROM~6_combout\,
+	dataf => \ROM1|ALT_INV_memROM~4_combout\,
+	combout => \DECODER_INSTRU|Equal1~1_combout\);
 
--- Location: LABCELL_X41_Y3_N33
-\DECODER_INSTRU|saida[3]~0\ : cyclonev_lcell_comb
+-- Location: LABCELL_X44_Y1_N45
+\ROM1|memROM~3\ : cyclonev_lcell_comb
 -- Equation(s):
--- \DECODER_INSTRU|saida[3]~0_combout\ = ( \ROM1|memROM~5_combout\ & ( (!\ROM1|memROM~6_combout\ & !\ROM1|memROM~4_combout\) ) ) # ( !\ROM1|memROM~5_combout\ & ( (!\ROM1|memROM~6_combout\ & \ROM1|memROM~4_combout\) ) )
+-- \ROM1|memROM~3_combout\ = ( !\PC|DOUT\(3) & ( (!\PC|DOUT\(2) & (!\PC|DOUT\(1) & !\PC|DOUT\(0))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000101000001010000010100000101010100000101000001010000010100000",
+	lut_mask => "1000100000000000100010000000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(2),
+	datab => \PC|ALT_INV_DOUT\(1),
+	datad => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(3),
+	combout => \ROM1|memROM~3_combout\);
+
+-- Location: LABCELL_X44_Y1_N51
+\ROM1|memROM~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ROM1|memROM~0_combout\ = ( \PC|DOUT\(2) & ( (!\PC|DOUT\(1) & !\PC|DOUT\(3)) ) ) # ( !\PC|DOUT\(2) & ( (\PC|DOUT\(1) & !\PC|DOUT\(3)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0011000000110000001100000011000011000000110000001100000011000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \PC|ALT_INV_DOUT\(1),
+	datac => \PC|ALT_INV_DOUT\(3),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \ROM1|memROM~0_combout\);
+
+-- Location: LABCELL_X44_Y1_N3
+\ROM1|memROM~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ROM1|memROM~1_combout\ = ( \PC|DOUT\(2) & ( (!\PC|DOUT\(3) & (\PC|DOUT\(1) & !\PC|DOUT\(0))) ) ) # ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & (!\PC|DOUT\(1) $ (!\PC|DOUT\(0)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000110011000000000011001100000000001100000000000000110000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \PC|ALT_INV_DOUT\(3),
+	datac => \PC|ALT_INV_DOUT\(1),
+	datad => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \ROM1|memROM~1_combout\);
+
+-- Location: MLABCELL_X42_Y1_N12
+\RAM1|ram~165\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~165_combout\ = ( !\PC|DOUT\(1) & ( (\PC|DOUT\(0) & (!\PC|DOUT\(3) & !\PC|DOUT\(2))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0100010000000000010001000000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(0),
+	datab => \PC|ALT_INV_DOUT\(3),
+	datad => \PC|ALT_INV_DOUT\(2),
+	dataf => \PC|ALT_INV_DOUT\(1),
+	combout => \RAM1|ram~165_combout\);
+
+-- Location: FF_X44_Y1_N56
+\RAM1|ram~35\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT[2]~DUPLICATE_q\,
+	sload => VCC,
+	ena => \RAM1|ram~165_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~35_q\);
+
+-- Location: LABCELL_X44_Y1_N54
+\RAM1|ram~152\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~152_combout\ = ( \PC|DOUT\(3) & ( \RAM1|ram~35_q\ ) ) # ( !\PC|DOUT\(3) & ( (\RAM1|ram~35_q\ & ((\PC|DOUT\(2)) # (\PC|DOUT\(0)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000001011111000000000101111100000000111111110000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(0),
+	datac => \PC|ALT_INV_DOUT\(2),
+	datad => \RAM1|ALT_INV_ram~35_q\,
+	dataf => \PC|ALT_INV_DOUT\(3),
+	combout => \RAM1|ram~152_combout\);
+
+-- Location: MLABCELL_X42_Y1_N54
+\RAM1|ram~166\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~166_combout\ = ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & (\PC|DOUT\(1) & \PC|DOUT\(0))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000001000000010000000100000001000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(3),
+	datab => \PC|ALT_INV_DOUT\(1),
+	datac => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \RAM1|ram~166_combout\);
+
+-- Location: FF_X43_Y1_N43
+\RAM1|ram~27\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT[2]~DUPLICATE_q\,
+	sload => VCC,
+	ena => \RAM1|ram~166_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~27_q\);
+
+-- Location: LABCELL_X44_Y1_N18
+\RAM1|ram~151\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~151_combout\ = ( \PC|DOUT\(3) & ( \RAM1|ram~27_q\ ) ) # ( !\PC|DOUT\(3) & ( (\RAM1|ram~27_q\ & ((\PC|DOUT\(2)) # (\PC|DOUT\(0)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000001100110011000000110011001100110011001100110011001100110011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \RAM1|ALT_INV_ram~27_q\,
+	datac => \PC|ALT_INV_DOUT\(0),
+	datad => \PC|ALT_INV_DOUT\(2),
+	dataf => \PC|ALT_INV_DOUT\(3),
+	combout => \RAM1|ram~151_combout\);
+
+-- Location: LABCELL_X44_Y1_N39
+\RAM1|ram~153\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~153_combout\ = ( \RAM1|ram~151_combout\ & ( (!\ROM1|memROM~0_combout\ & (\ROM1|memROM~1_combout\ & \RAM1|ram~152_combout\)) # (\ROM1|memROM~0_combout\ & (!\ROM1|memROM~1_combout\)) ) ) # ( !\RAM1|ram~151_combout\ & ( (!\ROM1|memROM~0_combout\ & 
+-- (\ROM1|memROM~1_combout\ & \RAM1|ram~152_combout\)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000001010000000000000101001010000010110100101000001011010",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ROM1|ALT_INV_memROM~0_combout\,
+	datac => \ROM1|ALT_INV_memROM~1_combout\,
+	datad => \RAM1|ALT_INV_ram~152_combout\,
+	dataf => \RAM1|ALT_INV_ram~151_combout\,
+	combout => \RAM1|ram~153_combout\);
+
+-- Location: LABCELL_X44_Y1_N0
+\DECODER_INSTRU|saida~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \DECODER_INSTRU|saida~1_combout\ = ( \ROM1|memROM~5_combout\ & ( !\ROM1|memROM~4_combout\ ) ) # ( !\ROM1|memROM~5_combout\ & ( !\ROM1|memROM~6_combout\ $ (!\ROM1|memROM~4_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0101101001011010010110100101101011110000111100001111000011110000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	dataa => \ROM1|ALT_INV_memROM~6_combout\,
 	datac => \ROM1|ALT_INV_memROM~4_combout\,
 	dataf => \ROM1|ALT_INV_memROM~5_combout\,
-	combout => \DECODER_INSTRU|saida[3]~0_combout\);
-
--- Location: LABCELL_X41_Y3_N9
-\DECODER_INSTRU|Equal1~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \DECODER_INSTRU|Equal1~1_combout\ = ( !\ROM1|memROM~5_combout\ & ( (!\ROM1|memROM~4_combout\ & \ROM1|memROM~6_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000010101010000000001010101000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~4_combout\,
-	datad => \ROM1|ALT_INV_memROM~6_combout\,
-	dataf => \ROM1|ALT_INV_memROM~5_combout\,
-	combout => \DECODER_INSTRU|Equal1~1_combout\);
-
--- Location: LABCELL_X41_Y3_N39
-\DECODER_INSTRU|saida~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \DECODER_INSTRU|saida~1_combout\ = ( \ROM1|memROM~4_combout\ & ( (!\ROM1|memROM~6_combout\ & !\ROM1|memROM~5_combout\) ) ) # ( !\ROM1|memROM~4_combout\ & ( (\ROM1|memROM~5_combout\) # (\ROM1|memROM~6_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0101111101011111010111110101111110100000101000001010000010100000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~6_combout\,
-	datac => \ROM1|ALT_INV_memROM~5_combout\,
-	dataf => \ROM1|ALT_INV_memROM~4_combout\,
 	combout => \DECODER_INSTRU|saida~1_combout\);
 
--- Location: FF_X42_Y3_N16
+-- Location: FF_X43_Y1_N17
+\REGA|DOUT[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	d => \ULA1|saida[2]~3_combout\,
+	ena => \DECODER_INSTRU|saida~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \REGA|DOUT\(2));
+
+-- Location: FF_X42_Y1_N22
+\RAM1|ram~33\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(0),
+	sload => VCC,
+	ena => \RAM1|ram~165_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~33_q\);
+
+-- Location: LABCELL_X43_Y1_N24
+\RAM1|ram~148\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~148_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~33_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~33_q\ & ((\PC|DOUT\(0)) # (\PC|DOUT\(3)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010100001111000001010000111100001111000011110000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(3),
+	datac => \RAM1|ALT_INV_ram~33_q\,
+	datad => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \RAM1|ram~148_combout\);
+
+-- Location: FF_X42_Y1_N7
+\RAM1|ram~25\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(0),
+	sload => VCC,
+	ena => \RAM1|ram~166_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~25_q\);
+
+-- Location: LABCELL_X44_Y1_N30
+\RAM1|ram~147\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~147_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~25_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~25_q\ & ((\PC|DOUT\(3)) # (\PC|DOUT\(0)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010100001111000001010000111100001111000011110000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(0),
+	datac => \RAM1|ALT_INV_ram~25_q\,
+	datad => \PC|ALT_INV_DOUT\(3),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \RAM1|ram~147_combout\);
+
+-- Location: LABCELL_X43_Y1_N6
+\RAM1|ram~149\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~149_combout\ = ( \RAM1|ram~147_combout\ & ( (!\ROM1|memROM~0_combout\ & (\RAM1|ram~148_combout\ & \ROM1|memROM~1_combout\)) # (\ROM1|memROM~0_combout\ & ((!\ROM1|memROM~1_combout\))) ) ) # ( !\RAM1|ram~147_combout\ & ( (\RAM1|ram~148_combout\ & 
+-- (!\ROM1|memROM~0_combout\ & \ROM1|memROM~1_combout\)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000001010000000000000101000000001111010100000000111101010000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \RAM1|ALT_INV_ram~148_combout\,
+	datac => \ROM1|ALT_INV_memROM~0_combout\,
+	datad => \ROM1|ALT_INV_memROM~1_combout\,
+	dataf => \RAM1|ALT_INV_ram~147_combout\,
+	combout => \RAM1|ram~149_combout\);
+
+-- Location: LABCELL_X43_Y1_N30
+\ULA1|Add0~34\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|Add0~34_cout\ = CARRY(( !\DECODER_INSTRU|Equal1~1_combout\ ) + ( VCC ) + ( !VCC ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000001100110011001100",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
+	cin => GND,
+	cout => \ULA1|Add0~34_cout\);
+
+-- Location: LABCELL_X43_Y1_N33
+\ULA1|Add0~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|Add0~5_sumout\ = SUM(( \REGA|DOUT\(0) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~149_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~0_combout\)))) ) + ( \ULA1|Add0~34_cout\ ))
+-- \ULA1|Add0~6\ = CARRY(( \REGA|DOUT\(0) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~149_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~0_combout\)))) ) + ( \ULA1|Add0~34_cout\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000001101101100011000000000000000000000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ROM1|ALT_INV_memROM~0_combout\,
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
+	datac => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
+	datad => \REGA|ALT_INV_DOUT\(0),
+	dataf => \RAM1|ALT_INV_ram~149_combout\,
+	cin => \ULA1|Add0~34_cout\,
+	sumout => \ULA1|Add0~5_sumout\,
+	cout => \ULA1|Add0~6\);
+
+-- Location: MLABCELL_X42_Y1_N33
+\ULA1|saida[0]~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|saida[0]~1_combout\ = ( \ULA1|Add0~5_sumout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\) # ((!\DECODER_INSTRU|Equal1~0_combout\ & (\RAM1|ram~149_combout\)) # (\DECODER_INSTRU|Equal1~0_combout\ & ((\ROM1|memROM~0_combout\)))) ) ) # ( 
+-- !\ULA1|Add0~5_sumout\ & ( (\DECODER_INSTRU|saida[3]~0_combout\ & ((!\DECODER_INSTRU|Equal1~0_combout\ & (\RAM1|ram~149_combout\)) # (\DECODER_INSTRU|Equal1~0_combout\ & ((\ROM1|memROM~0_combout\))))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010000000111000001000000011111110100111101111111010011110111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \RAM1|ALT_INV_ram~149_combout\,
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
+	datac => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
+	datad => \ROM1|ALT_INV_memROM~0_combout\,
+	dataf => \ULA1|ALT_INV_Add0~5_sumout\,
+	combout => \ULA1|saida[0]~1_combout\);
+
+-- Location: FF_X42_Y1_N34
 \REGA|DOUT[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1502,443 +1969,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \REGA|DOUT\(0));
 
--- Location: MLABCELL_X42_Y3_N30
-\ULA1|Add0~34\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|Add0~34_cout\ = CARRY(( VCC ) + ( !\DECODER_INSTRU|Equal1~1_combout\ ) + ( !VCC ))
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000000000001111111100000000000000001111111111111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataf => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
-	cin => GND,
-	cout => \ULA1|Add0~34_cout\);
-
--- Location: MLABCELL_X42_Y3_N33
-\ULA1|Add0~5\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|Add0~5_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~149_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~0_combout\)))) ) + ( \REGA|DOUT\(0) ) + ( \ULA1|Add0~34_cout\ ))
--- \ULA1|Add0~6\ = CARRY(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~149_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~0_combout\)))) ) + ( \REGA|DOUT\(0) ) + ( \ULA1|Add0~34_cout\ ))
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000111111110000000000000000000000001110000100101101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~0_combout\,
-	datab => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datac => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
-	datad => \RAM1|ALT_INV_ram~149_combout\,
-	dataf => \REGA|ALT_INV_DOUT\(0),
-	cin => \ULA1|Add0~34_cout\,
-	sumout => \ULA1|Add0~5_sumout\,
-	cout => \ULA1|Add0~6\);
-
--- Location: MLABCELL_X42_Y3_N15
-\ULA1|saida[0]~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|saida[0]~1_combout\ = ( \ROM1|memROM~0_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~5_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (((\RAM1|ram~149_combout\)) # (\DECODER_INSTRU|Equal1~0_combout\))) ) ) # ( 
--- !\ROM1|memROM~0_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~5_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (!\DECODER_INSTRU|Equal1~0_combout\ & (\RAM1|ram~149_combout\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000001011001110000000101100111000010011110111110001001111011111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datab => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
-	datac => \RAM1|ALT_INV_ram~149_combout\,
-	datad => \ULA1|ALT_INV_Add0~5_sumout\,
-	dataf => \ROM1|ALT_INV_memROM~0_combout\,
-	combout => \ULA1|saida[0]~1_combout\);
-
--- Location: FF_X42_Y3_N17
-\REGA|DOUT[0]~DUPLICATE\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	d => \ULA1|saida[0]~1_combout\,
-	ena => \DECODER_INSTRU|saida~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \REGA|DOUT[0]~DUPLICATE_q\);
-
--- Location: LABCELL_X40_Y3_N24
-\RAM1|ram~166\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~166_combout\ = ( \PC|DOUT\(0) & ( !\PC|DOUT\(2) & ( (\PC|DOUT\(1) & !\PC|DOUT\(3)) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000010100000101000000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datac => \PC|ALT_INV_DOUT\(3),
-	datae => \PC|ALT_INV_DOUT\(0),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~166_combout\);
-
--- Location: FF_X43_Y3_N56
-\RAM1|ram~25\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT[0]~DUPLICATE_q\,
-	sload => VCC,
-	ena => \RAM1|ram~166_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~25_q\);
-
--- Location: LABCELL_X43_Y3_N12
-\RAM1|ram~147\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~147_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~25_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~25_q\ & ((\PC|DOUT\(0)) # (\PC|DOUT\(3)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0001010100010101000101010001010101010101010101010101010101010101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \RAM1|ALT_INV_ram~25_q\,
-	datab => \PC|ALT_INV_DOUT\(3),
-	datac => \PC|ALT_INV_DOUT\(0),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~147_combout\);
-
--- Location: LABCELL_X40_Y3_N54
-\RAM1|ram~165\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~165_combout\ = ( \PC|DOUT\(0) & ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(1) & !\PC|DOUT\(3)) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000101000001010000000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datac => \PC|ALT_INV_DOUT\(3),
-	datae => \PC|ALT_INV_DOUT\(0),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~165_combout\);
-
--- Location: FF_X42_Y3_N43
-\RAM1|ram~33\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT[0]~DUPLICATE_q\,
-	sload => VCC,
-	ena => \RAM1|ram~165_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~33_q\);
-
--- Location: LABCELL_X41_Y3_N57
-\RAM1|ram~148\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~148_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~33_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~33_q\ & ((\PC|DOUT\(0)) # (\PC|DOUT\(3)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000011100000111000001110000011100001111000011110000111100001111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(3),
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \RAM1|ALT_INV_ram~33_q\,
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~148_combout\);
-
--- Location: LABCELL_X41_Y3_N24
-\ROM1|memROM~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \ROM1|memROM~1_combout\ = ( \PC|DOUT\(0) & ( (!\PC|DOUT\(2) & (!\PC|DOUT\(1) & !\PC|DOUT\(3))) ) ) # ( !\PC|DOUT\(0) & ( (\PC|DOUT\(1) & !\PC|DOUT\(3)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0011000000110000001100000011000010000000100000001000000010000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(2),
-	datab => \PC|ALT_INV_DOUT\(1),
-	datac => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(0),
-	combout => \ROM1|memROM~1_combout\);
-
--- Location: MLABCELL_X42_Y3_N27
-\RAM1|ram~149\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~149_combout\ = ( \ROM1|memROM~1_combout\ & ( (!\ROM1|memROM~0_combout\ & \RAM1|ram~148_combout\) ) ) # ( !\ROM1|memROM~1_combout\ & ( (\ROM1|memROM~0_combout\ & \RAM1|ram~147_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100000101000001010000010100000000101010100000000010101010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~0_combout\,
-	datac => \RAM1|ALT_INV_ram~147_combout\,
-	datad => \RAM1|ALT_INV_ram~148_combout\,
-	dataf => \ROM1|ALT_INV_memROM~1_combout\,
-	combout => \RAM1|ram~149_combout\);
-
--- Location: LABCELL_X43_Y3_N42
-\MUX2|saida_MUX[0]~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[0]~0_combout\ = ( \REGA|DOUT[0]~DUPLICATE_q\ & ( (\SW[9]~input_o\) # (\RAM1|ram~149_combout\) ) ) # ( !\REGA|DOUT[0]~DUPLICATE_q\ & ( (\RAM1|ram~149_combout\ & !\SW[9]~input_o\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0011000000110000001100000011000000111111001111110011111100111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \RAM1|ALT_INV_ram~149_combout\,
-	datac => \ALT_INV_SW[9]~input_o\,
-	dataf => \REGA|ALT_INV_DOUT[0]~DUPLICATE_q\,
-	combout => \MUX2|saida_MUX[0]~0_combout\);
-
--- Location: LABCELL_X41_Y3_N36
-\ROM1|memROM~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \ROM1|memROM~3_combout\ = ( !\PC|DOUT\(3) & ( (!\PC|DOUT\(1) & (!\PC|DOUT\(2) & !\PC|DOUT\(0))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1100000000000000110000000000000000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(1),
-	datac => \PC|ALT_INV_DOUT\(2),
-	datad => \PC|ALT_INV_DOUT\(0),
-	dataf => \PC|ALT_INV_DOUT\(3),
-	combout => \ROM1|memROM~3_combout\);
-
--- Location: LABCELL_X41_Y3_N21
-\ROM1|memROM~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \ROM1|memROM~2_combout\ = ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & (!\PC|DOUT\(0) & \PC|DOUT\(1))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000100000001000000010000000100000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(3),
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(1),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \ROM1|memROM~2_combout\);
-
--- Location: FF_X43_Y3_N23
-\RAM1|ram~36\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT[3]~DUPLICATE_q\,
-	sload => VCC,
-	ena => \RAM1|ram~165_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~36_q\);
-
--- Location: FF_X43_Y3_N38
-\RAM1|ram~28\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT[3]~DUPLICATE_q\,
-	sload => VCC,
-	ena => \RAM1|ram~166_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~28_q\);
-
--- Location: LABCELL_X43_Y3_N24
-\RAM1|ram~145\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~145_combout\ = ( \ROM1|memROM~1_combout\ & ( (\RAM1|ram~36_q\ & !\ROM1|memROM~0_combout\) ) ) # ( !\ROM1|memROM~1_combout\ & ( (\RAM1|ram~28_q\ & \ROM1|memROM~0_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000001111000000000000111101010101000000000101010100000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \RAM1|ALT_INV_ram~36_q\,
-	datac => \RAM1|ALT_INV_ram~28_q\,
-	datad => \ROM1|ALT_INV_memROM~0_combout\,
-	dataf => \ROM1|ALT_INV_memROM~1_combout\,
-	combout => \RAM1|ram~145_combout\);
-
--- Location: LABCELL_X43_Y3_N3
-\RAM1|ram~146\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~146_combout\ = ( \RAM1|ram~145_combout\ & ( (!\ROM1|memROM~3_combout\ & !\ROM1|memROM~2_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000011110000000000001111000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datac => \ROM1|ALT_INV_memROM~3_combout\,
-	datad => \ROM1|ALT_INV_memROM~2_combout\,
-	dataf => \RAM1|ALT_INV_ram~145_combout\,
-	combout => \RAM1|ram~146_combout\);
-
--- Location: FF_X42_Y3_N13
-\REGA|DOUT[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	d => \ULA1|saida[3]~0_combout\,
-	ena => \DECODER_INSTRU|saida~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \REGA|DOUT\(3));
-
--- Location: FF_X43_Y3_N29
-\RAM1|ram~27\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT\(2),
-	sload => VCC,
-	ena => \RAM1|ram~166_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~27_q\);
-
--- Location: LABCELL_X43_Y3_N27
-\RAM1|ram~151\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~151_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~27_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~27_q\ & ((\PC|DOUT\(3)) # (\PC|DOUT\(0)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000111111000000000011111100000000111111110000000011111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(3),
-	datad => \RAM1|ALT_INV_ram~27_q\,
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~151_combout\);
-
--- Location: FF_X43_Y3_N50
-\RAM1|ram~35\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT\(2),
-	sload => VCC,
-	ena => \RAM1|ram~165_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~35_q\);
-
--- Location: LABCELL_X43_Y3_N30
-\RAM1|ram~152\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~152_combout\ = ( \PC|DOUT\(3) & ( \PC|DOUT\(2) & ( \RAM1|ram~35_q\ ) ) ) # ( !\PC|DOUT\(3) & ( \PC|DOUT\(2) & ( \RAM1|ram~35_q\ ) ) ) # ( \PC|DOUT\(3) & ( !\PC|DOUT\(2) & ( \RAM1|ram~35_q\ ) ) ) # ( !\PC|DOUT\(3) & ( !\PC|DOUT\(2) & ( 
--- (\RAM1|ram~35_q\ & \PC|DOUT\(0)) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100000101010101010101010101010101010101010101010101010101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \RAM1|ALT_INV_ram~35_q\,
-	datac => \PC|ALT_INV_DOUT\(0),
-	datae => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~152_combout\);
-
--- Location: LABCELL_X43_Y3_N6
-\RAM1|ram~153\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~153_combout\ = ( \RAM1|ram~152_combout\ & ( (!\ROM1|memROM~0_combout\ & (\ROM1|memROM~1_combout\)) # (\ROM1|memROM~0_combout\ & (!\ROM1|memROM~1_combout\ & \RAM1|ram~151_combout\)) ) ) # ( !\RAM1|ram~152_combout\ & ( (\ROM1|memROM~0_combout\ & 
--- (!\ROM1|memROM~1_combout\ & \RAM1|ram~151_combout\)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000110000000000000011000000001100001111000000110000111100",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \ROM1|ALT_INV_memROM~0_combout\,
-	datac => \ROM1|ALT_INV_memROM~1_combout\,
-	datad => \RAM1|ALT_INV_ram~151_combout\,
-	dataf => \RAM1|ALT_INV_ram~152_combout\,
-	combout => \RAM1|ram~153_combout\);
-
--- Location: MLABCELL_X42_Y3_N36
+-- Location: LABCELL_X43_Y1_N36
 \ULA1|Add0~9\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \ULA1|Add0~9_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~163_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~1_combout\)))) ) + ( \REGA|DOUT\(1) ) + ( \ULA1|Add0~6\ ))
@@ -1960,27 +1991,27 @@ PORT MAP (
 	sumout => \ULA1|Add0~9_sumout\,
 	cout => \ULA1|Add0~10\);
 
--- Location: MLABCELL_X42_Y3_N0
+-- Location: LABCELL_X43_Y1_N0
 \ULA1|saida[1]~2\ : cyclonev_lcell_comb
 -- Equation(s):
--- \ULA1|saida[1]~2_combout\ = ( \ROM1|memROM~1_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~9_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (((\RAM1|ram~163_combout\)) # (\DECODER_INSTRU|Equal1~0_combout\))) ) ) # ( 
--- !\ROM1|memROM~1_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~9_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~163_combout\)))) ) )
+-- \ULA1|saida[1]~2_combout\ = ( \RAM1|ram~163_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~9_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & ((!\DECODER_INSTRU|Equal1~0_combout\) # ((\ROM1|memROM~1_combout\)))) ) ) # ( 
+-- !\RAM1|ram~163_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~9_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~1_combout\))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000110000101110000011000010111000011101001111110001110100111111",
+	lut_mask => "0000111100010001000011110001000100001111101110110000111110111011",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datab => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
+	datab => \ROM1|ALT_INV_memROM~1_combout\,
 	datac => \ULA1|ALT_INV_Add0~9_sumout\,
-	datad => \RAM1|ALT_INV_ram~163_combout\,
-	dataf => \ROM1|ALT_INV_memROM~1_combout\,
+	datad => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
+	dataf => \RAM1|ALT_INV_ram~163_combout\,
 	combout => \ULA1|saida[1]~2_combout\);
 
--- Location: FF_X42_Y3_N1
+-- Location: FF_X43_Y1_N1
 \REGA|DOUT[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1995,23 +2026,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \REGA|DOUT\(1));
 
--- Location: FF_X43_Y3_N40
-\RAM1|ram~26\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT\(1),
-	sload => VCC,
-	ena => \RAM1|ram~166_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~26_q\);
-
--- Location: FF_X41_Y3_N23
+-- Location: FF_X44_Y1_N49
 \RAM1|ram~34\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2027,85 +2042,119 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \RAM1|ram~34_q\);
 
--- Location: LABCELL_X41_Y3_N48
+-- Location: FF_X42_Y1_N1
+\RAM1|ram~26\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(1),
+	sload => VCC,
+	ena => \RAM1|ram~166_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~26_q\);
+
+-- Location: LABCELL_X44_Y1_N12
 \RAM1|ram~150\ : cyclonev_lcell_comb
 -- Equation(s):
--- \RAM1|ram~150_combout\ = ( \ROM1|memROM~1_combout\ & ( (\RAM1|ram~34_q\ & !\ROM1|memROM~0_combout\) ) ) # ( !\ROM1|memROM~1_combout\ & ( (\RAM1|ram~26_q\ & \ROM1|memROM~0_combout\) ) )
+-- \RAM1|ram~150_combout\ = ( \ROM1|memROM~0_combout\ & ( (\RAM1|ram~26_q\ & !\ROM1|memROM~1_combout\) ) ) # ( !\ROM1|memROM~0_combout\ & ( (\RAM1|ram~34_q\ & \ROM1|memROM~1_combout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000001010101000000000101010100001111000000000000111100000000",
+	lut_mask => "0000000000110011000000000011001100001111000000000000111100000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \RAM1|ALT_INV_ram~26_q\,
-	datac => \RAM1|ALT_INV_ram~34_q\,
-	datad => \ROM1|ALT_INV_memROM~0_combout\,
-	dataf => \ROM1|ALT_INV_memROM~1_combout\,
+	datab => \RAM1|ALT_INV_ram~34_q\,
+	datac => \RAM1|ALT_INV_ram~26_q\,
+	datad => \ROM1|ALT_INV_memROM~1_combout\,
+	dataf => \ROM1|ALT_INV_memROM~0_combout\,
 	combout => \RAM1|ram~150_combout\);
 
--- Location: LABCELL_X41_Y3_N15
-\RAM1|ram~163\ : cyclonev_lcell_comb
+-- Location: LABCELL_X44_Y1_N48
+\ROM1|memROM~2\ : cyclonev_lcell_comb
 -- Equation(s):
--- \RAM1|ram~163_combout\ = ( \RAM1|ram~150_combout\ & ( (!\ROM1|memROM~2_combout\ & !\ROM1|memROM~3_combout\) ) )
+-- \ROM1|memROM~2_combout\ = ( !\PC|DOUT\(3) & ( (!\PC|DOUT\(2) & (\PC|DOUT\(1) & !\PC|DOUT\(0))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000011110000000000001111000000000000",
+	lut_mask => "0010000000100000001000000010000000000000000000000000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datac => \ROM1|ALT_INV_memROM~2_combout\,
-	datad => \ROM1|ALT_INV_memROM~3_combout\,
-	dataf => \RAM1|ALT_INV_ram~150_combout\,
-	combout => \RAM1|ram~163_combout\);
+	dataa => \PC|ALT_INV_DOUT\(2),
+	datab => \PC|ALT_INV_DOUT\(1),
+	datac => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(3),
+	combout => \ROM1|memROM~2_combout\);
 
--- Location: MLABCELL_X42_Y3_N39
-\ULA1|Add0~13\ : cyclonev_lcell_comb
+-- Location: LABCELL_X44_Y1_N27
+\RAM1|ram~163\ : cyclonev_lcell_comb
 -- Equation(s):
--- \ULA1|Add0~13_sumout\ = SUM(( \REGA|DOUT\(2) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~153_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~3_combout\)))) ) + ( \ULA1|Add0~10\ ))
--- \ULA1|Add0~14\ = CARRY(( \REGA|DOUT\(2) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~153_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~3_combout\)))) ) + ( \ULA1|Add0~10\ ))
+-- \RAM1|ram~163_combout\ = ( !\ROM1|memROM~2_combout\ & ( (\RAM1|ram~150_combout\ & !\ROM1|memROM~3_combout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000001101101001110000000000000000000000000011111111",
+	lut_mask => "0000111100000000000011110000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \RAM1|ALT_INV_ram~150_combout\,
+	datad => \ROM1|ALT_INV_memROM~3_combout\,
+	dataf => \ROM1|ALT_INV_memROM~2_combout\,
+	combout => \RAM1|ram~163_combout\);
+
+-- Location: LABCELL_X43_Y1_N39
+\ULA1|Add0~13\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|Add0~13_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~153_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~3_combout\)))) ) + ( \REGA|DOUT\(2) ) + ( \ULA1|Add0~10\ ))
+-- \ULA1|Add0~14\ = CARRY(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~153_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~3_combout\)))) ) + ( \REGA|DOUT\(2) ) + ( \ULA1|Add0~10\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111110000000000000000000000001100100101100011",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
 	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
 	datac => \ROM1|ALT_INV_memROM~3_combout\,
-	datad => \REGA|ALT_INV_DOUT\(2),
-	dataf => \RAM1|ALT_INV_ram~153_combout\,
+	datad => \RAM1|ALT_INV_ram~153_combout\,
+	dataf => \REGA|ALT_INV_DOUT\(2),
 	cin => \ULA1|Add0~10\,
 	sumout => \ULA1|Add0~13_sumout\,
 	cout => \ULA1|Add0~14\);
 
--- Location: MLABCELL_X42_Y3_N3
+-- Location: LABCELL_X43_Y1_N15
 \ULA1|saida[2]~3\ : cyclonev_lcell_comb
 -- Equation(s):
--- \ULA1|saida[2]~3_combout\ = ( \ROM1|memROM~3_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~13_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (((\RAM1|ram~153_combout\)) # (\DECODER_INSTRU|Equal1~0_combout\))) ) ) # ( 
--- !\ROM1|memROM~3_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~13_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~153_combout\)))) ) )
+-- \ULA1|saida[2]~3_combout\ = ( \RAM1|ram~153_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~13_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & ((!\DECODER_INSTRU|Equal1~0_combout\) # ((\ROM1|memROM~3_combout\)))) ) ) # ( 
+-- !\RAM1|ram~153_combout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\ & (((\ULA1|Add0~13_sumout\)))) # (\DECODER_INSTRU|saida[3]~0_combout\ & (\DECODER_INSTRU|Equal1~0_combout\ & ((\ROM1|memROM~3_combout\)))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000110000101110000011000010111000011101001111110001110100111111",
+	lut_mask => "0000101000011011000010100001101101001110010111110100111001011111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datab => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
+	dataa => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
 	datac => \ULA1|ALT_INV_Add0~13_sumout\,
-	datad => \RAM1|ALT_INV_ram~153_combout\,
-	dataf => \ROM1|ALT_INV_memROM~3_combout\,
+	datad => \ROM1|ALT_INV_memROM~3_combout\,
+	dataf => \RAM1|ALT_INV_ram~153_combout\,
 	combout => \ULA1|saida[2]~3_combout\);
 
--- Location: FF_X42_Y3_N5
-\REGA|DOUT[2]\ : dffeas
+-- Location: FF_X43_Y1_N16
+\REGA|DOUT[2]~DUPLICATE\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -2117,9 +2166,46 @@ PORT MAP (
 	ena => \DECODER_INSTRU|saida~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \REGA|DOUT\(2));
+	q => \REGA|DOUT[2]~DUPLICATE_q\);
 
--- Location: MLABCELL_X42_Y3_N42
+-- Location: MLABCELL_X45_Y1_N0
+\MUX2|saida_MUX[2]~2\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[2]~2_combout\ = ( \RAM1|ram~153_combout\ & ( (!\SW[9]~input_o\) # (\REGA|DOUT[2]~DUPLICATE_q\) ) ) # ( !\RAM1|ram~153_combout\ & ( (\SW[9]~input_o\ & \REGA|DOUT[2]~DUPLICATE_q\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000001100000011000000110000001111001111110011111100111111001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \ALT_INV_SW[9]~input_o\,
+	datac => \REGA|ALT_INV_DOUT[2]~DUPLICATE_q\,
+	dataf => \RAM1|ALT_INV_ram~153_combout\,
+	combout => \MUX2|saida_MUX[2]~2_combout\);
+
+-- Location: MLABCELL_X42_Y1_N39
+\MUX2|saida_MUX[1]~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[1]~1_combout\ = ( \RAM1|ram~150_combout\ & ( (!\SW[9]~input_o\ & (!\ROM1|memROM~3_combout\ & ((!\ROM1|memROM~2_combout\)))) # (\SW[9]~input_o\ & (((\REGA|DOUT\(1))))) ) ) # ( !\RAM1|ram~150_combout\ & ( (\REGA|DOUT\(1) & \SW[9]~input_o\) ) 
+-- )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000110011000000000011001110100000001100111010000000110011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ROM1|ALT_INV_memROM~3_combout\,
+	datab => \REGA|ALT_INV_DOUT\(1),
+	datac => \ROM1|ALT_INV_memROM~2_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	dataf => \RAM1|ALT_INV_ram~150_combout\,
+	combout => \MUX2|saida_MUX[1]~1_combout\);
+
+-- Location: LABCELL_X43_Y1_N42
 \ULA1|Add0~1\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \ULA1|Add0~1_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~146_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~2_combout\)))) ) + ( \REGA|DOUT\(3) ) + ( \ULA1|Add0~14\ ))
@@ -2141,28 +2227,28 @@ PORT MAP (
 	sumout => \ULA1|Add0~1_sumout\,
 	cout => \ULA1|Add0~2\);
 
--- Location: MLABCELL_X42_Y3_N12
+-- Location: LABCELL_X43_Y1_N12
 \ULA1|saida[3]~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \ULA1|saida[3]~0_combout\ = ( \ULA1|Add0~1_sumout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\) # ((!\DECODER_INSTRU|Equal1~0_combout\ & (\RAM1|ram~146_combout\)) # (\DECODER_INSTRU|Equal1~0_combout\ & ((\ROM1|memROM~2_combout\)))) ) ) # ( 
--- !\ULA1|Add0~1_sumout\ & ( (\DECODER_INSTRU|saida[3]~0_combout\ & ((!\DECODER_INSTRU|Equal1~0_combout\ & (\RAM1|ram~146_combout\)) # (\DECODER_INSTRU|Equal1~0_combout\ & ((\ROM1|memROM~2_combout\))))) ) )
+-- \ULA1|saida[3]~0_combout\ = ( \ULA1|Add0~1_sumout\ & ( (!\DECODER_INSTRU|saida[3]~0_combout\) # ((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~146_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~2_combout\))) ) ) # ( 
+-- !\ULA1|Add0~1_sumout\ & ( (\DECODER_INSTRU|saida[3]~0_combout\ & ((!\DECODER_INSTRU|Equal1~0_combout\ & ((\RAM1|ram~146_combout\))) # (\DECODER_INSTRU|Equal1~0_combout\ & (\ROM1|memROM~2_combout\)))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000001000010011000000100001001111001110110111111100111011011111",
+	lut_mask => "0000000101000101000000010100010110101011111011111010101111101111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datab => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
-	datac => \RAM1|ALT_INV_ram~146_combout\,
-	datad => \ROM1|ALT_INV_memROM~2_combout\,
+	dataa => \DECODER_INSTRU|ALT_INV_saida[3]~0_combout\,
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
+	datac => \ROM1|ALT_INV_memROM~2_combout\,
+	datad => \RAM1|ALT_INV_ram~146_combout\,
 	dataf => \ULA1|ALT_INV_Add0~1_sumout\,
 	combout => \ULA1|saida[3]~0_combout\);
 
--- Location: FF_X42_Y3_N14
-\REGA|DOUT[3]~DUPLICATE\ : dffeas
+-- Location: FF_X43_Y1_N14
+\REGA|DOUT[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -2174,519 +2260,260 @@ PORT MAP (
 	ena => \DECODER_INSTRU|saida~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \REGA|DOUT[3]~DUPLICATE_q\);
+	q => \REGA|DOUT\(3));
 
--- Location: LABCELL_X43_Y3_N0
-\MUX2|saida_MUX[1]~1\ : cyclonev_lcell_comb
+-- Location: FF_X42_Y1_N56
+\RAM1|ram~36\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(3),
+	sload => VCC,
+	ena => \RAM1|ram~165_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~36_q\);
+
+-- Location: FF_X42_Y1_N53
+\RAM1|ram~28\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(3),
+	sload => VCC,
+	ena => \RAM1|ram~166_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~28_q\);
+
+-- Location: MLABCELL_X42_Y1_N51
+\RAM1|ram~145\ : cyclonev_lcell_comb
 -- Equation(s):
--- \MUX2|saida_MUX[1]~1_combout\ = ( \SW[9]~input_o\ & ( \REGA|DOUT\(1) ) ) # ( !\SW[9]~input_o\ & ( (!\ROM1|memROM~2_combout\ & (!\ROM1|memROM~3_combout\ & \RAM1|ram~150_combout\)) ) )
+-- \RAM1|ram~145_combout\ = ( \ROM1|memROM~0_combout\ & ( (!\ROM1|memROM~1_combout\ & \RAM1|ram~28_q\) ) ) # ( !\ROM1|memROM~0_combout\ & ( (\RAM1|ram~36_q\ & \ROM1|memROM~1_combout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000100000001000000010000000100000000000111111110000000011111111",
+	lut_mask => "0000010100000101000001010000010100000000111100000000000011110000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~2_combout\,
-	datab => \ROM1|ALT_INV_memROM~3_combout\,
-	datac => \RAM1|ALT_INV_ram~150_combout\,
-	datad => \REGA|ALT_INV_DOUT\(1),
-	dataf => \ALT_INV_SW[9]~input_o\,
-	combout => \MUX2|saida_MUX[1]~1_combout\);
+	dataa => \RAM1|ALT_INV_ram~36_q\,
+	datac => \ROM1|ALT_INV_memROM~1_combout\,
+	datad => \RAM1|ALT_INV_ram~28_q\,
+	dataf => \ROM1|ALT_INV_memROM~0_combout\,
+	combout => \RAM1|ram~145_combout\);
 
--- Location: LABCELL_X39_Y2_N3
-\MUX2|saida_MUX[2]~2\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X42_Y1_N30
+\RAM1|ram~146\ : cyclonev_lcell_comb
 -- Equation(s):
--- \MUX2|saida_MUX[2]~2_combout\ = ( \REGA|DOUT\(2) & ( (\RAM1|ram~153_combout\) # (\SW[9]~input_o\) ) ) # ( !\REGA|DOUT\(2) & ( (!\SW[9]~input_o\ & \RAM1|ram~153_combout\) ) )
+-- \RAM1|ram~146_combout\ = ( \RAM1|ram~145_combout\ & ( (!\ROM1|memROM~3_combout\ & !\ROM1|memROM~2_combout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000010101010000000001010101001010101111111110101010111111111",
+	lut_mask => "0000000000000000000000000000000011110000000000001111000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datad => \RAM1|ALT_INV_ram~153_combout\,
-	dataf => \REGA|ALT_INV_DOUT\(2),
-	combout => \MUX2|saida_MUX[2]~2_combout\);
+	datac => \ROM1|ALT_INV_memROM~3_combout\,
+	datad => \ROM1|ALT_INV_memROM~2_combout\,
+	dataf => \RAM1|ALT_INV_ram~145_combout\,
+	combout => \RAM1|ram~146_combout\);
 
--- Location: LABCELL_X43_Y3_N51
+-- Location: LABCELL_X47_Y1_N3
+\MUX2|saida_MUX[0]~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[0]~0_combout\ = ( \REGA|DOUT\(0) & ( (\SW[9]~input_o\) # (\RAM1|ram~149_combout\) ) ) # ( !\REGA|DOUT\(0) & ( (\RAM1|ram~149_combout\ & !\SW[9]~input_o\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000111100000000000011110000000000001111111111110000111111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \RAM1|ALT_INV_ram~149_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	dataf => \REGA|ALT_INV_DOUT\(0),
+	combout => \MUX2|saida_MUX[0]~0_combout\);
+
+-- Location: LABCELL_X47_Y1_N6
 \HEX0_SEVENSEG|rascSaida7seg[0]~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX0_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \RAM1|ram~146_combout\ & ( \MUX2|saida_MUX[2]~2_combout\ & ( (!\MUX2|saida_MUX[1]~1_combout\ & (!\MUX2|saida_MUX[0]~0_combout\ $ (((!\SW[9]~input_o\) # (\REGA|DOUT[3]~DUPLICATE_q\))))) ) ) ) # ( 
--- !\RAM1|ram~146_combout\ & ( \MUX2|saida_MUX[2]~2_combout\ & ( (!\MUX2|saida_MUX[1]~1_combout\ & (!\MUX2|saida_MUX[0]~0_combout\ $ (((\SW[9]~input_o\ & \REGA|DOUT[3]~DUPLICATE_q\))))) ) ) ) # ( \RAM1|ram~146_combout\ & ( !\MUX2|saida_MUX[2]~2_combout\ & ( 
--- (\MUX2|saida_MUX[0]~0_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ $ (((!\SW[9]~input_o\) # (\REGA|DOUT[3]~DUPLICATE_q\))))) ) ) ) # ( !\RAM1|ram~146_combout\ & ( !\MUX2|saida_MUX[2]~2_combout\ & ( (\MUX2|saida_MUX[0]~0_combout\ & 
--- (!\MUX2|saida_MUX[1]~1_combout\ $ (((\SW[9]~input_o\ & \REGA|DOUT[3]~DUPLICATE_q\))))) ) ) )
+-- \HEX0_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \MUX2|saida_MUX[0]~0_combout\ & ( \REGA|DOUT\(3) & ( (!\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ $ (((\SW[9]~input_o\) # (\RAM1|ram~146_combout\))))) # (\MUX2|saida_MUX[2]~2_combout\ & 
+-- (!\MUX2|saida_MUX[1]~1_combout\ & ((\SW[9]~input_o\) # (\RAM1|ram~146_combout\)))) ) ) ) # ( !\MUX2|saida_MUX[0]~0_combout\ & ( \REGA|DOUT\(3) & ( (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ & (!\RAM1|ram~146_combout\ & 
+-- !\SW[9]~input_o\))) ) ) ) # ( \MUX2|saida_MUX[0]~0_combout\ & ( !\REGA|DOUT\(3) & ( (!\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ $ (((\RAM1|ram~146_combout\ & !\SW[9]~input_o\))))) # (\MUX2|saida_MUX[2]~2_combout\ & 
+-- (!\MUX2|saida_MUX[1]~1_combout\ & (\RAM1|ram~146_combout\ & !\SW[9]~input_o\))) ) ) ) # ( !\MUX2|saida_MUX[0]~0_combout\ & ( !\REGA|DOUT\(3) & ( (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ & ((!\RAM1|ram~146_combout\) # 
+-- (\SW[9]~input_o\)))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0011001000000001000100000010001111001001000000000110001100000000",
+	lut_mask => "0100000001000100100001101000100001000000000000001000011001100110",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
+	datac => \RAM1|ALT_INV_ram~146_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	datae => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
+	dataf => \REGA|ALT_INV_DOUT\(3),
+	combout => \HEX0_SEVENSEG|rascSaida7seg[0]~0_combout\);
+
+-- Location: LABCELL_X47_Y1_N36
+\MUX2|saida_MUX[3]~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[3]~3_combout\ = ( \ROM1|memROM~3_combout\ & ( (\SW[9]~input_o\ & \REGA|DOUT\(3)) ) ) # ( !\ROM1|memROM~3_combout\ & ( (!\SW[9]~input_o\ & (\RAM1|ram~145_combout\ & ((!\ROM1|memROM~2_combout\)))) # (\SW[9]~input_o\ & (((\REGA|DOUT\(3))))) ) 
+-- )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0010011100000101001001110000010100000101000001010000010100000101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	dataa => \ALT_INV_SW[9]~input_o\,
-	datab => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
-	datac => \REGA|ALT_INV_DOUT[3]~DUPLICATE_q\,
-	datad => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
-	datae => \RAM1|ALT_INV_ram~146_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
-	combout => \HEX0_SEVENSEG|rascSaida7seg[0]~0_combout\);
-
--- Location: LABCELL_X44_Y3_N24
-\MUX2|saida_MUX[3]~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[3]~3_combout\ = ( \REGA|DOUT[3]~DUPLICATE_q\ & ( \ROM1|memROM~3_combout\ & ( \SW[9]~input_o\ ) ) ) # ( \REGA|DOUT[3]~DUPLICATE_q\ & ( !\ROM1|memROM~3_combout\ & ( ((!\ROM1|memROM~2_combout\ & \RAM1|ram~145_combout\)) # (\SW[9]~input_o\) ) 
--- ) ) # ( !\REGA|DOUT[3]~DUPLICATE_q\ & ( !\ROM1|memROM~3_combout\ & ( (!\ROM1|memROM~2_combout\ & (!\SW[9]~input_o\ & \RAM1|ram~145_combout\)) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000011000000000011111100111100000000000000000000111100001111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \ROM1|ALT_INV_memROM~2_combout\,
-	datac => \ALT_INV_SW[9]~input_o\,
-	datad => \RAM1|ALT_INV_ram~145_combout\,
-	datae => \REGA|ALT_INV_DOUT[3]~DUPLICATE_q\,
+	datab => \RAM1|ALT_INV_ram~145_combout\,
+	datac => \REGA|ALT_INV_DOUT\(3),
+	datad => \ROM1|ALT_INV_memROM~2_combout\,
 	dataf => \ROM1|ALT_INV_memROM~3_combout\,
 	combout => \MUX2|saida_MUX[3]~3_combout\);
 
--- Location: MLABCELL_X45_Y3_N36
+-- Location: LABCELL_X47_Y1_N0
 \HEX0_SEVENSEG|rascSaida7seg[1]~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX0_SEVENSEG|rascSaida7seg[1]~1_combout\ = ( \MUX2|saida_MUX[1]~1_combout\ & ( (!\MUX2|saida_MUX[0]~0_combout\ & ((\MUX2|saida_MUX[2]~2_combout\))) # (\MUX2|saida_MUX[0]~0_combout\ & (\MUX2|saida_MUX[3]~3_combout\)) ) ) # ( 
--- !\MUX2|saida_MUX[1]~1_combout\ & ( (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[0]~0_combout\ $ (!\MUX2|saida_MUX[3]~3_combout\))) ) )
+-- \HEX0_SEVENSEG|rascSaida7seg[1]~1_combout\ = (!\MUX2|saida_MUX[1]~1_combout\ & (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[3]~3_combout\ $ (!\MUX2|saida_MUX[0]~0_combout\)))) # (\MUX2|saida_MUX[1]~1_combout\ & ((!\MUX2|saida_MUX[0]~0_combout\ & 
+-- (\MUX2|saida_MUX[2]~2_combout\)) # (\MUX2|saida_MUX[0]~0_combout\ & ((\MUX2|saida_MUX[3]~3_combout\)))))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000001100110000000000110011000010001101110110001000110111011",
+	lut_mask => "0001010101000011000101010100001100010101010000110001010101000011",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
-	datab => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
 	combout => \HEX0_SEVENSEG|rascSaida7seg[1]~1_combout\);
 
--- Location: MLABCELL_X45_Y3_N39
+-- Location: MLABCELL_X45_Y1_N3
 \HEX0_SEVENSEG|rascSaida7seg[2]~2\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \HEX0_SEVENSEG|rascSaida7seg[2]~2_combout\ = ( \MUX2|saida_MUX[3]~3_combout\ & ( (\MUX2|saida_MUX[2]~2_combout\ & ((!\MUX2|saida_MUX[0]~0_combout\) # (\MUX2|saida_MUX[1]~1_combout\))) ) ) # ( !\MUX2|saida_MUX[3]~3_combout\ & ( 
--- (!\MUX2|saida_MUX[0]~0_combout\ & (\MUX2|saida_MUX[1]~1_combout\ & !\MUX2|saida_MUX[2]~2_combout\)) ) )
+-- (\MUX2|saida_MUX[1]~1_combout\ & (!\MUX2|saida_MUX[0]~0_combout\ & !\MUX2|saida_MUX[2]~2_combout\)) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000101000000000000010100000000000000000101011110000000010101111",
+	lut_mask => "0101000000000000010100000000000000000000111101010000000011110101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
 	datad => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
 	dataf => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
 	combout => \HEX0_SEVENSEG|rascSaida7seg[2]~2_combout\);
 
--- Location: MLABCELL_X45_Y3_N54
+-- Location: LABCELL_X47_Y1_N30
 \HEX0_SEVENSEG|rascSaida7seg[3]~3\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX0_SEVENSEG|rascSaida7seg[3]~3_combout\ = ( \MUX2|saida_MUX[3]~3_combout\ & ( (\MUX2|saida_MUX[1]~1_combout\ & (!\MUX2|saida_MUX[0]~0_combout\ $ (\MUX2|saida_MUX[2]~2_combout\))) ) ) # ( !\MUX2|saida_MUX[3]~3_combout\ & ( 
--- (!\MUX2|saida_MUX[0]~0_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ & \MUX2|saida_MUX[2]~2_combout\)) # (\MUX2|saida_MUX[0]~0_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ $ (\MUX2|saida_MUX[2]~2_combout\))) ) )
+-- \HEX0_SEVENSEG|rascSaida7seg[3]~3_combout\ = (!\MUX2|saida_MUX[1]~1_combout\ & (!\MUX2|saida_MUX[3]~3_combout\ & (!\MUX2|saida_MUX[2]~2_combout\ $ (!\MUX2|saida_MUX[0]~0_combout\)))) # (\MUX2|saida_MUX[1]~1_combout\ & ((!\MUX2|saida_MUX[2]~2_combout\ & 
+-- (\MUX2|saida_MUX[3]~3_combout\ & !\MUX2|saida_MUX[0]~0_combout\)) # (\MUX2|saida_MUX[2]~2_combout\ & ((\MUX2|saida_MUX[0]~0_combout\)))))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0100100101001001010010010100100100100001001000010010000100100001",
+	lut_mask => "0100001010010001010000101001000101000010100100010100001010010001",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
 	datab => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
 	combout => \HEX0_SEVENSEG|rascSaida7seg[3]~3_combout\);
 
--- Location: LABCELL_X43_Y3_N36
+-- Location: LABCELL_X47_Y1_N48
 \HEX0_SEVENSEG|rascSaida7seg[4]~4\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX0_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( \RAM1|ram~149_combout\ & ( \MUX2|saida_MUX[2]~2_combout\ & ( (!\MUX2|saida_MUX[3]~3_combout\ & (((!\SW[9]~input_o\) # (!\MUX2|saida_MUX[1]~1_combout\)) # (\REGA|DOUT[0]~DUPLICATE_q\))) ) ) ) # ( 
--- !\RAM1|ram~149_combout\ & ( \MUX2|saida_MUX[2]~2_combout\ & ( (!\MUX2|saida_MUX[3]~3_combout\ & ((!\MUX2|saida_MUX[1]~1_combout\) # ((\REGA|DOUT[0]~DUPLICATE_q\ & \SW[9]~input_o\)))) ) ) ) # ( \RAM1|ram~149_combout\ & ( !\MUX2|saida_MUX[2]~2_combout\ & ( 
--- (!\MUX2|saida_MUX[3]~3_combout\ & (((!\SW[9]~input_o\)) # (\REGA|DOUT[0]~DUPLICATE_q\))) # (\MUX2|saida_MUX[3]~3_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ & ((!\SW[9]~input_o\) # (\REGA|DOUT[0]~DUPLICATE_q\)))) ) ) ) # ( !\RAM1|ram~149_combout\ & ( 
--- !\MUX2|saida_MUX[2]~2_combout\ & ( (\REGA|DOUT[0]~DUPLICATE_q\ & (\SW[9]~input_o\ & ((!\MUX2|saida_MUX[3]~3_combout\) # (!\MUX2|saida_MUX[1]~1_combout\)))) ) ) )
+-- \HEX0_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( \SW[9]~input_o\ & ( \REGA|DOUT\(0) & ( (!\MUX2|saida_MUX[3]~3_combout\) # ((!\MUX2|saida_MUX[1]~1_combout\ & !\MUX2|saida_MUX[2]~2_combout\)) ) ) ) # ( !\SW[9]~input_o\ & ( \REGA|DOUT\(0) & ( 
+-- (!\MUX2|saida_MUX[1]~1_combout\ & ((!\MUX2|saida_MUX[2]~2_combout\ & ((\RAM1|ram~149_combout\))) # (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[3]~3_combout\)))) # (\MUX2|saida_MUX[1]~1_combout\ & (!\MUX2|saida_MUX[3]~3_combout\ & 
+-- ((\RAM1|ram~149_combout\)))) ) ) ) # ( \SW[9]~input_o\ & ( !\REGA|DOUT\(0) & ( (!\MUX2|saida_MUX[3]~3_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ & \MUX2|saida_MUX[2]~2_combout\)) ) ) ) # ( !\SW[9]~input_o\ & ( !\REGA|DOUT\(0) & ( 
+-- (!\MUX2|saida_MUX[1]~1_combout\ & ((!\MUX2|saida_MUX[2]~2_combout\ & ((\RAM1|ram~149_combout\))) # (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[3]~3_combout\)))) # (\MUX2|saida_MUX[1]~1_combout\ & (!\MUX2|saida_MUX[3]~3_combout\ & 
+-- ((\RAM1|ram~149_combout\)))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000001100000010111100111010001010101010000000101010101010100010",
+	lut_mask => "0000100011101010000010000000100000001000111010101110101011101010",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	dataa => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
-	datab => \REGA|ALT_INV_DOUT[0]~DUPLICATE_q\,
-	datac => \ALT_INV_SW[9]~input_o\,
-	datad => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
-	datae => \RAM1|ALT_INV_ram~149_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
+	datad => \RAM1|ALT_INV_ram~149_combout\,
+	datae => \ALT_INV_SW[9]~input_o\,
+	dataf => \REGA|ALT_INV_DOUT\(0),
 	combout => \HEX0_SEVENSEG|rascSaida7seg[4]~4_combout\);
 
--- Location: LABCELL_X43_Y3_N54
+-- Location: LABCELL_X47_Y1_N18
 \HEX0_SEVENSEG|rascSaida7seg[5]~5\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX0_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \RAM1|ram~146_combout\ & ( \MUX2|saida_MUX[0]~0_combout\ & ( (!\SW[9]~input_o\ & (((\MUX2|saida_MUX[2]~2_combout\ & !\MUX2|saida_MUX[1]~1_combout\)))) # (\SW[9]~input_o\ & (!\REGA|DOUT[3]~DUPLICATE_q\ $ 
--- (((\MUX2|saida_MUX[2]~2_combout\ & !\MUX2|saida_MUX[1]~1_combout\))))) ) ) ) # ( !\RAM1|ram~146_combout\ & ( \MUX2|saida_MUX[0]~0_combout\ & ( (!\SW[9]~input_o\ & (((!\MUX2|saida_MUX[2]~2_combout\) # (\MUX2|saida_MUX[1]~1_combout\)))) # (\SW[9]~input_o\ & 
--- (!\REGA|DOUT[3]~DUPLICATE_q\ $ (((\MUX2|saida_MUX[2]~2_combout\ & !\MUX2|saida_MUX[1]~1_combout\))))) ) ) ) # ( \RAM1|ram~146_combout\ & ( !\MUX2|saida_MUX[0]~0_combout\ & ( (\SW[9]~input_o\ & (!\REGA|DOUT[3]~DUPLICATE_q\ & (!\MUX2|saida_MUX[2]~2_combout\ 
--- & \MUX2|saida_MUX[1]~1_combout\))) ) ) ) # ( !\RAM1|ram~146_combout\ & ( !\MUX2|saida_MUX[0]~0_combout\ & ( (!\MUX2|saida_MUX[2]~2_combout\ & (\MUX2|saida_MUX[1]~1_combout\ & ((!\SW[9]~input_o\) # (!\REGA|DOUT[3]~DUPLICATE_q\)))) ) ) )
+-- \HEX0_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \MUX2|saida_MUX[0]~0_combout\ & ( \REGA|DOUT\(3) & ( (!\MUX2|saida_MUX[2]~2_combout\ & (((!\RAM1|ram~146_combout\ & !\SW[9]~input_o\)))) # (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ $ 
+-- (((!\RAM1|ram~146_combout\ & !\SW[9]~input_o\))))) ) ) ) # ( !\MUX2|saida_MUX[0]~0_combout\ & ( \REGA|DOUT\(3) & ( (!\MUX2|saida_MUX[2]~2_combout\ & (\MUX2|saida_MUX[1]~1_combout\ & (!\RAM1|ram~146_combout\ & !\SW[9]~input_o\))) ) ) ) # ( 
+-- \MUX2|saida_MUX[0]~0_combout\ & ( !\REGA|DOUT\(3) & ( (!\MUX2|saida_MUX[2]~2_combout\ & (((!\RAM1|ram~146_combout\) # (\SW[9]~input_o\)))) # (\MUX2|saida_MUX[2]~2_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ $ (((!\RAM1|ram~146_combout\) # 
+-- (\SW[9]~input_o\))))) ) ) ) # ( !\MUX2|saida_MUX[0]~0_combout\ & ( !\REGA|DOUT\(3) & ( (!\MUX2|saida_MUX[2]~2_combout\ & (\MUX2|saida_MUX[1]~1_combout\ & ((!\RAM1|ram~146_combout\) # (\SW[9]~input_o\)))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000011100000000000000100000011100001111011100100101101000100",
+	lut_mask => "0010000000100010101101001011101100100000000000001011010001000100",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datab => \REGA|ALT_INV_DOUT[3]~DUPLICATE_q\,
-	datac => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
-	datae => \RAM1|ALT_INV_ram~146_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
+	datac => \RAM1|ALT_INV_ram~146_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	datae => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
+	dataf => \REGA|ALT_INV_DOUT\(3),
 	combout => \HEX0_SEVENSEG|rascSaida7seg[5]~5_combout\);
 
--- Location: MLABCELL_X45_Y3_N57
+-- Location: MLABCELL_X45_Y1_N30
 \HEX0_SEVENSEG|rascSaida7seg[6]~6\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX0_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( \MUX2|saida_MUX[3]~3_combout\ & ( (!\MUX2|saida_MUX[0]~0_combout\ & (!\MUX2|saida_MUX[1]~1_combout\ & \MUX2|saida_MUX[2]~2_combout\)) ) ) # ( !\MUX2|saida_MUX[3]~3_combout\ & ( (!\MUX2|saida_MUX[1]~1_combout\ 
--- & ((!\MUX2|saida_MUX[2]~2_combout\))) # (\MUX2|saida_MUX[1]~1_combout\ & (\MUX2|saida_MUX[0]~0_combout\ & \MUX2|saida_MUX[2]~2_combout\)) ) )
+-- \HEX0_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( \MUX2|saida_MUX[1]~1_combout\ & ( (!\MUX2|saida_MUX[3]~3_combout\ & (\MUX2|saida_MUX[0]~0_combout\ & \MUX2|saida_MUX[2]~2_combout\)) ) ) # ( !\MUX2|saida_MUX[1]~1_combout\ & ( (!\MUX2|saida_MUX[3]~3_combout\ 
+-- & ((!\MUX2|saida_MUX[2]~2_combout\))) # (\MUX2|saida_MUX[3]~3_combout\ & (!\MUX2|saida_MUX[0]~0_combout\ & \MUX2|saida_MUX[2]~2_combout\)) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1100110000010001110011000001000100000000100010000000000010001000",
+	lut_mask => "1010010010100100101001001010010000000010000000100000001000000010",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
-	datab => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[3]~3_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[0]~0_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[2]~2_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[1]~1_combout\,
 	combout => \HEX0_SEVENSEG|rascSaida7seg[6]~6_combout\);
 
--- Location: FF_X42_Y3_N11
-\REGA|DOUT[7]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	d => \ULA1|saida[7]~7_combout\,
-	ena => \DECODER_INSTRU|saida~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \REGA|DOUT\(7));
-
--- Location: FF_X42_Y3_N53
-\RAM1|ram~40\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT[7]~DUPLICATE_q\,
-	sload => VCC,
-	ena => \RAM1|ram~165_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~40_q\);
-
--- Location: FF_X43_Y3_N58
-\RAM1|ram~32\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT[7]~DUPLICATE_q\,
-	sload => VCC,
-	ena => \RAM1|ram~166_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~32_q\);
-
--- Location: LABCELL_X43_Y3_N9
-\RAM1|ram~154\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~154_combout\ = ( \RAM1|ram~32_q\ & ( (!\ROM1|memROM~1_combout\ & ((\ROM1|memROM~0_combout\))) # (\ROM1|memROM~1_combout\ & (\RAM1|ram~40_q\ & !\ROM1|memROM~0_combout\)) ) ) # ( !\RAM1|ram~32_q\ & ( (\RAM1|ram~40_q\ & (\ROM1|memROM~1_combout\ & 
--- !\ROM1|memROM~0_combout\)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100000000000001010000000000000101111100000000010111110000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \RAM1|ALT_INV_ram~40_q\,
-	datac => \ROM1|ALT_INV_memROM~1_combout\,
-	datad => \ROM1|ALT_INV_memROM~0_combout\,
-	dataf => \RAM1|ALT_INV_ram~32_q\,
-	combout => \RAM1|ram~154_combout\);
-
--- Location: LABCELL_X43_Y3_N21
-\RAM1|ram~155\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~155_combout\ = (!\ROM1|memROM~3_combout\ & (!\ROM1|memROM~2_combout\ & \RAM1|ram~154_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000100000001000000010000000100000001000000010000000100000001000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~3_combout\,
-	datab => \ROM1|ALT_INV_memROM~2_combout\,
-	datac => \RAM1|ALT_INV_ram~154_combout\,
-	combout => \RAM1|ram~155_combout\);
-
--- Location: FF_X42_Y3_N20
-\REGA|DOUT[6]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	d => \ULA1|saida[6]~4_combout\,
-	ena => \DECODER_INSTRU|saida~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \REGA|DOUT\(6));
-
--- Location: MLABCELL_X42_Y3_N45
-\ULA1|Add0~21\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|Add0~21_sumout\ = SUM(( \REGA|DOUT\(4) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~158_combout\))) ) + ( \ULA1|Add0~2\ ))
--- \ULA1|Add0~22\ = CARRY(( \REGA|DOUT\(4) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~158_combout\))) ) + ( \ULA1|Add0~2\ ))
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000001110010011100100000000000000000000000011111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
-	datac => \RAM1|ALT_INV_ram~158_combout\,
-	datad => \REGA|ALT_INV_DOUT\(4),
-	cin => \ULA1|Add0~2\,
-	sumout => \ULA1|Add0~21_sumout\,
-	cout => \ULA1|Add0~22\);
-
--- Location: MLABCELL_X42_Y3_N21
-\ULA1|saida[4]~6\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|saida[4]~6_combout\ = ( \PC|DOUT\(3) & ( \ULA1|Add0~21_sumout\ ) ) # ( !\PC|DOUT\(3) & ( (\ULA1|Add0~21_sumout\ & ((\PC|DOUT\(2)) # (\PC|DOUT\(0)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000001011111000000000101111100000000111111110000000011111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(2),
-	datad => \ULA1|ALT_INV_Add0~21_sumout\,
-	dataf => \PC|ALT_INV_DOUT\(3),
-	combout => \ULA1|saida[4]~6_combout\);
-
--- Location: FF_X42_Y3_N22
-\REGA|DOUT[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	d => \ULA1|saida[4]~6_combout\,
-	ena => \DECODER_INSTRU|saida~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \REGA|DOUT\(4));
-
--- Location: FF_X43_Y3_N19
-\RAM1|ram~37\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT\(4),
-	sload => VCC,
-	ena => \RAM1|ram~165_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~37_q\);
-
--- Location: LABCELL_X43_Y3_N45
-\RAM1|ram~157\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~157_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~37_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~37_q\ & ((\PC|DOUT\(3)) # (\PC|DOUT\(0)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100001111000001010000111100001111000011110000111100001111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(0),
-	datac => \RAM1|ALT_INV_ram~37_q\,
-	datad => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~157_combout\);
-
--- Location: FF_X43_Y3_N44
-\RAM1|ram~29\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT\(4),
-	sload => VCC,
-	ena => \RAM1|ram~166_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~29_q\);
-
--- Location: LABCELL_X41_Y3_N42
-\RAM1|ram~156\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~156_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~29_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~29_q\ & ((\PC|DOUT\(0)) # (\PC|DOUT\(3)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100001111000001010000111100001111000011110000111100001111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(3),
-	datac => \RAM1|ALT_INV_ram~29_q\,
-	datad => \PC|ALT_INV_DOUT\(0),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~156_combout\);
-
--- Location: MLABCELL_X42_Y3_N6
-\RAM1|ram~158\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~158_combout\ = ( \RAM1|ram~156_combout\ & ( (!\ROM1|memROM~1_combout\ & ((\ROM1|memROM~0_combout\))) # (\ROM1|memROM~1_combout\ & (\RAM1|ram~157_combout\ & !\ROM1|memROM~0_combout\)) ) ) # ( !\RAM1|ram~156_combout\ & ( (\RAM1|ram~157_combout\ & 
--- (\ROM1|memROM~1_combout\ & !\ROM1|memROM~0_combout\)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100000000000001010000000000000101111100000000010111110000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \RAM1|ALT_INV_ram~157_combout\,
-	datac => \ROM1|ALT_INV_memROM~1_combout\,
-	datad => \ROM1|ALT_INV_memROM~0_combout\,
-	dataf => \RAM1|ALT_INV_ram~156_combout\,
-	combout => \RAM1|ram~158_combout\);
-
--- Location: MLABCELL_X42_Y3_N48
-\ULA1|Add0~25\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|Add0~25_sumout\ = SUM(( \REGA|DOUT\(5) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~164_combout\))) ) + ( \ULA1|Add0~22\ ))
--- \ULA1|Add0~26\ = CARRY(( \REGA|DOUT\(5) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~164_combout\))) ) + ( \ULA1|Add0~22\ ))
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000001110010011100100000000000000000000000011111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
-	datac => \RAM1|ALT_INV_ram~164_combout\,
-	datad => \REGA|ALT_INV_DOUT\(5),
-	cin => \ULA1|Add0~22\,
-	sumout => \ULA1|Add0~25_sumout\,
-	cout => \ULA1|Add0~26\);
-
--- Location: MLABCELL_X42_Y3_N24
-\ULA1|saida[5]~5\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|saida[5]~5_combout\ = ( \ULA1|Add0~25_sumout\ & ( ((\PC|DOUT\(0)) # (\PC|DOUT\(3))) # (\PC|DOUT\(2)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000000111111111111110011111111111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(2),
-	datac => \PC|ALT_INV_DOUT\(3),
-	datad => \PC|ALT_INV_DOUT\(0),
-	dataf => \ULA1|ALT_INV_Add0~25_sumout\,
-	combout => \ULA1|saida[5]~5_combout\);
-
--- Location: FF_X42_Y3_N26
-\REGA|DOUT[5]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	d => \ULA1|saida[5]~5_combout\,
-	ena => \DECODER_INSTRU|saida~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \REGA|DOUT\(5));
-
--- Location: FF_X43_Y3_N53
-\RAM1|ram~38\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \gravar:detectorSub0|saida~combout\,
-	asdata => \REGA|DOUT\(5),
-	sload => VCC,
-	ena => \RAM1|ram~165_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \RAM1|ram~38_q\);
-
--- Location: FF_X43_Y3_N35
+-- Location: FF_X43_Y1_N58
 \RAM1|ram~30\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2702,10 +2529,26 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \RAM1|ram~30_q\);
 
--- Location: LABCELL_X41_Y3_N45
+-- Location: FF_X43_Y1_N49
+\RAM1|ram~38\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(5),
+	sload => VCC,
+	ena => \RAM1|ram~165_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~38_q\);
+
+-- Location: LABCELL_X44_Y1_N33
 \RAM1|ram~159\ : cyclonev_lcell_comb
 -- Equation(s):
--- \RAM1|ram~159_combout\ = ( \ROM1|memROM~1_combout\ & ( (\RAM1|ram~38_q\ & !\ROM1|memROM~0_combout\) ) ) # ( !\ROM1|memROM~1_combout\ & ( (\RAM1|ram~30_q\ & \ROM1|memROM~0_combout\) ) )
+-- \RAM1|ram~159_combout\ = ( \ROM1|memROM~0_combout\ & ( (\RAM1|ram~30_q\ & !\ROM1|memROM~1_combout\) ) ) # ( !\ROM1|memROM~0_combout\ & ( (\RAM1|ram~38_q\ & \ROM1|memROM~1_combout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2714,30 +2557,357 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \RAM1|ALT_INV_ram~38_q\,
-	datac => \RAM1|ALT_INV_ram~30_q\,
-	datad => \ROM1|ALT_INV_memROM~0_combout\,
-	dataf => \ROM1|ALT_INV_memROM~1_combout\,
+	datab => \RAM1|ALT_INV_ram~30_q\,
+	datac => \RAM1|ALT_INV_ram~38_q\,
+	datad => \ROM1|ALT_INV_memROM~1_combout\,
+	dataf => \ROM1|ALT_INV_memROM~0_combout\,
 	combout => \RAM1|ram~159_combout\);
 
--- Location: LABCELL_X41_Y3_N30
+-- Location: LABCELL_X44_Y1_N6
 \RAM1|ram~164\ : cyclonev_lcell_comb
 -- Equation(s):
--- \RAM1|ram~164_combout\ = ( !\ROM1|memROM~2_combout\ & ( (\RAM1|ram~159_combout\ & !\ROM1|memROM~3_combout\) ) )
+-- \RAM1|ram~164_combout\ = ( \RAM1|ram~159_combout\ & ( (!\ROM1|memROM~2_combout\ & !\ROM1|memROM~3_combout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0011001100000000001100110000000000000000000000000000000000000000",
+	lut_mask => "0000000000000000000000000000000011110000000000001111000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \RAM1|ALT_INV_ram~159_combout\,
+	datac => \ROM1|ALT_INV_memROM~2_combout\,
 	datad => \ROM1|ALT_INV_memROM~3_combout\,
-	dataf => \ROM1|ALT_INV_memROM~2_combout\,
+	dataf => \RAM1|ALT_INV_ram~159_combout\,
 	combout => \RAM1|ram~164_combout\);
 
--- Location: MLABCELL_X42_Y3_N51
+-- Location: FF_X43_Y1_N20
+\REGA|DOUT[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	d => \ULA1|saida[4]~6_combout\,
+	ena => \DECODER_INSTRU|saida~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \REGA|DOUT\(4));
+
+-- Location: FF_X42_Y1_N29
+\RAM1|ram~37\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(4),
+	sload => VCC,
+	ena => \RAM1|ram~165_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~37_q\);
+
+-- Location: MLABCELL_X42_Y1_N27
+\RAM1|ram~157\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~157_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~37_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~37_q\ & ((\PC|DOUT\(3)) # (\PC|DOUT\(0)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000001011111000000000101111100000000111111110000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(0),
+	datac => \PC|ALT_INV_DOUT\(3),
+	datad => \RAM1|ALT_INV_ram~37_q\,
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \RAM1|ram~157_combout\);
+
+-- Location: FF_X42_Y1_N41
+\RAM1|ram~29\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(4),
+	sload => VCC,
+	ena => \RAM1|ram~166_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~29_q\);
+
+-- Location: MLABCELL_X42_Y1_N3
+\RAM1|ram~156\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~156_combout\ = ( \PC|DOUT\(3) & ( \PC|DOUT\(2) & ( \RAM1|ram~29_q\ ) ) ) # ( !\PC|DOUT\(3) & ( \PC|DOUT\(2) & ( \RAM1|ram~29_q\ ) ) ) # ( \PC|DOUT\(3) & ( !\PC|DOUT\(2) & ( \RAM1|ram~29_q\ ) ) ) # ( !\PC|DOUT\(3) & ( !\PC|DOUT\(2) & ( 
+-- (\RAM1|ram~29_q\ & \PC|DOUT\(0)) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000110011001100110011001100110011001100110011001100110011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \RAM1|ALT_INV_ram~29_q\,
+	datad => \PC|ALT_INV_DOUT\(0),
+	datae => \PC|ALT_INV_DOUT\(3),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \RAM1|ram~156_combout\);
+
+-- Location: LABCELL_X43_Y1_N3
+\RAM1|ram~158\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~158_combout\ = ( \RAM1|ram~156_combout\ & ( (!\ROM1|memROM~1_combout\ & (\ROM1|memROM~0_combout\)) # (\ROM1|memROM~1_combout\ & (!\ROM1|memROM~0_combout\ & \RAM1|ram~157_combout\)) ) ) # ( !\RAM1|ram~156_combout\ & ( (\ROM1|memROM~1_combout\ & 
+-- (!\ROM1|memROM~0_combout\ & \RAM1|ram~157_combout\)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000110000000000000011000000001100001111000000110000111100",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \ROM1|ALT_INV_memROM~1_combout\,
+	datac => \ROM1|ALT_INV_memROM~0_combout\,
+	datad => \RAM1|ALT_INV_ram~157_combout\,
+	dataf => \RAM1|ALT_INV_ram~156_combout\,
+	combout => \RAM1|ram~158_combout\);
+
+-- Location: LABCELL_X43_Y1_N45
+\ULA1|Add0~21\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|Add0~21_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~158_combout\))) ) + ( \REGA|DOUT[4]~DUPLICATE_q\ ) + ( \ULA1|Add0~2\ ))
+-- \ULA1|Add0~22\ = CARRY(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~158_combout\))) ) + ( \REGA|DOUT[4]~DUPLICATE_q\ ) + ( \ULA1|Add0~2\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111100001111000000000000000000001100110001100110",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
+	datac => \REGA|ALT_INV_DOUT[4]~DUPLICATE_q\,
+	datad => \RAM1|ALT_INV_ram~158_combout\,
+	cin => \ULA1|Add0~2\,
+	sumout => \ULA1|Add0~21_sumout\,
+	cout => \ULA1|Add0~22\);
+
+-- Location: LABCELL_X43_Y1_N18
+\ULA1|saida[4]~6\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|saida[4]~6_combout\ = ( \PC|DOUT\(3) & ( \ULA1|Add0~21_sumout\ ) ) # ( !\PC|DOUT\(3) & ( (\ULA1|Add0~21_sumout\ & ((\PC|DOUT\(0)) # (\PC|DOUT\(2)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000111111000000000011111100000000111111110000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \PC|ALT_INV_DOUT\(2),
+	datac => \PC|ALT_INV_DOUT\(0),
+	datad => \ULA1|ALT_INV_Add0~21_sumout\,
+	dataf => \PC|ALT_INV_DOUT\(3),
+	combout => \ULA1|saida[4]~6_combout\);
+
+-- Location: FF_X43_Y1_N19
+\REGA|DOUT[4]~DUPLICATE\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	d => \ULA1|saida[4]~6_combout\,
+	ena => \DECODER_INSTRU|saida~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \REGA|DOUT[4]~DUPLICATE_q\);
+
+-- Location: LABCELL_X43_Y1_N48
+\ULA1|Add0~25\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|Add0~25_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~164_combout\))) ) + ( \REGA|DOUT\(5) ) + ( \ULA1|Add0~22\ ))
+-- \ULA1|Add0~26\ = CARRY(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~164_combout\))) ) + ( \REGA|DOUT\(5) ) + ( \ULA1|Add0~22\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111100001111000000000000000000001100110001100110",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
+	datac => \REGA|ALT_INV_DOUT\(5),
+	datad => \RAM1|ALT_INV_ram~164_combout\,
+	cin => \ULA1|Add0~22\,
+	sumout => \ULA1|Add0~25_sumout\,
+	cout => \ULA1|Add0~26\);
+
+-- Location: LABCELL_X43_Y1_N9
+\ULA1|saida[5]~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|saida[5]~5_combout\ = ( \ULA1|Add0~25_sumout\ & ( ((\PC|DOUT\(0)) # (\PC|DOUT\(2))) # (\PC|DOUT\(3)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000111111111111110011111111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \PC|ALT_INV_DOUT\(3),
+	datac => \PC|ALT_INV_DOUT\(2),
+	datad => \PC|ALT_INV_DOUT\(0),
+	dataf => \ULA1|ALT_INV_Add0~25_sumout\,
+	combout => \ULA1|saida[5]~5_combout\);
+
+-- Location: FF_X43_Y1_N11
+\REGA|DOUT[5]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	d => \ULA1|saida[5]~5_combout\,
+	ena => \DECODER_INSTRU|saida~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \REGA|DOUT\(5));
+
+-- Location: LABCELL_X41_Y1_N12
+\MUX2|saida_MUX[5]~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[5]~5_combout\ = ( \RAM1|ram~159_combout\ & ( (!\SW[9]~input_o\ & (!\ROM1|memROM~3_combout\ & (!\ROM1|memROM~2_combout\))) # (\SW[9]~input_o\ & (((\REGA|DOUT\(5))))) ) ) # ( !\RAM1|ram~159_combout\ & ( (\SW[9]~input_o\ & \REGA|DOUT\(5)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000001010101000000000101010110000000110101011000000011010101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_SW[9]~input_o\,
+	datab => \ROM1|ALT_INV_memROM~3_combout\,
+	datac => \ROM1|ALT_INV_memROM~2_combout\,
+	datad => \REGA|ALT_INV_DOUT\(5),
+	dataf => \RAM1|ALT_INV_ram~159_combout\,
+	combout => \MUX2|saida_MUX[5]~5_combout\);
+
+-- Location: FF_X43_Y1_N29
+\REGA|DOUT[7]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	d => \ULA1|saida[7]~7_combout\,
+	ena => \DECODER_INSTRU|saida~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \REGA|DOUT\(7));
+
+-- Location: FF_X43_Y1_N31
+\RAM1|ram~32\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT\(7),
+	sload => VCC,
+	ena => \RAM1|ram~166_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~32_q\);
+
+-- Location: FF_X43_Y1_N52
+\RAM1|ram~40\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \REGA|DOUT[7]~DUPLICATE_q\,
+	sload => VCC,
+	ena => \RAM1|ram~165_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \RAM1|ram~40_q\);
+
+-- Location: LABCELL_X44_Y1_N21
+\RAM1|ram~154\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~154_combout\ = ( \ROM1|memROM~0_combout\ & ( (\RAM1|ram~32_q\ & !\ROM1|memROM~1_combout\) ) ) # ( !\ROM1|memROM~0_combout\ & ( (\RAM1|ram~40_q\ & \ROM1|memROM~1_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000001111000000000000111101010101000000000101010100000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \RAM1|ALT_INV_ram~32_q\,
+	datac => \RAM1|ALT_INV_ram~40_q\,
+	datad => \ROM1|ALT_INV_memROM~1_combout\,
+	dataf => \ROM1|ALT_INV_memROM~0_combout\,
+	combout => \RAM1|ram~154_combout\);
+
+-- Location: MLABCELL_X42_Y1_N57
+\RAM1|ram~155\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~155_combout\ = ( \RAM1|ram~154_combout\ & ( (!\ROM1|memROM~3_combout\ & !\ROM1|memROM~2_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000011110000000000001111000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \ROM1|ALT_INV_memROM~3_combout\,
+	datad => \ROM1|ALT_INV_memROM~2_combout\,
+	dataf => \RAM1|ALT_INV_ram~154_combout\,
+	combout => \RAM1|ram~155_combout\);
+
+-- Location: FF_X43_Y1_N22
+\REGA|DOUT[6]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	d => \ULA1|saida[6]~4_combout\,
+	ena => \DECODER_INSTRU|saida~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \REGA|DOUT\(6));
+
+-- Location: LABCELL_X43_Y1_N51
 \ULA1|Add0~29\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \ULA1|Add0~29_sumout\ = SUM(( \REGA|DOUT\(6) ) + ( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~162_combout\))) ) + ( \ULA1|Add0~26\ ))
@@ -2758,25 +2928,25 @@ PORT MAP (
 	sumout => \ULA1|Add0~29_sumout\,
 	cout => \ULA1|Add0~30\);
 
--- Location: MLABCELL_X42_Y3_N18
+-- Location: LABCELL_X43_Y1_N21
 \ULA1|saida[6]~4\ : cyclonev_lcell_comb
 -- Equation(s):
--- \ULA1|saida[6]~4_combout\ = ( \ULA1|Add0~29_sumout\ & ( ((\PC|DOUT\(0)) # (\PC|DOUT\(3))) # (\PC|DOUT\(2)) ) )
+-- \ULA1|saida[6]~4_combout\ = ( \ULA1|Add0~29_sumout\ & ( ((\PC|DOUT\(0)) # (\PC|DOUT\(2))) # (\PC|DOUT\(3)) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000000111111111111110011111111111111",
+	lut_mask => "0000000000000000000000000000000001011111111111110101111111111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(2),
-	datac => \PC|ALT_INV_DOUT\(3),
+	dataa => \PC|ALT_INV_DOUT\(3),
+	datac => \PC|ALT_INV_DOUT\(2),
 	datad => \PC|ALT_INV_DOUT\(0),
 	dataf => \ULA1|ALT_INV_Add0~29_sumout\,
 	combout => \ULA1|saida[6]~4_combout\);
 
--- Location: FF_X42_Y3_N19
+-- Location: FF_X43_Y1_N23
 \REGA|DOUT[6]~DUPLICATE\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2791,7 +2961,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \REGA|DOUT[6]~DUPLICATE_q\);
 
--- Location: FF_X41_Y3_N59
+-- Location: FF_X42_Y1_N47
 \RAM1|ram~31\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2807,7 +2977,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \RAM1|ram~31_q\);
 
--- Location: LABCELL_X41_Y3_N51
+-- Location: MLABCELL_X42_Y1_N18
 \RAM1|ram~160\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \RAM1|ram~160_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~31_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~31_q\ & ((\PC|DOUT\(3)) # (\PC|DOUT\(0)))) ) )
@@ -2815,17 +2985,17 @@ PORT MAP (
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000001100001111000000110000111100001111000011110000111100001111",
+	lut_mask => "0000000001011111000000000101111100000000111111110000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \RAM1|ALT_INV_ram~31_q\,
-	datad => \PC|ALT_INV_DOUT\(3),
+	dataa => \PC|ALT_INV_DOUT\(0),
+	datac => \PC|ALT_INV_DOUT\(3),
+	datad => \RAM1|ALT_INV_ram~31_q\,
 	dataf => \PC|ALT_INV_DOUT\(2),
 	combout => \RAM1|ram~160_combout\);
 
--- Location: FF_X42_Y3_N50
+-- Location: FF_X42_Y1_N25
 \RAM1|ram~39\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2841,10 +3011,66 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \RAM1|ram~39_q\);
 
--- Location: LABCELL_X41_Y3_N6
+-- Location: MLABCELL_X42_Y1_N15
 \RAM1|ram~161\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \RAM1|ram~161_combout\ = ( \PC|DOUT\(2) & ( \RAM1|ram~39_q\ ) ) # ( !\PC|DOUT\(2) & ( (\RAM1|ram~39_q\ & ((\PC|DOUT\(3)) # (\PC|DOUT\(0)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010100001111000001010000111100001111000011110000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(0),
+	datac => \RAM1|ALT_INV_ram~39_q\,
+	datad => \PC|ALT_INV_DOUT\(3),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \RAM1|ram~161_combout\);
+
+-- Location: MLABCELL_X42_Y1_N42
+\RAM1|ram~162\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \RAM1|ram~162_combout\ = ( \RAM1|ram~161_combout\ & ( (!\ROM1|memROM~0_combout\ & ((\ROM1|memROM~1_combout\))) # (\ROM1|memROM~0_combout\ & (\RAM1|ram~160_combout\ & !\ROM1|memROM~1_combout\)) ) ) # ( !\RAM1|ram~161_combout\ & ( (\ROM1|memROM~0_combout\ & 
+-- (\RAM1|ram~160_combout\ & !\ROM1|memROM~1_combout\)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010100000000000001010000000000000101101010100000010110101010",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ROM1|ALT_INV_memROM~0_combout\,
+	datac => \RAM1|ALT_INV_ram~160_combout\,
+	datad => \ROM1|ALT_INV_memROM~1_combout\,
+	dataf => \RAM1|ALT_INV_ram~161_combout\,
+	combout => \RAM1|ram~162_combout\);
+
+-- Location: LABCELL_X43_Y1_N54
+\ULA1|Add0~17\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|Add0~17_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~155_combout\))) ) + ( \REGA|DOUT\(7) ) + ( \ULA1|Add0~30\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000101010101010101000000000000000001100110000111100",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \REGA|ALT_INV_DOUT\(7),
+	datab => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
+	datac => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
+	datad => \RAM1|ALT_INV_ram~155_combout\,
+	cin => \ULA1|Add0~30\,
+	sumout => \ULA1|Add0~17_sumout\);
+
+-- Location: LABCELL_X43_Y1_N27
+\ULA1|saida[7]~7\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \ULA1|saida[7]~7_combout\ = ( \PC|DOUT\(0) & ( \ULA1|Add0~17_sumout\ ) ) # ( !\PC|DOUT\(0) & ( (\ULA1|Add0~17_sumout\ & ((\PC|DOUT\(2)) # (\PC|DOUT\(3)))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2853,69 +3079,13 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(3),
-	datad => \RAM1|ALT_INV_ram~39_q\,
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \RAM1|ram~161_combout\);
-
--- Location: LABCELL_X41_Y3_N3
-\RAM1|ram~162\ : cyclonev_lcell_comb
--- Equation(s):
--- \RAM1|ram~162_combout\ = ( \RAM1|ram~161_combout\ & ( (!\ROM1|memROM~1_combout\ & (\RAM1|ram~160_combout\ & \ROM1|memROM~0_combout\)) # (\ROM1|memROM~1_combout\ & ((!\ROM1|memROM~0_combout\))) ) ) # ( !\RAM1|ram~161_combout\ & ( (!\ROM1|memROM~1_combout\ 
--- & (\RAM1|ram~160_combout\ & \ROM1|memROM~0_combout\)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000001010000000000000101001010101000010100101010100001010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~1_combout\,
-	datac => \RAM1|ALT_INV_ram~160_combout\,
-	datad => \ROM1|ALT_INV_memROM~0_combout\,
-	dataf => \RAM1|ALT_INV_ram~161_combout\,
-	combout => \RAM1|ram~162_combout\);
-
--- Location: MLABCELL_X42_Y3_N54
-\ULA1|Add0~17\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|Add0~17_sumout\ = SUM(( !\DECODER_INSTRU|Equal1~1_combout\ $ (((!\DECODER_INSTRU|Equal1~0_combout\ & \RAM1|ram~155_combout\))) ) + ( \REGA|DOUT\(7) ) + ( \ULA1|Add0~30\ ))
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000110011001100110000000000000000001111000001011010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \DECODER_INSTRU|ALT_INV_Equal1~0_combout\,
-	datab => \REGA|ALT_INV_DOUT\(7),
-	datac => \DECODER_INSTRU|ALT_INV_Equal1~1_combout\,
-	datad => \RAM1|ALT_INV_ram~155_combout\,
-	cin => \ULA1|Add0~30\,
-	sumout => \ULA1|Add0~17_sumout\);
-
--- Location: MLABCELL_X42_Y3_N9
-\ULA1|saida[7]~7\ : cyclonev_lcell_comb
--- Equation(s):
--- \ULA1|saida[7]~7_combout\ = ( \ULA1|Add0~17_sumout\ & ( ((\PC|DOUT\(3)) # (\PC|DOUT\(2))) # (\PC|DOUT\(0)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000000111111111111110011111111111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
+	datab => \PC|ALT_INV_DOUT\(3),
 	datac => \PC|ALT_INV_DOUT\(2),
-	datad => \PC|ALT_INV_DOUT\(3),
-	dataf => \ULA1|ALT_INV_Add0~17_sumout\,
+	datad => \ULA1|ALT_INV_Add0~17_sumout\,
+	dataf => \PC|ALT_INV_DOUT\(0),
 	combout => \ULA1|saida[7]~7_combout\);
 
--- Location: FF_X42_Y3_N10
+-- Location: FF_X43_Y1_N28
 \REGA|DOUT[7]~DUPLICATE\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2930,376 +3100,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \REGA|DOUT[7]~DUPLICATE_q\);
 
--- Location: LABCELL_X44_Y3_N0
-\MUX2|saida_MUX[5]~5\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[5]~5_combout\ = ( \SW[9]~input_o\ & ( \RAM1|ram~159_combout\ & ( \REGA|DOUT\(5) ) ) ) # ( !\SW[9]~input_o\ & ( \RAM1|ram~159_combout\ & ( (!\ROM1|memROM~3_combout\ & !\ROM1|memROM~2_combout\) ) ) ) # ( \SW[9]~input_o\ & ( 
--- !\RAM1|ram~159_combout\ & ( \REGA|DOUT\(5) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000001100110011001111110000000000000011001100110011",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \REGA|ALT_INV_DOUT\(5),
-	datac => \ROM1|ALT_INV_memROM~3_combout\,
-	datad => \ROM1|ALT_INV_memROM~2_combout\,
-	datae => \ALT_INV_SW[9]~input_o\,
-	dataf => \RAM1|ALT_INV_ram~159_combout\,
-	combout => \MUX2|saida_MUX[5]~5_combout\);
-
--- Location: LABCELL_X44_Y3_N30
-\MUX2|saida_MUX[6]~6\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[6]~6_combout\ = (!\SW[9]~input_o\ & ((\RAM1|ram~162_combout\))) # (\SW[9]~input_o\ & (\REGA|DOUT[6]~DUPLICATE_q\))
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010110101111000001011010111100000101101011110000010110101111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datac => \REGA|ALT_INV_DOUT[6]~DUPLICATE_q\,
-	datad => \RAM1|ALT_INV_ram~162_combout\,
-	combout => \MUX2|saida_MUX[6]~6_combout\);
-
--- Location: LABCELL_X44_Y3_N18
+-- Location: MLABCELL_X45_Y1_N36
 \MUX2|saida_MUX[4]~4\ : cyclonev_lcell_comb
 -- Equation(s):
--- \MUX2|saida_MUX[4]~4_combout\ = ( \REGA|DOUT\(4) & ( (\RAM1|ram~158_combout\) # (\SW[9]~input_o\) ) ) # ( !\REGA|DOUT\(4) & ( (!\SW[9]~input_o\ & \RAM1|ram~158_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000011110000000000001111000000001111111111110000111111111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datac => \ALT_INV_SW[9]~input_o\,
-	datad => \RAM1|ALT_INV_ram~158_combout\,
-	dataf => \REGA|ALT_INV_DOUT\(4),
-	combout => \MUX2|saida_MUX[4]~4_combout\);
-
--- Location: LABCELL_X44_Y3_N12
-\HEX1_SEVENSEG|rascSaida7seg[0]~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX1_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \RAM1|ram~155_combout\ & ( \MUX2|saida_MUX[4]~4_combout\ & ( (!\MUX2|saida_MUX[5]~5_combout\ & (!\MUX2|saida_MUX[6]~6_combout\ $ (((!\SW[9]~input_o\) # (\REGA|DOUT[7]~DUPLICATE_q\))))) # 
--- (\MUX2|saida_MUX[5]~5_combout\ & (!\MUX2|saida_MUX[6]~6_combout\ & ((!\SW[9]~input_o\) # (\REGA|DOUT[7]~DUPLICATE_q\)))) ) ) ) # ( !\RAM1|ram~155_combout\ & ( \MUX2|saida_MUX[4]~4_combout\ & ( (!\MUX2|saida_MUX[5]~5_combout\ & 
--- (!\MUX2|saida_MUX[6]~6_combout\ $ (((\REGA|DOUT[7]~DUPLICATE_q\ & \SW[9]~input_o\))))) # (\MUX2|saida_MUX[5]~5_combout\ & (\REGA|DOUT[7]~DUPLICATE_q\ & (\SW[9]~input_o\ & !\MUX2|saida_MUX[6]~6_combout\))) ) ) ) # ( \RAM1|ram~155_combout\ & ( 
--- !\MUX2|saida_MUX[4]~4_combout\ & ( (!\REGA|DOUT[7]~DUPLICATE_q\ & (\SW[9]~input_o\ & (!\MUX2|saida_MUX[5]~5_combout\ & \MUX2|saida_MUX[6]~6_combout\))) ) ) ) # ( !\RAM1|ram~155_combout\ & ( !\MUX2|saida_MUX[4]~4_combout\ & ( 
--- (!\MUX2|saida_MUX[5]~5_combout\ & (\MUX2|saida_MUX[6]~6_combout\ & ((!\REGA|DOUT[7]~DUPLICATE_q\) # (!\SW[9]~input_o\)))) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000011100000000000000010000011100001000100000010110111010000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\,
-	datab => \ALT_INV_SW[9]~input_o\,
-	datac => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
-	datae => \RAM1|ALT_INV_ram~155_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
-	combout => \HEX1_SEVENSEG|rascSaida7seg[0]~0_combout\);
-
--- Location: LABCELL_X44_Y3_N42
-\MUX2|saida_MUX[7]~7\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[7]~7_combout\ = ( \RAM1|ram~154_combout\ & ( (!\SW[9]~input_o\ & (!\ROM1|memROM~2_combout\ & ((!\ROM1|memROM~3_combout\)))) # (\SW[9]~input_o\ & (((\REGA|DOUT[7]~DUPLICATE_q\)))) ) ) # ( !\RAM1|ram~154_combout\ & ( (\SW[9]~input_o\ & 
--- \REGA|DOUT[7]~DUPLICATE_q\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100000101000001010000010110001101000001011000110100000101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datab => \ROM1|ALT_INV_memROM~2_combout\,
-	datac => \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\,
-	datad => \ROM1|ALT_INV_memROM~3_combout\,
-	dataf => \RAM1|ALT_INV_ram~154_combout\,
-	combout => \MUX2|saida_MUX[7]~7_combout\);
-
--- Location: LABCELL_X44_Y3_N51
-\HEX1_SEVENSEG|rascSaida7seg[1]~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX1_SEVENSEG|rascSaida7seg[1]~1_combout\ = ( \MUX2|saida_MUX[4]~4_combout\ & ( (!\MUX2|saida_MUX[5]~5_combout\ & (\MUX2|saida_MUX[6]~6_combout\ & !\MUX2|saida_MUX[7]~7_combout\)) # (\MUX2|saida_MUX[5]~5_combout\ & ((\MUX2|saida_MUX[7]~7_combout\))) ) ) 
--- # ( !\MUX2|saida_MUX[4]~4_combout\ & ( (\MUX2|saida_MUX[6]~6_combout\ & ((\MUX2|saida_MUX[7]~7_combout\) # (\MUX2|saida_MUX[5]~5_combout\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0001001100010011000100110001001100100101001001010010010100100101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
-	datab => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
-	combout => \HEX1_SEVENSEG|rascSaida7seg[1]~1_combout\);
-
--- Location: LABCELL_X44_Y3_N21
-\HEX1_SEVENSEG|rascSaida7seg[2]~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX1_SEVENSEG|rascSaida7seg[2]~2_combout\ = ( \MUX2|saida_MUX[4]~4_combout\ & ( (\MUX2|saida_MUX[5]~5_combout\ & (\MUX2|saida_MUX[7]~7_combout\ & \MUX2|saida_MUX[6]~6_combout\)) ) ) # ( !\MUX2|saida_MUX[4]~4_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & 
--- (\MUX2|saida_MUX[5]~5_combout\ & !\MUX2|saida_MUX[6]~6_combout\)) # (\MUX2|saida_MUX[7]~7_combout\ & ((\MUX2|saida_MUX[6]~6_combout\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0100001101000011010000110100001100000001000000010000000100000001",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
-	datab => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
-	combout => \HEX1_SEVENSEG|rascSaida7seg[2]~2_combout\);
-
--- Location: LABCELL_X44_Y3_N54
-\HEX1_SEVENSEG|rascSaida7seg[3]~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX1_SEVENSEG|rascSaida7seg[3]~3_combout\ = ( \MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[4]~4_combout\ & (!\MUX2|saida_MUX[7]~7_combout\ & !\MUX2|saida_MUX[5]~5_combout\)) # (\MUX2|saida_MUX[4]~4_combout\ & ((\MUX2|saida_MUX[5]~5_combout\))) ) ) 
--- # ( !\MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & (\MUX2|saida_MUX[4]~4_combout\ & !\MUX2|saida_MUX[5]~5_combout\)) # (\MUX2|saida_MUX[7]~7_combout\ & (!\MUX2|saida_MUX[4]~4_combout\ & \MUX2|saida_MUX[5]~5_combout\)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000110000110000000011000011000011000000000011111100000000001111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
-	combout => \HEX1_SEVENSEG|rascSaida7seg[3]~3_combout\);
-
--- Location: LABCELL_X44_Y3_N36
-\HEX1_SEVENSEG|rascSaida7seg[4]~4\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX1_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( \RAM1|ram~158_combout\ & ( \REGA|DOUT\(4) & ( (!\MUX2|saida_MUX[7]~7_combout\) # ((!\MUX2|saida_MUX[6]~6_combout\ & !\MUX2|saida_MUX[5]~5_combout\)) ) ) ) # ( !\RAM1|ram~158_combout\ & ( \REGA|DOUT\(4) & ( 
--- (!\MUX2|saida_MUX[5]~5_combout\ & ((!\MUX2|saida_MUX[6]~6_combout\ & (\SW[9]~input_o\)) # (\MUX2|saida_MUX[6]~6_combout\ & ((!\MUX2|saida_MUX[7]~7_combout\))))) # (\MUX2|saida_MUX[5]~5_combout\ & (\SW[9]~input_o\ & ((!\MUX2|saida_MUX[7]~7_combout\)))) ) ) 
--- ) # ( \RAM1|ram~158_combout\ & ( !\REGA|DOUT\(4) & ( (!\MUX2|saida_MUX[5]~5_combout\ & ((!\MUX2|saida_MUX[6]~6_combout\ & (!\SW[9]~input_o\)) # (\MUX2|saida_MUX[6]~6_combout\ & ((!\MUX2|saida_MUX[7]~7_combout\))))) # (\MUX2|saida_MUX[5]~5_combout\ & 
--- (!\SW[9]~input_o\ & ((!\MUX2|saida_MUX[7]~7_combout\)))) ) ) ) # ( !\RAM1|ram~158_combout\ & ( !\REGA|DOUT\(4) & ( (\MUX2|saida_MUX[6]~6_combout\ & (!\MUX2|saida_MUX[5]~5_combout\ & !\MUX2|saida_MUX[7]~7_combout\)) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0011000000000000101110101000000001110101010000001111111111000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datab => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
-	datae => \RAM1|ALT_INV_ram~158_combout\,
-	dataf => \REGA|ALT_INV_DOUT\(4),
-	combout => \HEX1_SEVENSEG|rascSaida7seg[4]~4_combout\);
-
--- Location: LABCELL_X44_Y3_N6
-\HEX1_SEVENSEG|rascSaida7seg[5]~5\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX1_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \RAM1|ram~155_combout\ & ( \MUX2|saida_MUX[4]~4_combout\ & ( (!\REGA|DOUT[7]~DUPLICATE_q\ & (!\SW[9]~input_o\ $ (((!\MUX2|saida_MUX[6]~6_combout\) # (\MUX2|saida_MUX[5]~5_combout\))))) # 
--- (\REGA|DOUT[7]~DUPLICATE_q\ & (((!\MUX2|saida_MUX[5]~5_combout\ & \MUX2|saida_MUX[6]~6_combout\)))) ) ) ) # ( !\RAM1|ram~155_combout\ & ( \MUX2|saida_MUX[4]~4_combout\ & ( (!\REGA|DOUT[7]~DUPLICATE_q\ & (((!\MUX2|saida_MUX[6]~6_combout\) # 
--- (\MUX2|saida_MUX[5]~5_combout\)))) # (\REGA|DOUT[7]~DUPLICATE_q\ & (!\SW[9]~input_o\ $ (((!\MUX2|saida_MUX[5]~5_combout\ & \MUX2|saida_MUX[6]~6_combout\))))) ) ) ) # ( \RAM1|ram~155_combout\ & ( !\MUX2|saida_MUX[4]~4_combout\ & ( 
--- (!\REGA|DOUT[7]~DUPLICATE_q\ & (\SW[9]~input_o\ & (\MUX2|saida_MUX[5]~5_combout\ & !\MUX2|saida_MUX[6]~6_combout\))) ) ) ) # ( !\RAM1|ram~155_combout\ & ( !\MUX2|saida_MUX[4]~4_combout\ & ( (\MUX2|saida_MUX[5]~5_combout\ & (!\MUX2|saida_MUX[6]~6_combout\ 
--- & ((!\REGA|DOUT[7]~DUPLICATE_q\) # (!\SW[9]~input_o\)))) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000111000000000000000100000000011101110000111100010001011010010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\,
-	datab => \ALT_INV_SW[9]~input_o\,
-	datac => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
-	datae => \RAM1|ALT_INV_ram~155_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
-	combout => \HEX1_SEVENSEG|rascSaida7seg[5]~5_combout\);
-
--- Location: MLABCELL_X45_Y3_N27
-\HEX1_SEVENSEG|rascSaida7seg[6]~6\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX1_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( !\MUX2|saida_MUX[7]~7_combout\ & ( \MUX2|saida_MUX[4]~4_combout\ & ( !\MUX2|saida_MUX[6]~6_combout\ $ (\MUX2|saida_MUX[5]~5_combout\) ) ) ) # ( \MUX2|saida_MUX[7]~7_combout\ & ( !\MUX2|saida_MUX[4]~4_combout\ 
--- & ( (\MUX2|saida_MUX[6]~6_combout\ & !\MUX2|saida_MUX[5]~5_combout\) ) ) ) # ( !\MUX2|saida_MUX[7]~7_combout\ & ( !\MUX2|saida_MUX[4]~4_combout\ & ( (!\MUX2|saida_MUX[6]~6_combout\ & !\MUX2|saida_MUX[5]~5_combout\) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1010000010100000010100000101000010100101101001010000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
-	datae => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
-	combout => \HEX1_SEVENSEG|rascSaida7seg[6]~6_combout\);
-
--- Location: LABCELL_X40_Y3_N0
-\HEX2_SEVENSEG|rascSaida7seg[0]~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX2_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \PC|DOUT\(2) & ( (!\PC|DOUT\(1) & !\PC|DOUT\(3)) ) ) # ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & ((!\PC|DOUT\(0)) # (\PC|DOUT\(1)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1101000011010000110100001101000010100000101000001010000010100000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \HEX2_SEVENSEG|rascSaida7seg[0]~0_combout\);
-
--- Location: LABCELL_X40_Y3_N3
-\HEX2_SEVENSEG|rascSaida7seg[1]~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX2_SEVENSEG|rascSaida7seg[1]~1_combout\ = ( !\PC|DOUT\(2) & ( (\PC|DOUT\(1) & (!\PC|DOUT\(0) & !\PC|DOUT\(3))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0100000001000000010000000100000000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \HEX2_SEVENSEG|rascSaida7seg[1]~1_combout\);
-
--- Location: LABCELL_X40_Y3_N9
-\HEX2_SEVENSEG|rascSaida7seg[2]~5\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX2_SEVENSEG|rascSaida7seg[2]~5_combout\ = ( \PC|DOUT\(2) & ( (\PC|DOUT\(1) & (!\PC|DOUT\(0) & !\PC|DOUT\(3))) ) ) # ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(1) & (\PC|DOUT\(0) & !\PC|DOUT\(3))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0010000000100000001000000010000001000000010000000100000001000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \HEX2_SEVENSEG|rascSaida7seg[2]~5_combout\);
-
--- Location: LABCELL_X40_Y3_N18
-\HEX2_SEVENSEG|rascSaida7seg[3]~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX2_SEVENSEG|rascSaida7seg[3]~2_combout\ = ( \PC|DOUT\(2) & ( (!\PC|DOUT\(1) & !\PC|DOUT\(3)) ) ) # ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & (!\PC|DOUT\(1) $ (\PC|DOUT\(0)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1001000010010000100100001001000010100000101000001010000010100000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \HEX2_SEVENSEG|rascSaida7seg[3]~2_combout\);
-
--- Location: LABCELL_X40_Y3_N21
-\HEX2_SEVENSEG|rascSaida7seg[5]~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX2_SEVENSEG|rascSaida7seg[5]~3_combout\ = ( \PC|DOUT\(2) & ( (!\PC|DOUT\(3) & ((!\PC|DOUT\(1)) # (!\PC|DOUT\(0)))) ) ) # ( !\PC|DOUT\(2) & ( (\PC|DOUT\(0) & !\PC|DOUT\(3)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0011000000110000001100000011000011100000111000001110000011100000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \PC|ALT_INV_DOUT\(3),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \HEX2_SEVENSEG|rascSaida7seg[5]~3_combout\);
-
--- Location: LABCELL_X40_Y3_N15
-\HEX2_SEVENSEG|rascSaida7seg[6]~4\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX2_SEVENSEG|rascSaida7seg[6]~4_combout\ = ( !\PC|DOUT\(0) & ( \PC|DOUT\(2) & ( (\PC|DOUT\(1) & !\PC|DOUT\(3)) ) ) ) # ( \PC|DOUT\(0) & ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(1) & !\PC|DOUT\(3)) ) ) ) # ( !\PC|DOUT\(0) & ( !\PC|DOUT\(2) & ( !\PC|DOUT\(3) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1111111100000000101010100000000001010101000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \PC|ALT_INV_DOUT\(1),
-	datad => \PC|ALT_INV_DOUT\(3),
-	datae => \PC|ALT_INV_DOUT\(0),
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \HEX2_SEVENSEG|rascSaida7seg[6]~4_combout\);
-
--- Location: MLABCELL_X45_Y3_N18
-\MUX2|saida_MUX[17]~9\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[17]~9_combout\ = ( \PC|DOUT\(1) & ( (!\SW[9]~input_o\) # ((\RAM1|ram~150_combout\ & ((!\ROM1|memROM~4_combout\) # (\PC|DOUT\(0))))) ) ) # ( !\PC|DOUT\(1) & ( (\SW[9]~input_o\ & (\RAM1|ram~150_combout\ & ((!\ROM1|memROM~4_combout\) # 
--- (\PC|DOUT\(0))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000001010001000000000101000110101010111110111010101011111011",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datab => \PC|ALT_INV_DOUT\(0),
-	datac => \ROM1|ALT_INV_memROM~4_combout\,
-	datad => \RAM1|ALT_INV_ram~150_combout\,
-	dataf => \PC|ALT_INV_DOUT\(1),
-	combout => \MUX2|saida_MUX[17]~9_combout\);
-
--- Location: MLABCELL_X45_Y3_N51
-\MUX2|saida_MUX[18]~10\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[18]~10_combout\ = ( \PC|DOUT\(2) & ( (!\SW[9]~input_o\) # (\RAM1|ram~153_combout\) ) ) # ( !\PC|DOUT\(2) & ( (\SW[9]~input_o\ & \RAM1|ram~153_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100000101000001010000010110101111101011111010111110101111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datac => \RAM1|ALT_INV_ram~153_combout\,
-	dataf => \PC|ALT_INV_DOUT\(2),
-	combout => \MUX2|saida_MUX[18]~10_combout\);
-
--- Location: MLABCELL_X45_Y3_N21
-\MUX2|saida_MUX[16]~8\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[16]~8_combout\ = ( \SW[9]~input_o\ & ( \RAM1|ram~149_combout\ ) ) # ( !\SW[9]~input_o\ & ( \PC|DOUT\(0) ) )
+-- \MUX2|saida_MUX[4]~4_combout\ = ( \SW[9]~input_o\ & ( \REGA|DOUT[4]~DUPLICATE_q\ ) ) # ( !\SW[9]~input_o\ & ( \RAM1|ram~158_combout\ ) )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3308,176 +3112,533 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \PC|ALT_INV_DOUT\(0),
-	datad => \RAM1|ALT_INV_ram~149_combout\,
+	datab => \RAM1|ALT_INV_ram~158_combout\,
+	datad => \REGA|ALT_INV_DOUT[4]~DUPLICATE_q\,
 	dataf => \ALT_INV_SW[9]~input_o\,
+	combout => \MUX2|saida_MUX[4]~4_combout\);
+
+-- Location: MLABCELL_X42_Y1_N24
+\MUX2|saida_MUX[6]~6\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[6]~6_combout\ = ( \RAM1|ram~162_combout\ & ( (!\SW[9]~input_o\) # (\REGA|DOUT[6]~DUPLICATE_q\) ) ) # ( !\RAM1|ram~162_combout\ & ( (\SW[9]~input_o\ & \REGA|DOUT[6]~DUPLICATE_q\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000001111000000000000111111110000111111111111000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \ALT_INV_SW[9]~input_o\,
+	datad => \REGA|ALT_INV_DOUT[6]~DUPLICATE_q\,
+	dataf => \RAM1|ALT_INV_ram~162_combout\,
+	combout => \MUX2|saida_MUX[6]~6_combout\);
+
+-- Location: MLABCELL_X45_Y1_N18
+\HEX1_SEVENSEG|rascSaida7seg[0]~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX1_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \MUX2|saida_MUX[4]~4_combout\ & ( \MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[5]~5_combout\ & ((!\SW[9]~input_o\ & ((\RAM1|ram~155_combout\))) # (\SW[9]~input_o\ & (\REGA|DOUT[7]~DUPLICATE_q\)))) ) ) 
+-- ) # ( !\MUX2|saida_MUX[4]~4_combout\ & ( \MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[5]~5_combout\ & ((!\SW[9]~input_o\ & ((!\RAM1|ram~155_combout\))) # (\SW[9]~input_o\ & (!\REGA|DOUT[7]~DUPLICATE_q\)))) ) ) ) # ( \MUX2|saida_MUX[4]~4_combout\ & 
+-- ( !\MUX2|saida_MUX[6]~6_combout\ & ( !\MUX2|saida_MUX[5]~5_combout\ $ (((!\SW[9]~input_o\ & ((\RAM1|ram~155_combout\))) # (\SW[9]~input_o\ & (\REGA|DOUT[7]~DUPLICATE_q\)))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000101001011001100110100000100010000000101000100010",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
+	datab => \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\,
+	datac => \RAM1|ALT_INV_ram~155_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	datae => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
+	combout => \HEX1_SEVENSEG|rascSaida7seg[0]~0_combout\);
+
+-- Location: LABCELL_X41_Y1_N18
+\MUX2|saida_MUX[7]~7\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[7]~7_combout\ = ( \RAM1|ram~154_combout\ & ( \REGA|DOUT[7]~DUPLICATE_q\ & ( ((!\ROM1|memROM~3_combout\ & !\ROM1|memROM~2_combout\)) # (\SW[9]~input_o\) ) ) ) # ( !\RAM1|ram~154_combout\ & ( \REGA|DOUT[7]~DUPLICATE_q\ & ( \SW[9]~input_o\ ) 
+-- ) ) # ( \RAM1|ram~154_combout\ & ( !\REGA|DOUT[7]~DUPLICATE_q\ & ( (!\SW[9]~input_o\ & (!\ROM1|memROM~3_combout\ & !\ROM1|memROM~2_combout\)) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000100000001000000001010101010101011101010111010101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_SW[9]~input_o\,
+	datab => \ROM1|ALT_INV_memROM~3_combout\,
+	datac => \ROM1|ALT_INV_memROM~2_combout\,
+	datae => \RAM1|ALT_INV_ram~154_combout\,
+	dataf => \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\,
+	combout => \MUX2|saida_MUX[7]~7_combout\);
+
+-- Location: MLABCELL_X45_Y1_N39
+\HEX1_SEVENSEG|rascSaida7seg[1]~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX1_SEVENSEG|rascSaida7seg[1]~1_combout\ = ( \MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & (!\MUX2|saida_MUX[5]~5_combout\ $ (!\MUX2|saida_MUX[4]~4_combout\))) # (\MUX2|saida_MUX[7]~7_combout\ & ((!\MUX2|saida_MUX[4]~4_combout\) # 
+-- (\MUX2|saida_MUX[5]~5_combout\))) ) ) # ( !\MUX2|saida_MUX[6]~6_combout\ & ( (\MUX2|saida_MUX[7]~7_combout\ & (\MUX2|saida_MUX[5]~5_combout\ & \MUX2|saida_MUX[4]~4_combout\)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000101000000000000010101011111101001010101111110100101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
+	combout => \HEX1_SEVENSEG|rascSaida7seg[1]~1_combout\);
+
+-- Location: MLABCELL_X45_Y1_N48
+\HEX1_SEVENSEG|rascSaida7seg[2]~2\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX1_SEVENSEG|rascSaida7seg[2]~2_combout\ = ( \MUX2|saida_MUX[6]~6_combout\ & ( (\MUX2|saida_MUX[7]~7_combout\ & ((!\MUX2|saida_MUX[4]~4_combout\) # (\MUX2|saida_MUX[5]~5_combout\))) ) ) # ( !\MUX2|saida_MUX[6]~6_combout\ & ( 
+-- (\MUX2|saida_MUX[5]~5_combout\ & (!\MUX2|saida_MUX[7]~7_combout\ & !\MUX2|saida_MUX[4]~4_combout\)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0011000000000000001100000000000000001111000000110000111100000011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
+	combout => \HEX1_SEVENSEG|rascSaida7seg[2]~2_combout\);
+
+-- Location: MLABCELL_X45_Y1_N51
+\HEX1_SEVENSEG|rascSaida7seg[3]~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX1_SEVENSEG|rascSaida7seg[3]~3_combout\ = ( \MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[5]~5_combout\ & (!\MUX2|saida_MUX[7]~7_combout\ & !\MUX2|saida_MUX[4]~4_combout\)) # (\MUX2|saida_MUX[5]~5_combout\ & ((\MUX2|saida_MUX[4]~4_combout\))) ) ) 
+-- # ( !\MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & (!\MUX2|saida_MUX[5]~5_combout\ & \MUX2|saida_MUX[4]~4_combout\)) # (\MUX2|saida_MUX[7]~7_combout\ & (\MUX2|saida_MUX[5]~5_combout\ & !\MUX2|saida_MUX[4]~4_combout\)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010110100000000001011010000010100000000011111010000000001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
+	combout => \HEX1_SEVENSEG|rascSaida7seg[3]~3_combout\);
+
+-- Location: MLABCELL_X45_Y1_N6
+\HEX1_SEVENSEG|rascSaida7seg[4]~4\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX1_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( \REGA|DOUT[4]~DUPLICATE_q\ & ( \MUX2|saida_MUX[5]~5_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & ((\RAM1|ram~158_combout\) # (\SW[9]~input_o\))) ) ) ) # ( !\REGA|DOUT[4]~DUPLICATE_q\ & ( 
+-- \MUX2|saida_MUX[5]~5_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & (!\SW[9]~input_o\ & \RAM1|ram~158_combout\)) ) ) ) # ( \REGA|DOUT[4]~DUPLICATE_q\ & ( !\MUX2|saida_MUX[5]~5_combout\ & ( (!\MUX2|saida_MUX[6]~6_combout\ & (((\RAM1|ram~158_combout\) # 
+-- (\SW[9]~input_o\)))) # (\MUX2|saida_MUX[6]~6_combout\ & (!\MUX2|saida_MUX[7]~7_combout\)) ) ) ) # ( !\REGA|DOUT[4]~DUPLICATE_q\ & ( !\MUX2|saida_MUX[5]~5_combout\ & ( (!\MUX2|saida_MUX[6]~6_combout\ & (((!\SW[9]~input_o\ & \RAM1|ram~158_combout\)))) # 
+-- (\MUX2|saida_MUX[6]~6_combout\ & (!\MUX2|saida_MUX[7]~7_combout\)) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000101011001010001110101111101000000000100010000010001010101010",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
+	datab => \ALT_INV_SW[9]~input_o\,
+	datac => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
+	datad => \RAM1|ALT_INV_ram~158_combout\,
+	datae => \REGA|ALT_INV_DOUT[4]~DUPLICATE_q\,
+	dataf => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
+	combout => \HEX1_SEVENSEG|rascSaida7seg[4]~4_combout\);
+
+-- Location: MLABCELL_X45_Y1_N24
+\HEX1_SEVENSEG|rascSaida7seg[5]~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX1_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \MUX2|saida_MUX[4]~4_combout\ & ( \MUX2|saida_MUX[6]~6_combout\ & ( !\MUX2|saida_MUX[5]~5_combout\ $ (((!\SW[9]~input_o\ & ((!\RAM1|ram~155_combout\))) # (\SW[9]~input_o\ & (!\REGA|DOUT[7]~DUPLICATE_q\)))) ) 
+-- ) ) # ( \MUX2|saida_MUX[4]~4_combout\ & ( !\MUX2|saida_MUX[6]~6_combout\ & ( (!\SW[9]~input_o\ & ((!\RAM1|ram~155_combout\))) # (\SW[9]~input_o\ & (!\REGA|DOUT[7]~DUPLICATE_q\)) ) ) ) # ( !\MUX2|saida_MUX[4]~4_combout\ & ( !\MUX2|saida_MUX[6]~6_combout\ & 
+-- ( (\MUX2|saida_MUX[5]~5_combout\ & ((!\SW[9]~input_o\ & ((!\RAM1|ram~155_combout\))) # (\SW[9]~input_o\ & (!\REGA|DOUT[7]~DUPLICATE_q\)))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0101000001000100111100001100110000000000000000000101101001100110",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
+	datab => \REGA|ALT_INV_DOUT[7]~DUPLICATE_q\,
+	datac => \RAM1|ALT_INV_ram~155_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	datae => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
+	combout => \HEX1_SEVENSEG|rascSaida7seg[5]~5_combout\);
+
+-- Location: MLABCELL_X45_Y1_N42
+\HEX1_SEVENSEG|rascSaida7seg[6]~6\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX1_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( \MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & (\MUX2|saida_MUX[5]~5_combout\ & \MUX2|saida_MUX[4]~4_combout\)) # (\MUX2|saida_MUX[7]~7_combout\ & (!\MUX2|saida_MUX[5]~5_combout\ & 
+-- !\MUX2|saida_MUX[4]~4_combout\)) ) ) # ( !\MUX2|saida_MUX[6]~6_combout\ & ( (!\MUX2|saida_MUX[7]~7_combout\ & !\MUX2|saida_MUX[5]~5_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1000100010001000100010001000100001000010010000100100001001000010",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[7]~7_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[5]~5_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[4]~4_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[6]~6_combout\,
+	combout => \HEX1_SEVENSEG|rascSaida7seg[6]~6_combout\);
+
+-- Location: MLABCELL_X42_Y1_N21
+\HEX2_SEVENSEG|rascSaida7seg[0]~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX2_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \PC|DOUT\(2) & ( (!\PC|DOUT\(3) & !\PC|DOUT\(1)) ) ) # ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & ((!\PC|DOUT\(0)) # (\PC|DOUT\(1)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1000110010001100100011001000110011000000110000001100000011000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(0),
+	datab => \PC|ALT_INV_DOUT\(3),
+	datac => \PC|ALT_INV_DOUT\(1),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \HEX2_SEVENSEG|rascSaida7seg[0]~0_combout\);
+
+-- Location: MLABCELL_X42_Y1_N9
+\HEX2_SEVENSEG|rascSaida7seg[1]~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX2_SEVENSEG|rascSaida7seg[1]~1_combout\ = (\PC|DOUT\(1) & (!\PC|DOUT\(0) & (!\PC|DOUT\(2) & !\PC|DOUT\(3))))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0100000000000000010000000000000001000000000000000100000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(1),
+	datab => \PC|ALT_INV_DOUT\(0),
+	datac => \PC|ALT_INV_DOUT\(2),
+	datad => \PC|ALT_INV_DOUT\(3),
+	combout => \HEX2_SEVENSEG|rascSaida7seg[1]~1_combout\);
+
+-- Location: LABCELL_X41_Y1_N54
+\HEX2_SEVENSEG|rascSaida7seg[2]~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX2_SEVENSEG|rascSaida7seg[2]~5_combout\ = ( \PC|DOUT\(0) & ( (!\PC|DOUT\(1) & (!\PC|DOUT\(3) & !\PC|DOUT\(2))) ) ) # ( !\PC|DOUT\(0) & ( (\PC|DOUT\(1) & (!\PC|DOUT\(3) & \PC|DOUT\(2))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000110000000000000011000011000000000000001100000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \PC|ALT_INV_DOUT\(1),
+	datac => \PC|ALT_INV_DOUT\(3),
+	datad => \PC|ALT_INV_DOUT\(2),
+	dataf => \PC|ALT_INV_DOUT\(0),
+	combout => \HEX2_SEVENSEG|rascSaida7seg[2]~5_combout\);
+
+-- Location: LABCELL_X41_Y1_N24
+\HEX2_SEVENSEG|rascSaida7seg[3]~2\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX2_SEVENSEG|rascSaida7seg[3]~2_combout\ = ( \PC|DOUT\(2) & ( \PC|DOUT\(0) & ( (!\PC|DOUT\(3) & !\PC|DOUT\(1)) ) ) ) # ( !\PC|DOUT\(2) & ( \PC|DOUT\(0) & ( (!\PC|DOUT\(3) & \PC|DOUT\(1)) ) ) ) # ( \PC|DOUT\(2) & ( !\PC|DOUT\(0) & ( (!\PC|DOUT\(3) & 
+-- !\PC|DOUT\(1)) ) ) ) # ( !\PC|DOUT\(2) & ( !\PC|DOUT\(0) & ( (!\PC|DOUT\(3) & !\PC|DOUT\(1)) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1010000010100000101000001010000000001010000010101010000010100000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(3),
+	datac => \PC|ALT_INV_DOUT\(1),
+	datae => \PC|ALT_INV_DOUT\(2),
+	dataf => \PC|ALT_INV_DOUT\(0),
+	combout => \HEX2_SEVENSEG|rascSaida7seg[3]~2_combout\);
+
+-- Location: LABCELL_X41_Y1_N57
+\HEX2_SEVENSEG|rascSaida7seg[5]~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX2_SEVENSEG|rascSaida7seg[5]~3_combout\ = ( \PC|DOUT\(0) & ( (!\PC|DOUT\(3) & ((!\PC|DOUT\(1)) # (!\PC|DOUT\(2)))) ) ) # ( !\PC|DOUT\(0) & ( (!\PC|DOUT\(3) & \PC|DOUT\(2)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000010101010000000001010101010101010101000001010101010100000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(3),
+	datac => \PC|ALT_INV_DOUT\(1),
+	datad => \PC|ALT_INV_DOUT\(2),
+	dataf => \PC|ALT_INV_DOUT\(0),
+	combout => \HEX2_SEVENSEG|rascSaida7seg[5]~3_combout\);
+
+-- Location: MLABCELL_X42_Y1_N48
+\HEX2_SEVENSEG|rascSaida7seg[6]~4\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX2_SEVENSEG|rascSaida7seg[6]~4_combout\ = ( \PC|DOUT\(2) & ( (\PC|DOUT\(1) & (!\PC|DOUT\(3) & !\PC|DOUT\(0))) ) ) # ( !\PC|DOUT\(2) & ( (!\PC|DOUT\(3) & ((!\PC|DOUT\(1)) # (!\PC|DOUT\(0)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1111000011000000111100001100000000110000000000000011000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \PC|ALT_INV_DOUT\(1),
+	datac => \PC|ALT_INV_DOUT\(3),
+	datad => \PC|ALT_INV_DOUT\(0),
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \HEX2_SEVENSEG|rascSaida7seg[6]~4_combout\);
+
+-- Location: MLABCELL_X42_Y1_N6
+\MUX2|saida_MUX[17]~9\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[17]~9_combout\ = ( \RAM1|ram~150_combout\ & ( (!\SW[9]~input_o\ & (\PC|DOUT\(1))) # (\SW[9]~input_o\ & (((!\ROM1|memROM~4_combout\) # (\PC|DOUT\(0))))) ) ) # ( !\RAM1|ram~150_combout\ & ( (\PC|DOUT\(1) & !\SW[9]~input_o\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0101000001010000010100000101000001011111010100110101111101010011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(1),
+	datab => \PC|ALT_INV_DOUT\(0),
+	datac => \ALT_INV_SW[9]~input_o\,
+	datad => \ROM1|ALT_INV_memROM~4_combout\,
+	dataf => \RAM1|ALT_INV_ram~150_combout\,
+	combout => \MUX2|saida_MUX[17]~9_combout\);
+
+-- Location: MLABCELL_X42_Y1_N45
+\MUX2|saida_MUX[18]~10\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[18]~10_combout\ = ( \PC|DOUT\(2) & ( (!\SW[9]~input_o\) # (\RAM1|ram~153_combout\) ) ) # ( !\PC|DOUT\(2) & ( (\SW[9]~input_o\ & \RAM1|ram~153_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000001100000011000000110000001111001111110011111100111111001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \ALT_INV_SW[9]~input_o\,
+	datac => \RAM1|ALT_INV_ram~153_combout\,
+	dataf => \PC|ALT_INV_DOUT\(2),
+	combout => \MUX2|saida_MUX[18]~10_combout\);
+
+-- Location: LABCELL_X47_Y1_N33
+\MUX2|saida_MUX[16]~8\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[16]~8_combout\ = ( \PC|DOUT\(0) & ( (!\SW[9]~input_o\) # (\RAM1|ram~149_combout\) ) ) # ( !\PC|DOUT\(0) & ( (\RAM1|ram~149_combout\ & \SW[9]~input_o\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000001111000000000000111111111111000011111111111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \RAM1|ALT_INV_ram~149_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	dataf => \PC|ALT_INV_DOUT\(0),
 	combout => \MUX2|saida_MUX[16]~8_combout\);
 
--- Location: MLABCELL_X45_Y3_N30
+-- Location: LABCELL_X47_Y1_N12
 \HEX4_SEVENSEG|rascSaida7seg[0]~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX4_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \MUX2|saida_MUX[16]~8_combout\ & ( \SW[9]~input_o\ & ( (!\MUX2|saida_MUX[17]~9_combout\ & (!\MUX2|saida_MUX[18]~10_combout\ $ (\RAM1|ram~146_combout\))) # (\MUX2|saida_MUX[17]~9_combout\ & 
--- (!\MUX2|saida_MUX[18]~10_combout\ & \RAM1|ram~146_combout\)) ) ) ) # ( !\MUX2|saida_MUX[16]~8_combout\ & ( \SW[9]~input_o\ & ( (!\MUX2|saida_MUX[17]~9_combout\ & (\MUX2|saida_MUX[18]~10_combout\ & !\RAM1|ram~146_combout\)) ) ) ) # ( 
--- \MUX2|saida_MUX[16]~8_combout\ & ( !\SW[9]~input_o\ & ( (!\MUX2|saida_MUX[17]~9_combout\ & (!\PC|DOUT\(3) $ (\MUX2|saida_MUX[18]~10_combout\))) # (\MUX2|saida_MUX[17]~9_combout\ & (\PC|DOUT\(3) & !\MUX2|saida_MUX[18]~10_combout\)) ) ) ) # ( 
--- !\MUX2|saida_MUX[16]~8_combout\ & ( !\SW[9]~input_o\ & ( (!\MUX2|saida_MUX[17]~9_combout\ & (!\PC|DOUT\(3) & \MUX2|saida_MUX[18]~10_combout\)) ) ) )
+-- \HEX4_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \MUX2|saida_MUX[18]~10_combout\ & ( \MUX2|saida_MUX[16]~8_combout\ & ( (!\MUX2|saida_MUX[17]~9_combout\ & ((!\SW[9]~input_o\ & ((\PC|DOUT\(3)))) # (\SW[9]~input_o\ & (\RAM1|ram~146_combout\)))) ) ) ) # ( 
+-- !\MUX2|saida_MUX[18]~10_combout\ & ( \MUX2|saida_MUX[16]~8_combout\ & ( !\MUX2|saida_MUX[17]~9_combout\ $ (((!\SW[9]~input_o\ & ((\PC|DOUT\(3)))) # (\SW[9]~input_o\ & (\RAM1|ram~146_combout\)))) ) ) ) # ( \MUX2|saida_MUX[18]~10_combout\ & ( 
+-- !\MUX2|saida_MUX[16]~8_combout\ & ( (!\MUX2|saida_MUX[17]~9_combout\ & ((!\SW[9]~input_o\ & ((!\PC|DOUT\(3)))) # (\SW[9]~input_o\ & (!\RAM1|ram~146_combout\)))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000100000001000100100101001001000001010000000001010000001011010",
+	lut_mask => "0000000000000000110010000100000011001001011000110000010010001100",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
-	datab => \PC|ALT_INV_DOUT\(3),
-	datac => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
-	datad => \RAM1|ALT_INV_ram~146_combout\,
-	datae => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
-	dataf => \ALT_INV_SW[9]~input_o\,
+	dataa => \ALT_INV_SW[9]~input_o\,
+	datab => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	datac => \RAM1|ALT_INV_ram~146_combout\,
+	datad => \PC|ALT_INV_DOUT\(3),
+	datae => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
 	combout => \HEX4_SEVENSEG|rascSaida7seg[0]~0_combout\);
 
--- Location: LABCELL_X43_Y3_N18
+-- Location: LABCELL_X47_Y1_N39
 \MUX2|saida_MUX[19]~11\ : cyclonev_lcell_comb
 -- Equation(s):
--- \MUX2|saida_MUX[19]~11_combout\ = ( \RAM1|ram~145_combout\ & ( (!\SW[9]~input_o\ & (((\PC|DOUT\(3))))) # (\SW[9]~input_o\ & (!\ROM1|memROM~3_combout\ & (!\ROM1|memROM~2_combout\))) ) ) # ( !\RAM1|ram~145_combout\ & ( (!\SW[9]~input_o\ & \PC|DOUT\(3)) ) )
+-- \MUX2|saida_MUX[19]~11_combout\ = ( \PC|DOUT\(3) & ( (!\SW[9]~input_o\) # ((\RAM1|ram~145_combout\ & (!\ROM1|memROM~3_combout\ & !\ROM1|memROM~2_combout\))) ) ) # ( !\PC|DOUT\(3) & ( (\SW[9]~input_o\ & (\RAM1|ram~145_combout\ & (!\ROM1|memROM~3_combout\ & 
+-- !\ROM1|memROM~2_combout\))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000011110000000000001111000000001000111110000000100011111000",
+	lut_mask => "0001000000000000000100000000000010111010101010101011101010101010",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ROM1|ALT_INV_memROM~3_combout\,
-	datab => \ROM1|ALT_INV_memROM~2_combout\,
-	datac => \ALT_INV_SW[9]~input_o\,
-	datad => \PC|ALT_INV_DOUT\(3),
-	dataf => \RAM1|ALT_INV_ram~145_combout\,
+	dataa => \ALT_INV_SW[9]~input_o\,
+	datab => \RAM1|ALT_INV_ram~145_combout\,
+	datac => \ROM1|ALT_INV_memROM~3_combout\,
+	datad => \ROM1|ALT_INV_memROM~2_combout\,
+	dataf => \PC|ALT_INV_DOUT\(3),
 	combout => \MUX2|saida_MUX[19]~11_combout\);
 
--- Location: MLABCELL_X45_Y3_N0
+-- Location: LABCELL_X47_Y1_N54
 \HEX4_SEVENSEG|rascSaida7seg[1]~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX4_SEVENSEG|rascSaida7seg[1]~1_combout\ = (!\MUX2|saida_MUX[17]~9_combout\ & (\MUX2|saida_MUX[18]~10_combout\ & (!\MUX2|saida_MUX[19]~11_combout\ $ (!\MUX2|saida_MUX[16]~8_combout\)))) # (\MUX2|saida_MUX[17]~9_combout\ & 
--- ((!\MUX2|saida_MUX[16]~8_combout\ & ((\MUX2|saida_MUX[18]~10_combout\))) # (\MUX2|saida_MUX[16]~8_combout\ & (\MUX2|saida_MUX[19]~11_combout\))))
+-- \HEX4_SEVENSEG|rascSaida7seg[1]~1_combout\ = ( \MUX2|saida_MUX[17]~9_combout\ & ( (!\MUX2|saida_MUX[16]~8_combout\ & ((\MUX2|saida_MUX[18]~10_combout\))) # (\MUX2|saida_MUX[16]~8_combout\ & (\MUX2|saida_MUX[19]~11_combout\)) ) ) # ( 
+-- !\MUX2|saida_MUX[17]~9_combout\ & ( (\MUX2|saida_MUX[18]~10_combout\ & (!\MUX2|saida_MUX[19]~11_combout\ $ (!\MUX2|saida_MUX[16]~8_combout\))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000011100011001000001110001100100000111000110010000011100011001",
+	lut_mask => "0000000000111100000000000011110000000011111100110000001111110011",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
 	datab => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
 	combout => \HEX4_SEVENSEG|rascSaida7seg[1]~1_combout\);
 
--- Location: MLABCELL_X45_Y3_N3
+-- Location: LABCELL_X47_Y1_N24
 \HEX4_SEVENSEG|rascSaida7seg[2]~2\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX4_SEVENSEG|rascSaida7seg[2]~2_combout\ = ( \MUX2|saida_MUX[18]~10_combout\ & ( (\MUX2|saida_MUX[19]~11_combout\ & ((!\MUX2|saida_MUX[16]~8_combout\) # (\MUX2|saida_MUX[17]~9_combout\))) ) ) # ( !\MUX2|saida_MUX[18]~10_combout\ & ( 
--- (\MUX2|saida_MUX[17]~9_combout\ & (!\MUX2|saida_MUX[19]~11_combout\ & !\MUX2|saida_MUX[16]~8_combout\)) ) )
+-- \HEX4_SEVENSEG|rascSaida7seg[2]~2_combout\ = ( \MUX2|saida_MUX[16]~8_combout\ & ( (\MUX2|saida_MUX[17]~9_combout\ & (\MUX2|saida_MUX[18]~10_combout\ & \MUX2|saida_MUX[19]~11_combout\)) ) ) # ( !\MUX2|saida_MUX[16]~8_combout\ & ( 
+-- (!\MUX2|saida_MUX[18]~10_combout\ & (\MUX2|saida_MUX[17]~9_combout\ & !\MUX2|saida_MUX[19]~11_combout\)) # (\MUX2|saida_MUX[18]~10_combout\ & ((\MUX2|saida_MUX[19]~11_combout\))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0100010000000000010001000000000000110011000100010011001100010001",
+	lut_mask => "0011000000001111001100000000111100000000000000110000000000000011",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
-	datab => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
 	combout => \HEX4_SEVENSEG|rascSaida7seg[2]~2_combout\);
 
--- Location: MLABCELL_X45_Y3_N48
+-- Location: LABCELL_X47_Y1_N27
 \HEX4_SEVENSEG|rascSaida7seg[3]~3\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX4_SEVENSEG|rascSaida7seg[3]~3_combout\ = ( \MUX2|saida_MUX[17]~9_combout\ & ( (!\MUX2|saida_MUX[18]~10_combout\ & (\MUX2|saida_MUX[19]~11_combout\ & !\MUX2|saida_MUX[16]~8_combout\)) # (\MUX2|saida_MUX[18]~10_combout\ & 
--- ((\MUX2|saida_MUX[16]~8_combout\))) ) ) # ( !\MUX2|saida_MUX[17]~9_combout\ & ( (!\MUX2|saida_MUX[19]~11_combout\ & (!\MUX2|saida_MUX[18]~10_combout\ $ (!\MUX2|saida_MUX[16]~8_combout\))) ) )
+-- \HEX4_SEVENSEG|rascSaida7seg[3]~3_combout\ = ( \MUX2|saida_MUX[16]~8_combout\ & ( (!\MUX2|saida_MUX[18]~10_combout\ & (!\MUX2|saida_MUX[17]~9_combout\ & !\MUX2|saida_MUX[19]~11_combout\)) # (\MUX2|saida_MUX[18]~10_combout\ & 
+-- (\MUX2|saida_MUX[17]~9_combout\)) ) ) # ( !\MUX2|saida_MUX[16]~8_combout\ & ( (!\MUX2|saida_MUX[18]~10_combout\ & (\MUX2|saida_MUX[17]~9_combout\ & \MUX2|saida_MUX[19]~11_combout\)) # (\MUX2|saida_MUX[18]~10_combout\ & (!\MUX2|saida_MUX[17]~9_combout\ & 
+-- !\MUX2|saida_MUX[19]~11_combout\)) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000110011000000000011001100000000110000000011110011000000001111",
+	lut_mask => "0100001001000010010000100100001010010001100100011001000110010001",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
+	datab => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
 	combout => \HEX4_SEVENSEG|rascSaida7seg[3]~3_combout\);
 
--- Location: MLABCELL_X45_Y3_N6
+-- Location: LABCELL_X47_Y1_N42
 \HEX4_SEVENSEG|rascSaida7seg[4]~4\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX4_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( \RAM1|ram~149_combout\ & ( \MUX2|saida_MUX[17]~9_combout\ & ( (!\MUX2|saida_MUX[19]~11_combout\ & ((\PC|DOUT\(0)) # (\SW[9]~input_o\))) ) ) ) # ( !\RAM1|ram~149_combout\ & ( \MUX2|saida_MUX[17]~9_combout\ & ( 
--- (!\MUX2|saida_MUX[19]~11_combout\ & (!\SW[9]~input_o\ & \PC|DOUT\(0))) ) ) ) # ( \RAM1|ram~149_combout\ & ( !\MUX2|saida_MUX[17]~9_combout\ & ( (!\MUX2|saida_MUX[18]~10_combout\ & (((\PC|DOUT\(0)) # (\SW[9]~input_o\)))) # (\MUX2|saida_MUX[18]~10_combout\ 
--- & (!\MUX2|saida_MUX[19]~11_combout\)) ) ) ) # ( !\RAM1|ram~149_combout\ & ( !\MUX2|saida_MUX[17]~9_combout\ & ( (!\MUX2|saida_MUX[18]~10_combout\ & (((!\SW[9]~input_o\ & \PC|DOUT\(0))))) # (\MUX2|saida_MUX[18]~10_combout\ & 
--- (!\MUX2|saida_MUX[19]~11_combout\)) ) ) )
+-- \HEX4_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( !\MUX2|saida_MUX[18]~10_combout\ & ( \MUX2|saida_MUX[19]~11_combout\ & ( (!\MUX2|saida_MUX[17]~9_combout\ & ((!\SW[9]~input_o\ & (\PC|DOUT\(0))) # (\SW[9]~input_o\ & ((\RAM1|ram~149_combout\))))) ) ) ) # ( 
+-- \MUX2|saida_MUX[18]~10_combout\ & ( !\MUX2|saida_MUX[19]~11_combout\ & ( (!\MUX2|saida_MUX[17]~9_combout\) # ((!\SW[9]~input_o\ & (\PC|DOUT\(0))) # (\SW[9]~input_o\ & ((\RAM1|ram~149_combout\)))) ) ) ) # ( !\MUX2|saida_MUX[18]~10_combout\ & ( 
+-- !\MUX2|saida_MUX[19]~11_combout\ & ( (!\SW[9]~input_o\ & (\PC|DOUT\(0))) # (\SW[9]~input_o\ & ((\RAM1|ram~149_combout\))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0100010011100100010011101110111000000000110000000000110011001100",
+	lut_mask => "0000101001011111110011101101111100001000010011000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_SW[9]~input_o\,
+	datab => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	datac => \PC|ALT_INV_DOUT\(0),
+	datad => \RAM1|ALT_INV_ram~149_combout\,
+	datae => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
+	combout => \HEX4_SEVENSEG|rascSaida7seg[4]~4_combout\);
+
+-- Location: MLABCELL_X45_Y1_N12
+\HEX4_SEVENSEG|rascSaida7seg[5]~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX4_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \RAM1|ram~146_combout\ & ( \MUX2|saida_MUX[17]~9_combout\ & ( (!\PC|DOUT\(3) & (!\SW[9]~input_o\ & ((!\MUX2|saida_MUX[18]~10_combout\) # (\MUX2|saida_MUX[16]~8_combout\)))) ) ) ) # ( !\RAM1|ram~146_combout\ & 
+-- ( \MUX2|saida_MUX[17]~9_combout\ & ( (!\PC|DOUT\(3) & (((!\MUX2|saida_MUX[18]~10_combout\) # (\MUX2|saida_MUX[16]~8_combout\)))) # (\PC|DOUT\(3) & (\SW[9]~input_o\ & ((!\MUX2|saida_MUX[18]~10_combout\) # (\MUX2|saida_MUX[16]~8_combout\)))) ) ) ) # ( 
+-- \RAM1|ram~146_combout\ & ( !\MUX2|saida_MUX[17]~9_combout\ & ( (\MUX2|saida_MUX[16]~8_combout\ & (!\MUX2|saida_MUX[18]~10_combout\ $ (((\SW[9]~input_o\) # (\PC|DOUT\(3)))))) ) ) ) # ( !\RAM1|ram~146_combout\ & ( !\MUX2|saida_MUX[17]~9_combout\ & ( 
+-- (\MUX2|saida_MUX[16]~8_combout\ & (!\MUX2|saida_MUX[18]~10_combout\ $ (((\PC|DOUT\(3) & !\SW[9]~input_o\))))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000101100000100000010000000011110111011000010111000100000001000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \PC|ALT_INV_DOUT\(3),
+	datab => \ALT_INV_SW[9]~input_o\,
+	datac => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
+	datae => \RAM1|ALT_INV_ram~146_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	combout => \HEX4_SEVENSEG|rascSaida7seg[5]~5_combout\);
+
+-- Location: LABCELL_X47_Y1_N57
+\HEX4_SEVENSEG|rascSaida7seg[6]~6\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX4_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( \MUX2|saida_MUX[16]~8_combout\ & ( (!\MUX2|saida_MUX[19]~11_combout\ & (!\MUX2|saida_MUX[18]~10_combout\ $ (\MUX2|saida_MUX[17]~9_combout\))) ) ) # ( !\MUX2|saida_MUX[16]~8_combout\ & ( 
+-- (!\MUX2|saida_MUX[17]~9_combout\ & (!\MUX2|saida_MUX[18]~10_combout\ $ (\MUX2|saida_MUX[19]~11_combout\))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1001000010010000100100001001000010000100100001001000010010000100",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	dataa => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
 	datab => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
-	datac => \ALT_INV_SW[9]~input_o\,
-	datad => \PC|ALT_INV_DOUT\(0),
-	datae => \RAM1|ALT_INV_ram~149_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
-	combout => \HEX4_SEVENSEG|rascSaida7seg[4]~4_combout\);
-
--- Location: MLABCELL_X45_Y3_N12
-\HEX4_SEVENSEG|rascSaida7seg[5]~5\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX4_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \MUX2|saida_MUX[16]~8_combout\ & ( \SW[9]~input_o\ & ( !\RAM1|ram~146_combout\ $ (((!\MUX2|saida_MUX[17]~9_combout\ & \MUX2|saida_MUX[18]~10_combout\))) ) ) ) # ( !\MUX2|saida_MUX[16]~8_combout\ & ( 
--- \SW[9]~input_o\ & ( (\MUX2|saida_MUX[17]~9_combout\ & (!\MUX2|saida_MUX[18]~10_combout\ & !\RAM1|ram~146_combout\)) ) ) ) # ( \MUX2|saida_MUX[16]~8_combout\ & ( !\SW[9]~input_o\ & ( !\PC|DOUT\(3) $ (((!\MUX2|saida_MUX[17]~9_combout\ & 
--- \MUX2|saida_MUX[18]~10_combout\))) ) ) ) # ( !\MUX2|saida_MUX[16]~8_combout\ & ( !\SW[9]~input_o\ & ( (\MUX2|saida_MUX[17]~9_combout\ & (!\PC|DOUT\(3) & !\MUX2|saida_MUX[18]~10_combout\)) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0100000001000000110001101100011001010000000000001111010100001010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
-	datab => \PC|ALT_INV_DOUT\(3),
-	datac => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
-	datad => \RAM1|ALT_INV_ram~146_combout\,
-	datae => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
-	dataf => \ALT_INV_SW[9]~input_o\,
-	combout => \HEX4_SEVENSEG|rascSaida7seg[5]~5_combout\);
-
--- Location: MLABCELL_X45_Y3_N45
-\HEX4_SEVENSEG|rascSaida7seg[6]~6\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX4_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( \MUX2|saida_MUX[16]~8_combout\ & ( \MUX2|saida_MUX[17]~9_combout\ & ( (\MUX2|saida_MUX[18]~10_combout\ & !\MUX2|saida_MUX[19]~11_combout\) ) ) ) # ( \MUX2|saida_MUX[16]~8_combout\ & ( 
--- !\MUX2|saida_MUX[17]~9_combout\ & ( (!\MUX2|saida_MUX[18]~10_combout\ & !\MUX2|saida_MUX[19]~11_combout\) ) ) ) # ( !\MUX2|saida_MUX[16]~8_combout\ & ( !\MUX2|saida_MUX[17]~9_combout\ & ( !\MUX2|saida_MUX[18]~10_combout\ $ 
--- (\MUX2|saida_MUX[19]~11_combout\) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1010010110100101101000001010000000000000000000000101000001010000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[18]~10_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[19]~11_combout\,
-	datae => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[17]~9_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[16]~8_combout\,
 	combout => \HEX4_SEVENSEG|rascSaida7seg[6]~6_combout\);
 
--- Location: LABCELL_X40_Y3_N39
+-- Location: FF_X41_Y1_N53
+\PC|DOUT[5]~DUPLICATE\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \incrementaPC|Add0~21_sumout\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \PC|DOUT[5]~DUPLICATE_q\);
+
+-- Location: LABCELL_X41_Y1_N39
 \incrementaPC|Add0~17\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \incrementaPC|Add0~17_sumout\ = SUM(( \PC|DOUT\(4) ) + ( GND ) + ( \incrementaPC|Add0~2\ ))
@@ -3486,16 +3647,16 @@ PORT MAP (
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
+	lut_mask => "0000000000000000111111111111111100000000000000000101010101010101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \PC|ALT_INV_DOUT\(4),
+	dataa => \PC|ALT_INV_DOUT\(4),
 	cin => \incrementaPC|Add0~2\,
 	sumout => \incrementaPC|Add0~17_sumout\,
 	cout => \incrementaPC|Add0~18\);
 
--- Location: FF_X43_Y3_N14
+-- Location: FF_X41_Y1_N29
 \PC|DOUT[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3510,42 +3671,25 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(4));
 
--- Location: MLABCELL_X42_Y2_N51
-\MUX2|saida_MUX[20]~12\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[20]~12_combout\ = ( \PC|DOUT\(4) & ( (!\SW[9]~input_o\) # (\RAM1|ram~158_combout\) ) ) # ( !\PC|DOUT\(4) & ( (\SW[9]~input_o\ & \RAM1|ram~158_combout\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000010100000101000001010000010110101111101011111010111110101111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datac => \RAM1|ALT_INV_ram~158_combout\,
-	dataf => \PC|ALT_INV_DOUT\(4),
-	combout => \MUX2|saida_MUX[20]~12_combout\);
-
--- Location: LABCELL_X40_Y3_N42
+-- Location: LABCELL_X41_Y1_N42
 \incrementaPC|Add0~21\ : cyclonev_lcell_comb
 -- Equation(s):
--- \incrementaPC|Add0~21_sumout\ = SUM(( \PC|DOUT\(5) ) + ( GND ) + ( \incrementaPC|Add0~18\ ))
--- \incrementaPC|Add0~22\ = CARRY(( \PC|DOUT\(5) ) + ( GND ) + ( \incrementaPC|Add0~18\ ))
+-- \incrementaPC|Add0~21_sumout\ = SUM(( \PC|DOUT[5]~DUPLICATE_q\ ) + ( GND ) + ( \incrementaPC|Add0~18\ ))
+-- \incrementaPC|Add0~22\ = CARRY(( \PC|DOUT[5]~DUPLICATE_q\ ) + ( GND ) + ( \incrementaPC|Add0~18\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
+	lut_mask => "0000000000000000111111111111111100000000000000000000111100001111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \PC|ALT_INV_DOUT\(5),
+	datac => \PC|ALT_INV_DOUT[5]~DUPLICATE_q\,
 	cin => \incrementaPC|Add0~18\,
 	sumout => \incrementaPC|Add0~21_sumout\,
 	cout => \incrementaPC|Add0~22\);
 
--- Location: FF_X42_Y3_N59
+-- Location: FF_X41_Y1_N52
 \PC|DOUT[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3560,7 +3704,27 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(5));
 
--- Location: LABCELL_X40_Y3_N45
+-- Location: LABCELL_X41_Y1_N0
+\MUX2|saida_MUX[21]~13\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[21]~13_combout\ = ( \PC|DOUT\(5) & ( \ROM1|memROM~2_combout\ & ( !\SW[9]~input_o\ ) ) ) # ( \PC|DOUT\(5) & ( !\ROM1|memROM~2_combout\ & ( (!\SW[9]~input_o\) # ((\RAM1|ram~159_combout\ & !\ROM1|memROM~3_combout\)) ) ) ) # ( !\PC|DOUT\(5) & 
+-- ( !\ROM1|memROM~2_combout\ & ( (\RAM1|ram~159_combout\ & (!\ROM1|memROM~3_combout\ & \SW[9]~input_o\)) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010000000100111101001111010000000000000000001111000011110000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \RAM1|ALT_INV_ram~159_combout\,
+	datab => \ROM1|ALT_INV_memROM~3_combout\,
+	datac => \ALT_INV_SW[9]~input_o\,
+	datae => \PC|ALT_INV_DOUT\(5),
+	dataf => \ROM1|ALT_INV_memROM~2_combout\,
+	combout => \MUX2|saida_MUX[21]~13_combout\);
+
+-- Location: LABCELL_X41_Y1_N45
 \incrementaPC|Add0~25\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \incrementaPC|Add0~25_sumout\ = SUM(( \PC|DOUT\(6) ) + ( GND ) + ( \incrementaPC|Add0~22\ ))
@@ -3578,7 +3742,7 @@ PORT MAP (
 	sumout => \incrementaPC|Add0~25_sumout\,
 	cout => \incrementaPC|Add0~26\);
 
--- Location: FF_X40_Y3_N32
+-- Location: FF_X41_Y1_N41
 \PC|DOUT[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3593,24 +3757,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(6));
 
--- Location: LABCELL_X44_Y3_N57
-\MUX2|saida_MUX[22]~14\ : cyclonev_lcell_comb
--- Equation(s):
--- \MUX2|saida_MUX[22]~14_combout\ = ( \SW[9]~input_o\ & ( \RAM1|ram~162_combout\ ) ) # ( !\SW[9]~input_o\ & ( \PC|DOUT\(6) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000111100001111000011110000111101010101010101010101010101010101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \RAM1|ALT_INV_ram~162_combout\,
-	datac => \PC|ALT_INV_DOUT\(6),
-	dataf => \ALT_INV_SW[9]~input_o\,
-	combout => \MUX2|saida_MUX[22]~14_combout\);
-
--- Location: LABCELL_X40_Y3_N48
+-- Location: LABCELL_X41_Y1_N48
 \incrementaPC|Add0~13\ : cyclonev_lcell_comb
 -- Equation(s):
 -- \incrementaPC|Add0~13_sumout\ = SUM(( \PC|DOUT\(7) ) + ( GND ) + ( \incrementaPC|Add0~26\ ))
@@ -3618,15 +3765,15 @@ PORT MAP (
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
+	lut_mask => "0000000000000000111111111111111100000000000000000011001100110011",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \PC|ALT_INV_DOUT\(7),
+	datab => \PC|ALT_INV_DOUT\(7),
 	cin => \incrementaPC|Add0~26\,
 	sumout => \incrementaPC|Add0~13_sumout\);
 
--- Location: FF_X43_Y3_N17
+-- Location: FF_X41_Y1_N32
 \PC|DOUT[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3641,190 +3788,221 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \PC|DOUT\(7));
 
--- Location: LABCELL_X44_Y3_N33
-\MUX2|saida_MUX[21]~13\ : cyclonev_lcell_comb
+-- Location: LABCELL_X41_Y1_N15
+\MUX2|saida_MUX[22]~14\ : cyclonev_lcell_comb
 -- Equation(s):
--- \MUX2|saida_MUX[21]~13_combout\ = ( \RAM1|ram~159_combout\ & ( (!\SW[9]~input_o\ & (((\PC|DOUT\(5))))) # (\SW[9]~input_o\ & (!\ROM1|memROM~2_combout\ & ((!\ROM1|memROM~3_combout\)))) ) ) # ( !\RAM1|ram~159_combout\ & ( (!\SW[9]~input_o\ & \PC|DOUT\(5)) ) 
--- )
+-- \MUX2|saida_MUX[22]~14_combout\ = ( \PC|DOUT\(6) & ( (!\SW[9]~input_o\) # (\RAM1|ram~162_combout\) ) ) # ( !\PC|DOUT\(6) & ( (\RAM1|ram~162_combout\ & \SW[9]~input_o\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000101000001010000010100000101001001110000010100100111000001010",
+	lut_mask => "0000000000001111000000000000111111111111000011111111111100001111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datab => \ROM1|ALT_INV_memROM~2_combout\,
-	datac => \PC|ALT_INV_DOUT\(5),
-	datad => \ROM1|ALT_INV_memROM~3_combout\,
-	dataf => \RAM1|ALT_INV_ram~159_combout\,
-	combout => \MUX2|saida_MUX[21]~13_combout\);
+	datac => \RAM1|ALT_INV_ram~162_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	dataf => \PC|ALT_INV_DOUT\(6),
+	combout => \MUX2|saida_MUX[22]~14_combout\);
 
--- Location: MLABCELL_X42_Y2_N6
+-- Location: FF_X41_Y1_N28
+\PC|DOUT[4]~DUPLICATE\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \gravar:detectorSub0|saida~combout\,
+	asdata => \incrementaPC|Add0~17_sumout\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \PC|DOUT[4]~DUPLICATE_q\);
+
+-- Location: LABCELL_X40_Y1_N48
+\MUX2|saida_MUX[20]~12\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MUX2|saida_MUX[20]~12_combout\ = ( \PC|DOUT[4]~DUPLICATE_q\ & ( (!\SW[9]~input_o\) # (\RAM1|ram~158_combout\) ) ) # ( !\PC|DOUT[4]~DUPLICATE_q\ & ( (\SW[9]~input_o\ & \RAM1|ram~158_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000110011000000000011001111001100111111111100110011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \ALT_INV_SW[9]~input_o\,
+	datad => \RAM1|ALT_INV_ram~158_combout\,
+	dataf => \PC|ALT_INV_DOUT[4]~DUPLICATE_q\,
+	combout => \MUX2|saida_MUX[20]~12_combout\);
+
+-- Location: LABCELL_X40_Y1_N6
 \HEX5_SEVENSEG|rascSaida7seg[0]~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX5_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \SW[9]~input_o\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( (\MUX2|saida_MUX[20]~12_combout\ & (\RAM1|ram~155_combout\ & !\MUX2|saida_MUX[22]~14_combout\)) ) ) ) # ( !\SW[9]~input_o\ & ( 
--- \MUX2|saida_MUX[21]~13_combout\ & ( (\MUX2|saida_MUX[20]~12_combout\ & (!\MUX2|saida_MUX[22]~14_combout\ & \PC|DOUT\(7))) ) ) ) # ( \SW[9]~input_o\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[20]~12_combout\ & (!\RAM1|ram~155_combout\ & 
--- \MUX2|saida_MUX[22]~14_combout\)) # (\MUX2|saida_MUX[20]~12_combout\ & (!\RAM1|ram~155_combout\ $ (\MUX2|saida_MUX[22]~14_combout\))) ) ) ) # ( !\SW[9]~input_o\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[20]~12_combout\ & 
--- (\MUX2|saida_MUX[22]~14_combout\ & !\PC|DOUT\(7))) # (\MUX2|saida_MUX[20]~12_combout\ & (!\MUX2|saida_MUX[22]~14_combout\ $ (\PC|DOUT\(7)))) ) ) )
+-- \HEX5_SEVENSEG|rascSaida7seg[0]~0_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ & ( (!\MUX2|saida_MUX[21]~13_combout\ & ((!\SW[9]~input_o\ & (\PC|DOUT\(7))) # (\SW[9]~input_o\ & ((\RAM1|ram~155_combout\))))) ) ) ) # ( 
+-- !\MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ $ (((!\SW[9]~input_o\ & (\PC|DOUT\(7))) # (\SW[9]~input_o\ & ((\RAM1|ram~155_combout\))))) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( 
+-- !\MUX2|saida_MUX[20]~12_combout\ & ( (!\MUX2|saida_MUX[21]~13_combout\ & ((!\SW[9]~input_o\ & (!\PC|DOUT\(7))) # (\SW[9]~input_o\ & ((!\RAM1|ram~155_combout\))))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0101101000000101010010010100100100000000010100000001000000010000",
+	lut_mask => "0000000000000000101000101000000010100110100101010000100000101010",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
-	datab => \RAM1|ALT_INV_ram~155_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
-	datad => \PC|ALT_INV_DOUT\(7),
-	datae => \ALT_INV_SW[9]~input_o\,
-	dataf => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	datab => \ALT_INV_SW[9]~input_o\,
+	datac => \PC|ALT_INV_DOUT\(7),
+	datad => \RAM1|ALT_INV_ram~155_combout\,
+	datae => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
 	combout => \HEX5_SEVENSEG|rascSaida7seg[0]~0_combout\);
 
--- Location: LABCELL_X44_Y3_N45
+-- Location: LABCELL_X41_Y1_N9
 \MUX2|saida_MUX[23]~15\ : cyclonev_lcell_comb
 -- Equation(s):
--- \MUX2|saida_MUX[23]~15_combout\ = ( \RAM1|ram~154_combout\ & ( (!\SW[9]~input_o\ & (((\PC|DOUT\(7))))) # (\SW[9]~input_o\ & (!\ROM1|memROM~2_combout\ & ((!\ROM1|memROM~3_combout\)))) ) ) # ( !\RAM1|ram~154_combout\ & ( (!\SW[9]~input_o\ & \PC|DOUT\(7)) ) 
--- )
+-- \MUX2|saida_MUX[23]~15_combout\ = ( \RAM1|ram~154_combout\ & ( \PC|DOUT\(7) & ( (!\SW[9]~input_o\) # ((!\ROM1|memROM~2_combout\ & !\ROM1|memROM~3_combout\)) ) ) ) # ( !\RAM1|ram~154_combout\ & ( \PC|DOUT\(7) & ( !\SW[9]~input_o\ ) ) ) # ( 
+-- \RAM1|ram~154_combout\ & ( !\PC|DOUT\(7) & ( (!\ROM1|memROM~2_combout\ & (!\ROM1|memROM~3_combout\ & \SW[9]~input_o\)) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000101000001010000010100000101001001110000010100100111000001010",
+	lut_mask => "0000000000000000000000001010000011111111000000001111111110100000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_SW[9]~input_o\,
-	datab => \ROM1|ALT_INV_memROM~2_combout\,
-	datac => \PC|ALT_INV_DOUT\(7),
-	datad => \ROM1|ALT_INV_memROM~3_combout\,
-	dataf => \RAM1|ALT_INV_ram~154_combout\,
+	dataa => \ROM1|ALT_INV_memROM~2_combout\,
+	datac => \ROM1|ALT_INV_memROM~3_combout\,
+	datad => \ALT_INV_SW[9]~input_o\,
+	datae => \RAM1|ALT_INV_ram~154_combout\,
+	dataf => \PC|ALT_INV_DOUT\(7),
 	combout => \MUX2|saida_MUX[23]~15_combout\);
 
--- Location: MLABCELL_X42_Y2_N24
+-- Location: LABCELL_X40_Y1_N12
 \HEX5_SEVENSEG|rascSaida7seg[1]~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX5_SEVENSEG|rascSaida7seg[1]~1_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[20]~12_combout\) # (\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( !\MUX2|saida_MUX[22]~14_combout\ & ( 
--- \MUX2|saida_MUX[21]~13_combout\ & ( (\MUX2|saida_MUX[23]~15_combout\ & \MUX2|saida_MUX[20]~12_combout\) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( !\MUX2|saida_MUX[23]~15_combout\ $ 
--- (!\MUX2|saida_MUX[20]~12_combout\) ) ) )
+-- \HEX5_SEVENSEG|rascSaida7seg[1]~1_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ $ (\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( !\MUX2|saida_MUX[22]~14_combout\ & ( 
+-- \MUX2|saida_MUX[20]~12_combout\ & ( (\MUX2|saida_MUX[21]~13_combout\ & \MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[20]~12_combout\ & ( (\MUX2|saida_MUX[23]~15_combout\) # 
+-- (\MUX2|saida_MUX[21]~13_combout\) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000001111000011110000000011000000111111001111110011",
+	lut_mask => "0000000000000000010111110101111100000101000001011010010110100101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	datac => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
 	datae => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
 	combout => \HEX5_SEVENSEG|rascSaida7seg[1]~1_combout\);
 
--- Location: MLABCELL_X42_Y2_N42
+-- Location: LABCELL_X40_Y1_N57
 \HEX5_SEVENSEG|rascSaida7seg[2]~2\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX5_SEVENSEG|rascSaida7seg[2]~2_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( \MUX2|saida_MUX[23]~15_combout\ ) ) ) # ( !\MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( 
--- (!\MUX2|saida_MUX[23]~15_combout\ & !\MUX2|saida_MUX[20]~12_combout\) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (\MUX2|saida_MUX[23]~15_combout\ & !\MUX2|saida_MUX[20]~12_combout\) ) ) )
+-- \HEX5_SEVENSEG|rascSaida7seg[2]~2_combout\ = ( \MUX2|saida_MUX[21]~13_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ & ( (\MUX2|saida_MUX[22]~14_combout\ & \MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( \MUX2|saida_MUX[21]~13_combout\ & ( 
+-- !\MUX2|saida_MUX[20]~12_combout\ & ( !\MUX2|saida_MUX[22]~14_combout\ $ (\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( !\MUX2|saida_MUX[21]~13_combout\ & ( !\MUX2|saida_MUX[20]~12_combout\ & ( (\MUX2|saida_MUX[22]~14_combout\ & 
+-- \MUX2|saida_MUX[23]~15_combout\) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000001100000011000011000000110000000011001100110011",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
-	datae => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
-	combout => \HEX5_SEVENSEG|rascSaida7seg[2]~2_combout\);
-
--- Location: MLABCELL_X42_Y2_N12
-\HEX5_SEVENSEG|rascSaida7seg[3]~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX5_SEVENSEG|rascSaida7seg[3]~3_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ ) ) ) # ( !\MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( 
--- (\MUX2|saida_MUX[23]~15_combout\ & !\MUX2|saida_MUX[20]~12_combout\) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[23]~15_combout\ & !\MUX2|saida_MUX[20]~12_combout\) ) ) ) # ( 
--- !\MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[23]~15_combout\ & \MUX2|saida_MUX[20]~12_combout\) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000110000001100110000001100000000110000001100000000111100001111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
-	datac => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
-	datae => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
-	combout => \HEX5_SEVENSEG|rascSaida7seg[3]~3_combout\);
-
--- Location: MLABCELL_X42_Y2_N33
-\HEX5_SEVENSEG|rascSaida7seg[4]~4\ : cyclonev_lcell_comb
--- Equation(s):
--- \HEX5_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( \SW[9]~input_o\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( (\RAM1|ram~158_combout\ & !\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( !\SW[9]~input_o\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( 
--- (!\MUX2|saida_MUX[23]~15_combout\ & \PC|DOUT\(4)) ) ) ) # ( \SW[9]~input_o\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[22]~14_combout\ & (\RAM1|ram~158_combout\)) # (\MUX2|saida_MUX[22]~14_combout\ & ((!\MUX2|saida_MUX[23]~15_combout\))) ) 
--- ) ) # ( !\SW[9]~input_o\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[22]~14_combout\ & ((\PC|DOUT\(4)))) # (\MUX2|saida_MUX[22]~14_combout\ & (!\MUX2|saida_MUX[23]~15_combout\)) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0101000011111010011100100111001000000000111100000011000000110000",
+	lut_mask => "0000000001010101101010100101010100000000000000000000000001010101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	dataa => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
-	datab => \RAM1|ALT_INV_ram~158_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
+	datae => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
+	combout => \HEX5_SEVENSEG|rascSaida7seg[2]~2_combout\);
+
+-- Location: LABCELL_X40_Y1_N24
+\HEX5_SEVENSEG|rascSaida7seg[3]~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX5_SEVENSEG|rascSaida7seg[3]~3_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ ) ) ) # ( !\MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ & ( 
+-- (!\MUX2|saida_MUX[21]~13_combout\ & !\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[20]~12_combout\ & ( (!\MUX2|saida_MUX[21]~13_combout\ & !\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( 
+-- !\MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[20]~12_combout\ & ( (\MUX2|saida_MUX[21]~13_combout\ & \MUX2|saida_MUX[23]~15_combout\) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010100000101101000001010000010100000101000000101010101010101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
 	datac => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
-	datad => \PC|ALT_INV_DOUT\(4),
-	datae => \ALT_INV_SW[9]~input_o\,
-	dataf => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	datae => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
+	combout => \HEX5_SEVENSEG|rascSaida7seg[3]~3_combout\);
+
+-- Location: LABCELL_X40_Y1_N33
+\HEX5_SEVENSEG|rascSaida7seg[4]~4\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \HEX5_SEVENSEG|rascSaida7seg[4]~4_combout\ = ( \MUX2|saida_MUX[21]~13_combout\ & ( \RAM1|ram~158_combout\ & ( (!\MUX2|saida_MUX[23]~15_combout\ & ((\SW[9]~input_o\) # (\PC|DOUT[4]~DUPLICATE_q\))) ) ) ) # ( !\MUX2|saida_MUX[21]~13_combout\ & ( 
+-- \RAM1|ram~158_combout\ & ( (!\MUX2|saida_MUX[22]~14_combout\ & (((\SW[9]~input_o\)) # (\PC|DOUT[4]~DUPLICATE_q\))) # (\MUX2|saida_MUX[22]~14_combout\ & (((!\MUX2|saida_MUX[23]~15_combout\)))) ) ) ) # ( \MUX2|saida_MUX[21]~13_combout\ & ( 
+-- !\RAM1|ram~158_combout\ & ( (\PC|DOUT[4]~DUPLICATE_q\ & (!\SW[9]~input_o\ & !\MUX2|saida_MUX[23]~15_combout\)) ) ) ) # ( !\MUX2|saida_MUX[21]~13_combout\ & ( !\RAM1|ram~158_combout\ & ( (!\MUX2|saida_MUX[22]~14_combout\ & (\PC|DOUT[4]~DUPLICATE_q\ & 
+-- (!\SW[9]~input_o\))) # (\MUX2|saida_MUX[22]~14_combout\ & (((!\MUX2|saida_MUX[23]~15_combout\)))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0111010100100000001100000000000001111111001010100011111100000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
+	datab => \PC|ALT_INV_DOUT[4]~DUPLICATE_q\,
+	datac => \ALT_INV_SW[9]~input_o\,
+	datad => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
+	datae => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	dataf => \RAM1|ALT_INV_ram~158_combout\,
 	combout => \HEX5_SEVENSEG|rascSaida7seg[4]~4_combout\);
 
--- Location: MLABCELL_X42_Y2_N39
+-- Location: LABCELL_X40_Y1_N39
 \HEX5_SEVENSEG|rascSaida7seg[5]~5\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX5_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( (\MUX2|saida_MUX[20]~12_combout\ & ((!\SW[9]~input_o\ & ((!\PC|DOUT\(7)))) # (\SW[9]~input_o\ & (!\RAM1|ram~155_combout\)))) ) ) ) # ( 
--- !\MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( (!\SW[9]~input_o\ & ((!\PC|DOUT\(7)))) # (\SW[9]~input_o\ & (!\RAM1|ram~155_combout\)) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( 
--- (\MUX2|saida_MUX[20]~12_combout\ & ((!\SW[9]~input_o\ & ((\PC|DOUT\(7)))) # (\SW[9]~input_o\ & (\RAM1|ram~155_combout\)))) ) ) ) # ( !\MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( (\MUX2|saida_MUX[20]~12_combout\ & 
--- ((!\SW[9]~input_o\ & ((!\PC|DOUT\(7)))) # (\SW[9]~input_o\ & (!\RAM1|ram~155_combout\)))) ) ) )
+-- \HEX5_SEVENSEG|rascSaida7seg[5]~5_combout\ = ( \MUX2|saida_MUX[21]~13_combout\ & ( \PC|DOUT\(7) & ( (!\RAM1|ram~155_combout\ & (\SW[9]~input_o\ & ((!\MUX2|saida_MUX[22]~14_combout\) # (\MUX2|saida_MUX[20]~12_combout\)))) ) ) ) # ( 
+-- !\MUX2|saida_MUX[21]~13_combout\ & ( \PC|DOUT\(7) & ( (\MUX2|saida_MUX[20]~12_combout\ & (!\MUX2|saida_MUX[22]~14_combout\ $ (((!\SW[9]~input_o\) # (\RAM1|ram~155_combout\))))) ) ) ) # ( \MUX2|saida_MUX[21]~13_combout\ & ( !\PC|DOUT\(7) & ( 
+-- (!\MUX2|saida_MUX[22]~14_combout\ & ((!\RAM1|ram~155_combout\) # ((!\SW[9]~input_o\)))) # (\MUX2|saida_MUX[22]~14_combout\ & (\MUX2|saida_MUX[20]~12_combout\ & ((!\RAM1|ram~155_combout\) # (!\SW[9]~input_o\)))) ) ) ) # ( !\MUX2|saida_MUX[21]~13_combout\ & 
+-- ( !\PC|DOUT\(7) & ( (\MUX2|saida_MUX[20]~12_combout\ & (!\MUX2|saida_MUX[22]~14_combout\ $ (((\RAM1|ram~155_combout\ & \SW[9]~input_o\))))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0101000001000100000001010001000111110000110011000101000001000100",
+	lut_mask => "0000000010101001101010001111110000000000010110010000100000001100",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
 	datab => \RAM1|ALT_INV_ram~155_combout\,
-	datac => \PC|ALT_INV_DOUT\(7),
-	datad => \ALT_INV_SW[9]~input_o\,
-	datae => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	datac => \ALT_INV_SW[9]~input_o\,
+	datad => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
+	datae => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	dataf => \PC|ALT_INV_DOUT\(7),
 	combout => \HEX5_SEVENSEG|rascSaida7seg[5]~5_combout\);
 
--- Location: MLABCELL_X42_Y2_N57
+-- Location: LABCELL_X40_Y1_N45
 \HEX5_SEVENSEG|rascSaida7seg[6]~6\ : cyclonev_lcell_comb
 -- Equation(s):
--- \HEX5_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( \MUX2|saida_MUX[22]~14_combout\ & ( \MUX2|saida_MUX[21]~13_combout\ & ( (!\MUX2|saida_MUX[23]~15_combout\ & \MUX2|saida_MUX[20]~12_combout\) ) ) ) # ( \MUX2|saida_MUX[22]~14_combout\ & ( 
--- !\MUX2|saida_MUX[21]~13_combout\ & ( (\MUX2|saida_MUX[23]~15_combout\ & !\MUX2|saida_MUX[20]~12_combout\) ) ) ) # ( !\MUX2|saida_MUX[22]~14_combout\ & ( !\MUX2|saida_MUX[21]~13_combout\ & ( !\MUX2|saida_MUX[23]~15_combout\ ) ) )
+-- \HEX5_SEVENSEG|rascSaida7seg[6]~6_combout\ = ( \MUX2|saida_MUX[21]~13_combout\ & ( \MUX2|saida_MUX[20]~12_combout\ & ( (\MUX2|saida_MUX[22]~14_combout\ & !\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( !\MUX2|saida_MUX[21]~13_combout\ & ( 
+-- \MUX2|saida_MUX[20]~12_combout\ & ( (!\MUX2|saida_MUX[22]~14_combout\ & !\MUX2|saida_MUX[23]~15_combout\) ) ) ) # ( !\MUX2|saida_MUX[21]~13_combout\ & ( !\MUX2|saida_MUX[20]~12_combout\ & ( !\MUX2|saida_MUX[22]~14_combout\ $ 
+-- (\MUX2|saida_MUX[23]~15_combout\) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1100110011001100001100110000000000000000000000000000000011001100",
+	lut_mask => "1010101001010101000000000000000010101010000000000101010100000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
-	datad => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
-	datae => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
-	dataf => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	dataa => \MUX2|ALT_INV_saida_MUX[22]~14_combout\,
+	datad => \MUX2|ALT_INV_saida_MUX[23]~15_combout\,
+	datae => \MUX2|ALT_INV_saida_MUX[21]~13_combout\,
+	dataf => \MUX2|ALT_INV_saida_MUX[20]~12_combout\,
 	combout => \HEX5_SEVENSEG|rascSaida7seg[6]~6_combout\);
 
 -- Location: IOIBUF_X11_Y0_N35
@@ -3959,7 +4137,7 @@ PORT MAP (
 	i => ww_SW(8),
 	o => \SW[8]~input_o\);
 
--- Location: LABCELL_X43_Y7_N3
+-- Location: MLABCELL_X37_Y24_N0
 \~QUARTUS_CREATED_GND~I\ : cyclonev_lcell_comb
 -- Equation(s):
 

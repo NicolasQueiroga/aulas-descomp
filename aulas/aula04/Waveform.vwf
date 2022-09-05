@@ -1,8 +1,8 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off aula04 -c aula04 --vector_source="C:/Users/nicol/Documents/insper/descomp/aulas/aula04/Waveform.vwf" --testbench_file="C:/Users/nicol/Documents/insper/descomp/aulas/aula04/simulation/qsim/Waveform.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off aula04 -c aula04 --vector_source="C:/Users/nicol/Documents/insper/descomp/aulas/aula04/Waveform.vwf" --testbench_file="C:/Users/nicol/Documents/insper/descomp/aulas/aula04/simulation/qsim/Waveform.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/nicol/Documents/insper/descomp/aulas/aula04/simulation/qsim/" aula04 -c aula04</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/nicol/Documents/insper/descomp/aulas/aula04/simulation/qsim/" aula04 -c aula04</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off aula04 -c aula04 --vector_source="C:./Waveform.vwf" --testbench_file="C:./simulation/qsim/Waveform.vwf.vht"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off aula04 -c aula04 --vector_source="C:./Waveform.vwf" --testbench_file="C:./simulation/qsim/Waveform.vwf.vht"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="./simulation/qsim/" aula04 -c aula04</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="./simulation/qsim/" aula04 -c aula04</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
 vcom -work work aula04.vho
@@ -20,6 +20,7 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 
 
 </modelsim_script>
@@ -42,6 +43,7 @@ run -all
 quit -f
 
 
+
 </modelsim_script_timing>
 <hdl_lang>vhdl</hdl_lang>
 </simulation_settings>*/
@@ -52,7 +54,7 @@ the Block Editor! File corruption is VERY likely to occur.
 */
 
 /*
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2022  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -180,94 +182,109 @@ SIGNAL("PC_OUT[0]")
 	PARENT = "PC_OUT";
 }
 
-SIGNAL("REG_OUT")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 8;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("REG_OUT[7]")
+SIGNAL("LEDR[9]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
 }
 
-SIGNAL("REG_OUT[6]")
+SIGNAL("LEDR[8]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
 }
 
-SIGNAL("REG_OUT[5]")
+SIGNAL("LEDR[7]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
 }
 
-SIGNAL("REG_OUT[4]")
+SIGNAL("LEDR[6]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
 }
 
-SIGNAL("REG_OUT[3]")
+SIGNAL("LEDR[5]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
 }
 
-SIGNAL("REG_OUT[2]")
+SIGNAL("LEDR[4]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
 }
 
-SIGNAL("REG_OUT[1]")
+SIGNAL("LEDR[3]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
 }
 
-SIGNAL("REG_OUT[0]")
+SIGNAL("LEDR[2]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "REG_OUT";
+	PARENT = "LEDR";
+}
+
+SIGNAL("LEDR[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "LEDR";
+}
+
+SIGNAL("LEDR[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "LEDR";
+}
+
+GROUP("REGA_OUT")
+{
+	MEMBERS = "LEDR[9]", "LEDR[8]", "LEDR[7]", "LEDR[6]", "LEDR[5]", "LEDR[4]", "LEDR[3]", "LEDR[2]", "LEDR[1]", "LEDR[0]";
 }
 
 TRANSITION_LIST("KEY[0]")
@@ -358,7 +375,7 @@ TRANSITION_LIST("PC_OUT[0]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[7]")
+TRANSITION_LIST("LEDR[9]")
 {
 	NODE
 	{
@@ -367,7 +384,7 @@ TRANSITION_LIST("REG_OUT[7]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[6]")
+TRANSITION_LIST("LEDR[8]")
 {
 	NODE
 	{
@@ -376,7 +393,7 @@ TRANSITION_LIST("REG_OUT[6]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[5]")
+TRANSITION_LIST("LEDR[7]")
 {
 	NODE
 	{
@@ -385,7 +402,7 @@ TRANSITION_LIST("REG_OUT[5]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[4]")
+TRANSITION_LIST("LEDR[6]")
 {
 	NODE
 	{
@@ -394,7 +411,7 @@ TRANSITION_LIST("REG_OUT[4]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[3]")
+TRANSITION_LIST("LEDR[5]")
 {
 	NODE
 	{
@@ -403,7 +420,7 @@ TRANSITION_LIST("REG_OUT[3]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[2]")
+TRANSITION_LIST("LEDR[4]")
 {
 	NODE
 	{
@@ -412,7 +429,7 @@ TRANSITION_LIST("REG_OUT[2]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[1]")
+TRANSITION_LIST("LEDR[3]")
 {
 	NODE
 	{
@@ -421,7 +438,25 @@ TRANSITION_LIST("REG_OUT[1]")
 	}
 }
 
-TRANSITION_LIST("REG_OUT[0]")
+TRANSITION_LIST("LEDR[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 140.0;
+	}
+}
+
+TRANSITION_LIST("LEDR[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 140.0;
+	}
+}
+
+TRANSITION_LIST("LEDR[0]")
 {
 	NODE
 	{
@@ -531,17 +566,17 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT";
+	CHANNEL = "REGA_OUT";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 10;
 	TREE_LEVEL = 0;
-	CHILDREN = 11, 12, 13, 14, 15, 16, 17, 18;
+	CHILDREN = 11, 12, 13, 14, 15, 16, 17, 18, 19, 20;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[7]";
+	CHANNEL = "LEDR[9]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 11;
@@ -551,7 +586,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[6]";
+	CHANNEL = "LEDR[8]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 12;
@@ -561,7 +596,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[5]";
+	CHANNEL = "LEDR[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 13;
@@ -571,7 +606,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[4]";
+	CHANNEL = "LEDR[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 14;
@@ -581,7 +616,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[3]";
+	CHANNEL = "LEDR[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 15;
@@ -591,7 +626,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[2]";
+	CHANNEL = "LEDR[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 16;
@@ -601,7 +636,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[1]";
+	CHANNEL = "LEDR[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 17;
@@ -611,10 +646,30 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "REG_OUT[0]";
+	CHANNEL = "LEDR[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 18;
+	TREE_LEVEL = 1;
+	PARENT = 10;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "LEDR[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 19;
+	TREE_LEVEL = 1;
+	PARENT = 10;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "LEDR[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 20;
 	TREE_LEVEL = 1;
 	PARENT = 10;
 }
