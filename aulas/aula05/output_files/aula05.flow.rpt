@@ -1,5 +1,5 @@
 Flow report for aula05
-Tue Sep  6 15:18:01 2022
+Tue Sep 13 16:23:23 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Sep  6 15:18:01 2022       ;
+; Flow Status                     ; Successful - Tue Sep 13 16:23:23 2022       ;
 ; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                   ; aula05                                      ;
 ; Top-level Entity Name           ; Aula05                                      ;
@@ -49,8 +49,8 @@ https://fpgasoftware.intel.com/eula.
 ; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 10                                          ;
-; Total pins                      ; 76                                          ;
+; Total registers                 ; 36                                          ;
+; Total pins                      ; 88                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/06/2022 15:14:27 ;
+; Start date & time ; 09/13/2022 16:22:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; aula05              ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 79602622928220.166248806607132         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 121366885518.166309697008264           ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -106,12 +106,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 9252 MB             ; 00:00:38                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 9039 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 9039 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 9039 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 9039 MB             ; 00:00:01                           ;
-; Total                ; 00:00:23     ; --                      ; --                  ; 00:00:42                           ;
+; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 9254 MB             ; 00:00:42                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 9040 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 9040 MB             ; 00:00:01                           ;
+; Total                ; 00:00:26     ; --                      ; --                  ; 00:00:44                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -123,8 +121,6 @@ https://fpgasoftware.intel.com/eula.
 ; Analysis & Synthesis ; NICOLASQUEI0794  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; NICOLASQUEI0794  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; NICOLASQUEI0794  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; NICOLASQUEI0794  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; NICOLASQUEI0794  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -132,8 +128,6 @@ https://fpgasoftware.intel.com/eula.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off aula05 -c aula05
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off aula05 -c aula05 --vector_source=./Waveform.vwf --testbench_file=./simulation/qsim/Waveform.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=./simulation/qsim/ aula05 -c aula05
 quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off aula05 -c aula05 --vector_source=./Waveform.vwf --testbench_file=./simulation/qsim/Waveform.vwf.vht
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=./simulation/qsim/ aula05 -c aula05
 

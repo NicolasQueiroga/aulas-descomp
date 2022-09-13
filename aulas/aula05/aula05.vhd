@@ -13,7 +13,8 @@ ENTITY Aula05 IS
                 SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
                 HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
                 PC_OUT : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-                LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+                LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+                DECODER_CMD : OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
         );
 END ENTITY;
 
@@ -24,14 +25,18 @@ ARCHITECTURE arquitetura OF Aula05 IS
         SIGNAL proxPC : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL Endereco : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL REGA_RESET : STD_LOGIC;
-        SIGNAL INSTRUCTION : STD_LOGIC_VECTOR (12 DOWNTO 0); -- opcode(12 downto 9) endereco(8 downto 0) valor(7 downto 0)
+        SIGNAL INSTRUCTION : STD_LOGIC_VECTOR (12 DOWNTO 0);
         SIGNAL MUX1_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL MUX2_OUT : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL REGA_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL ALU_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
+        SIGNAL ALU_FLAG_EQ : STD_LOGIC;
+        SIGNAL FLIPFLOP_OUT : STD_LOGIC;
         SIGNAL MEM_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
-        SIGNAL DECODER_OUT : STD_LOGIC_VECTOR (8 DOWNTO 0); -- atualizar os decoder_out !!!!
+        SIGNAL DECODER_OUT : STD_LOGIC_VECTOR (11 DOWNTO 0);
         SIGNAL MUX2_7SEG : STD_LOGIC_VECTOR (23 DOWNTO 0);
+        SIGNAL DESVIO1_OUT : STD_LOGIC_VECTOR (1 DOWNTO 0);
+        SIGNAL END_RETORNO_OUT : STD_LOGIC_VECTOR (8 DOWNTO 0);
 
         -- aliases para facilitar a leitura do código
         ALIAS MUX1_A : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS MEM_OUT;
@@ -40,14 +45,15 @@ ARCHITECTURE arquitetura OF Aula05 IS
 
         ALIAS MUX2_A : STD_LOGIC_VECTOR (8 DOWNTO 0) IS proxPC;
         ALIAS MUX2_B : STD_LOGIC_VECTOR (8 DOWNTO 0) IS INSTRUCTION(8 DOWNTO 0);
-        ALIAS MUX2_SELECTOR : STD_LOGIC IS DECODER_OUT(6);
+        ALIAS MUX2_C : STD_LOGIC_VECTOR (8 DOWNTO 0) IS END_RETORNO_OUT;
+        ALIAS MUX2_SELECTOR : STD_LOGIC_VECTOR (1 DOWNTO 0) IS DESVIO1_OUT;
 
         ALIAS REGA_IN : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS ALU_OUT;
-        ALIAS REGA_ENABLE : STD_LOGIC IS DECODER_OUT(4);
+        ALIAS REGA_ENABLE : STD_LOGIC IS DECODER_OUT(5);
 
         ALIAS ALU_A_IN : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS REGA_OUT;
         ALIAS ALU_B_IN : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS MUX1_OUT;
-        ALIAS ALU_SELECTOR : STD_LOGIC_VECTOR (1 DOWNTO 0) IS DECODER_OUT(3 DOWNTO 2);
+        ALIAS ALU_SELECTOR : STD_LOGIC_VECTOR (1 DOWNTO 0) IS DECODER_OUT(4 DOWNTO 3);
 
         ALIAS MEM_ADDRESS : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS INSTRUCTION(larguraDados - 1 DOWNTO 0);
         ALIAS MEM_ENABLE : STD_LOGIC IS INSTRUCTION(8);
@@ -56,7 +62,7 @@ ARCHITECTURE arquitetura OF Aula05 IS
         ALIAS MEM_ENABLE_WRITE : STD_LOGIC IS DECODER_OUT(0);
 
         ALIAS OP_CODE : STD_LOGIC_VECTOR (3 DOWNTO 0) IS INSTRUCTION(12 DOWNTO 9);
-		  
+
 BEGIN
         gravar : IF simulacao GENERATE
                 CLK <= KEY(0);
@@ -93,12 +99,33 @@ BEGIN
                         saida_MUX => MUX1_OUT
                 );
 
-        MUX2 : ENTITY work.muxGenerico2x1 GENERIC MAP (larguraDados => 9)
+        END_RETORNO : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => 9)
                 PORT MAP(
-                        entradaA_MUX => MUX2_A,
-                        entradaB_MUX => MUX2_B,
-                        seletor_MUX => MUX2_SELECTOR,
-                        saida_MUX => MUX2_OUT
+                        DIN => proxPC,
+                        DOUT => END_RETORNO_OUT,
+                        ENABLE => DECODER_OUT(11),
+                        CLK => CLK,
+                        RST => '0'
+                );
+
+        DESVIO1 : ENTITY work.LogicaDesvio
+                PORT MAP(
+                        JMP => DECODER_OUT(10),
+                        JEQ => DECODER_OUT(7),
+                        JSR => DECODER_OUT(8),
+                        RET => DECODER_OUT(9),
+                        FLAG_EQ => FLIPFLOP_OUT,
+                        Sel => DESVIO1_OUT
+                );
+
+        MUX2 : ENTITY work.muxGenerico4x1 GENERIC MAP (larguraDados => 9)
+                PORT MAP(
+                        E0 => MUX2_A,
+                        E1 => MUX2_B,
+                        E2 => MUX2_C,
+                        E3 => b"0_0000_0000",
+                        SEL_MUX => MUX2_SELECTOR,
+                        MUX_OUT => MUX2_OUT
                 );
 
         REGA : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => larguraDados)
@@ -114,8 +141,18 @@ BEGIN
                 PORT MAP(
                         entradaA => ALU_A_IN,
                         entradaB => ALU_B_IN,
+                        seletor => ALU_SELECTOR,
                         saida => ALU_OUT,
-                        seletor => ALU_SELECTOR
+                        flagEqual => ALU_FLAG_EQ
+                );
+
+        FLIPFLOP1 : ENTITY work.flipFlopGenerico
+                PORT MAP(
+                        DIN => ALU_FLAG_EQ,
+                        DOUT => FLIPFLOP_OUT,
+                        ENABLE => DECODER_OUT(2),
+                        CLK => CLK,
+                        RST => '0'
                 );
 
         ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 9)
@@ -142,6 +179,7 @@ BEGIN
                 );
 
         PC_OUT <= Endereco;
+        DECODER_CMD <= DECODER_OUT;
         LEDR(7 DOWNTO 0) <= REGA_OUT;
         LEDR(9 DOWNTO 8) <= "00";
 
@@ -206,5 +244,5 @@ BEGIN
                         overFlow => '0',
                         saida7seg => HEX0
                 );
-                
+
 END ARCHITECTURE;
