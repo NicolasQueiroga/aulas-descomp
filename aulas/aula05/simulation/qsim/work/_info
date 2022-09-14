@@ -15,6 +15,8 @@ R0
 R0
 R0
 R0
+R0
+R0
 !s11e vcom 2021.2 2021.04, Apr 14 2021
 13
 !s112 1.1
@@ -24,17 +26,17 @@ R0
 cModel Technology
 Z1 dC:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/simulation/qsim
 T_opt
-!s110 1663097005
-VLDl_hK^=Fbz>5N9F;NQji1
+!s110 1663161455
+VmF_42o2^4>6RNRIY6cEzJ3
 04 18 11 work aula05_vhd_vec_tst aula05_arch 1
-=1-001c4207b48e-6320d8ac-3cd-2528
+=1-001c4207b48e-6321d46e-2c4-270c
 !s124 OEM10U2 
 o-quiet -auto_acc_if_foreign -work work -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim
 tCvgOpt 0
 n@_opt
 OL;O;2021.2;73
 Eaula05
-Z2 w1663097003
+Z2 w1663161452
 Z3 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 Go?7O^>gO9PUGAbd]57Qz3
 Z4 DPx8 cyclonev 19 cyclonev_components 0 22 KJiN=<?XEUbkUE2[idYZK3
 Z5 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 kfhVHUgSbAm[03BJI^Zk12
@@ -44,19 +46,19 @@ Z8 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
 Z9 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z10 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z11 DPx6 altera 28 altera_primitives_components 0 22 YYoQ82]HzeJG>EHgnbGN33
-!i122 26
+!i122 30
 R1
 Z12 8aula05.vho
 Z13 Faula05.vho
 l0
 L39 1
-V7B3jzk31?_jj_e9fz`CWT0
-!s100 T[3ITCZVjXTb7LPHdV6C90
+V3P0^ZUUf:k4^ITE;<]W=03
+!s100 zbCmMI:GLNDC<7e@9fAQl1
 Z14 OL;C;2021.2;73
 32
-Z15 !s110 1663097004
+Z15 !s110 1663161454
 !i10b 1
-Z16 !s108 1663097004.000000
+Z16 !s108 1663161453.000000
 Z17 !s90 -work|work|aula05.vho|
 Z18 !s107 aula05.vho|
 !i113 0
@@ -72,12 +74,12 @@ R8
 R9
 R10
 R11
-DEx4 work 6 aula05 0 22 7B3jzk31?_jj_e9fz`CWT0
-!i122 26
-l448
-L56 4896
-V_j:Zn]V`aYHk_f_GTQM@C1
-!s100 2eJgJOmEaSSdZ8CU0RVf<2
+DEx4 work 6 aula05 0 22 3P0^ZUUf:k4^ITE;<]W=03
+!i122 30
+l509
+L147 5378
+VbJXzi^eoTa_T@gVm`C4EV1
+!s100 @H_L?UDKkTo6ecOdezS=W1
 R14
 32
 R15
@@ -89,10 +91,10 @@ R18
 R19
 R20
 Eaula05_vhd_vec_tst
-Z21 w1663097001
+Z21 w1663161449
 R9
 R10
-!i122 27
+!i122 31
 R1
 Z22 8Waveform.vwf.vht
 Z23 FWaveform.vwf.vht
@@ -104,9 +106,9 @@ R14
 32
 R15
 !i10b 1
-R16
-Z24 !s90 -work|work|Waveform.vwf.vht|
-Z25 !s107 Waveform.vwf.vht|
+Z24 !s108 1663161454.000000
+Z25 !s90 -work|work|Waveform.vwf.vht|
+Z26 !s107 Waveform.vwf.vht|
 !i113 0
 R19
 R20
@@ -114,18 +116,18 @@ Aaula05_arch
 R9
 R10
 DEx4 work 18 aula05_vhd_vec_tst 0 22 iXoMSX3EVeSe]U`25gR;_2
-!i122 27
+!i122 31
 l65
 L34 64
-VTDQ_322YAoiGgJQCc]d_j0
-!s100 >Iej]k<Rdn@>fG[hAVTY33
+VI;EA=>QIeTLkh4eG]VZM62
+!s100 CXE>9]XWWkLJ^Z__Ce<Z@2
 R14
 32
 R15
 !i10b 1
-R16
 R24
 R25
+R26
 !i113 0
 R19
 R20

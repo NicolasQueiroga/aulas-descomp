@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "09/13/2022 16:23:21"
+-- Generated on "09/14/2022 10:17:29"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          Aula05
 -- 
@@ -49,16 +49,16 @@ SIGNAL SW : STD_LOGIC_VECTOR(9 DOWNTO 0);
 COMPONENT Aula05
 	PORT (
 	CLOCK_50 : IN STD_LOGIC;
-	DECODER_CMD : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
-	HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-	HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-	HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-	HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-	HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-	HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	DECODER_CMD : BUFFER STD_LOGIC_VECTOR(11 DOWNTO 0);
+	HEX0 : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX1 : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX2 : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX3 : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX4 : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX5 : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
 	KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-	LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-	PC_OUT : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+	LEDR : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+	PC_OUT : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
 	SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 END COMPONENT;

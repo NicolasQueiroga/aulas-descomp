@@ -1,0 +1,28 @@
+Quartus Prime Archive log --	C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.qarlog
+
+Archive:	C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.qar
+Date:		Wed Sep 14 10:11:04 2022
+Quartus Prime		21.1.1 Build 850 06/23/2022 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/ULASomaSub.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/Waveform.vwf
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.qpf
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.qsf
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/conversorHex7Seg.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/decoderInstru.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/edgeDetector.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/flipflopGenerico.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/logicaDesvio.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaROM.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico2x1.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico4x1.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/registradorGenerico.vhd
+C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/somaConstante.vhd
+c:/intelfpga_lite/21.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 17 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
