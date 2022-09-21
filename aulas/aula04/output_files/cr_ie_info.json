@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "windows64",
+		"os_name" : "Windows 10",
+		"os_version" : "10.0"
+	},
+	"error" : {
+		"executable" : "quartus",
+		"comment" : "not_applicable",
+		"error_message" : "Access Violation at 0X00007FFD0675FAAD",
+		"source_file" : "unknown",
+		"line" : "0",
+		"stack_trace" : "\t0x7ffd0675faac: ntdll + 0x2faac (RtlEnterCriticalSection + 0xc)\n\t0x7ffc73c3226a: wintab32 + 0x226a (Ordinal998 + 0x226a)\n\t0x7ffc73c3101c: wintab32 + 0x101c (Ordinal998 + 0x101c)\n\t0x7ffc73c391a3: wintab32 + 0x91a3 (WTMgrCsrPressureBtnMarksEx + 0x793)\n\t0x7ffd06749a1c: ntdll + 0x19a1c (RtlActivateActivationContextUnsafeFast + 0x11c)\n\t0x7ffd0678db90: ntdll + 0x5db90 (LdrShutdownProcess + 0x140)\n\t0x7ffd0678da2c: ntdll + 0x5da2c (RtlExitUserProcess + 0xac)\n\t0x7ffd04f6e0aa: KERNEL32 + 0x1e0aa (FatalExit + 0xa)\n\t0x7ffcf7aa29a6: MSVCR120 + 0x229a6 (_initterm_e + 0x21a)\n\t0x7ff7fbcb1f57: quartus + 0x1f57 (__tmainCRTStartup + 0x15f)\n\t0x7ffd04f67033: KERNEL32 + 0x17033 (BaseThreadInitThunk + 0x13)\n\t0x7ffd06782650: ntdll + 0x52650 (RtlUserThreadStart + 0x20)\n",
+		"subsystem" : "unknown"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "20.1.0",
+		"build" : "711",
+		"edition" : "Lite Edition"
+	}
+}

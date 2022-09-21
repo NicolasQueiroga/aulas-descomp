@@ -9,11 +9,11 @@ ENTITY Aula04 IS
         );
         PORT (
                 CLOCK_50 : IN STD_LOGIC;
-					 KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-					 SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+                KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+                SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
                 HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-                PC_OUT : OUT STD_LOGIC_VECTOR(larguraEnderecos - 1 DOWNTO 0);
-					 LEDR  : out std_logic_vector(9 downto 0)
+                PC_OUT : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
+                LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
         );
 END ENTITY;
 
@@ -21,8 +21,8 @@ ARCHITECTURE arquitetura OF Aula04 IS
 
         -- signals
         SIGNAL CLK : STD_LOGIC;
-        SIGNAL proxPC : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
-        SIGNAL Endereco : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
+        SIGNAL proxPC : STD_LOGIC_VECTOR (8 DOWNTO 0);
+        SIGNAL Endereco : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL REGA_RESET : STD_LOGIC;
         SIGNAL INSTRUCTION : STD_LOGIC_VECTOR (12 DOWNTO 0); -- opcode(12 downto 9) endereco(8 downto 0) valor(7 downto 0)
         SIGNAL MUX_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
@@ -30,7 +30,7 @@ ARCHITECTURE arquitetura OF Aula04 IS
         SIGNAL ALU_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL MEM_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL DECODER_OUT : STD_LOGIC_VECTOR (5 DOWNTO 0);
-		  SIGNAL MUX2_7SEG : STD_LOGIC_VECTOR (23 DOWNTO 0);
+        SIGNAL MUX2_7SEG : STD_LOGIC_VECTOR (23 DOWNTO 0);
 
         -- aliases para facilitar a leitura do código
         ALIAS MUX_A : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS MEM_OUT;
@@ -65,7 +65,7 @@ BEGIN
                         );
                 END GENERATE;
 
-        PC : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => larguraDados)
+        PC : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => 9)
                 PORT MAP(
                         DIN => proxPC,
                         DOUT => Endereco,
@@ -74,7 +74,7 @@ BEGIN
                         RST => '0'
                 );
 
-        incrementaPC : ENTITY work.somaConstante GENERIC MAP (larguraDados => larguraDados, constante => 1)
+        incrementaPC : ENTITY work.somaConstante GENERIC MAP (larguraDados => 9, constante => 1)
                 PORT MAP(
                         entrada => Endereco,
                         saida => proxPC
@@ -105,7 +105,7 @@ BEGIN
                         seletor => ALU_SELECTOR
                 );
 
-        ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 4)
+        ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 9)
                 PORT MAP(
                         Endereco => Endereco,
                         Dado => INSTRUCTION
@@ -127,13 +127,14 @@ BEGIN
                         dado_out => MEM_OUT,
                         clk => CLK
                 );
-					 
-	PC_OUT <= Endereco;
-	LEDR(7 DOWNTO 0) <= REGA_OUT;
-			
-	MUX2 : ENTITY work.muxGenerico2x1 GENERIC MAP (larguraDados => 24)
+
+        PC_OUT <= Endereco;
+        LEDR(7 DOWNTO 0) <= REGA_OUT;
+        LEDR(9 DOWNTO 8) <= "00";
+
+        MUX2 : ENTITY work.muxGenerico2x1 GENERIC MAP (larguraDados => 24)
                 PORT MAP(
-                        entradaA_MUX => PC_OUT & MEM_ADDRESS & MEM_OUT,
+                        entradaA_MUX => PC_OUT(7 DOWNTO 0) & MEM_ADDRESS & MEM_OUT,
                         entradaB_MUX => MUX_A & MUX_B & REGA_OUT,
                         seletor_MUX => SW(9),
                         saida_MUX => MUX2_7SEG
@@ -192,6 +193,5 @@ BEGIN
                         overFlow => '0',
                         saida7seg => HEX0
                 );
-
-
+                
 END ARCHITECTURE;

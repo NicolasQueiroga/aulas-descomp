@@ -1,6 +1,6 @@
 Assembler report for aula04
-Mon Sep  5 15:17:31 2022
-Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+Mon Sep 05 16:50:13 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
@@ -10,7 +10,7 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula04/output_files/aula04.sof
+  5. Assembler Device Options: C:/Users/nicol/Documents/insper/descomp/aulas/aula04/output_files/aula04.sof
   6. Assembler Messages
 
 
@@ -18,7 +18,7 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2022  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Sep  5 15:17:31 2022 ;
+; Assembler Status      ; Successful - Mon Sep 05 16:50:13 2022 ;
 ; Revision Name         ; aula04                                ;
 ; Top-level Entity Name ; Aula04                                ;
 ; Family                ; Cyclone V                             ;
@@ -53,23 +53,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Assembler Generated Files                                                         ;
-+-----------------------------------------------------------------------------------+
-; File Name                                                                         ;
-+-----------------------------------------------------------------------------------+
-; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula04/output_files/aula04.sof ;
-+-----------------------------------------------------------------------------------+
++------------------------------------------------------------------------------+
+; Assembler Generated Files                                                    ;
++------------------------------------------------------------------------------+
+; File Name                                                                    ;
++------------------------------------------------------------------------------+
+; C:/Users/nicol/Documents/insper/descomp/aulas/aula04/output_files/aula04.sof ;
++------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula04/output_files/aula04.sof ;
-+----------------+--------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                    ;
-+----------------+--------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00509E55                                                                                 ;
-; Checksum       ; 0x00509E55                                                                                 ;
-+----------------+--------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/nicol/Documents/insper/descomp/aulas/aula04/output_files/aula04.sof ;
++----------------+---------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x0050FBC5                                                                            ;
+; Checksum       ; 0x0050FBC5                                                                            ;
++----------------+---------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -77,14 +77,14 @@ https://fpgasoftware.intel.com/eula.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Mon Sep  5 15:17:24 2022
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Mon Sep 05 16:50:10 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off aula04 -c aula04
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 9324 megabytes
-    Info: Processing ended: Mon Sep  5 15:17:31 2022
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Peak virtual memory: 4819 megabytes
+    Info: Processing ended: Mon Sep 05 16:50:13 2022
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

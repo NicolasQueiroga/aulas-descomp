@@ -1,0 +1,25 @@
+Quartus Prime Archive log --	C:/Users/nicol/Documents/insper/descomp/aulas/aula04/aula04.qarlog
+
+Archive:	C:/Users/nicol/Documents/insper/descomp/aulas/aula04/aula04.qar
+Date:		Mon Sep 05 16:57:34 2022
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/ULASomaSub.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/Waveform.vwf
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/aula04.qpf
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/aula04.qsf
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/aula04.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/aula04_assignment_defaults.qdf
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/conversorHex7Seg.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/decoderInstru.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/edgeDetector.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/memoriaRAM.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/memoriaROM.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/muxGenerico2x1.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/registradorGenerico.vhd
+C:/Users/nicol/Documents/insper/descomp/aulas/aula04/somaConstante.vhd
+	======= Total: 14 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

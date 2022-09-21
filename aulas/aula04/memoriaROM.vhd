@@ -8,19 +8,19 @@ ENTITY memoriaROM IS
         addrWidth : NATURAL := 4
     );
     PORT (
-        Endereco : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+        Endereco : IN STD_LOGIC_VECTOR (addrWidth - 1 DOWNTO 0);
         Dado : OUT STD_LOGIC_VECTOR (dataWidth - 1 DOWNTO 0)
     );
 END ENTITY;
 
 ARCHITECTURE assincrona OF memoriaROM IS
 
-	CONSTANT NOP : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000";
-	CONSTANT LDA : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0001";
-	CONSTANT SOMA : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0010";
-	CONSTANT SUB : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0011";
-	CONSTANT LDI : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0100";
-	CONSTANT STA : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0101";
+    CONSTANT NOP : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000";
+    CONSTANT LDA : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0001";
+    CONSTANT SOMA : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0010";
+    CONSTANT SUB : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0011";
+    CONSTANT LDI : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0100";
+    CONSTANT STA : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0101";
 
     TYPE blocoMemoria IS ARRAY(0 TO 2 ** addrWidth - 1) OF STD_LOGIC_VECTOR(dataWidth - 1 DOWNTO 0);
 
@@ -36,7 +36,7 @@ ARCHITECTURE assincrona OF memoriaROM IS
         tmp(4) := SOMA & '1' & x"01";
         tmp(5) := SOMA & '1' & x"01";
         tmp(6) := SUB & '1' & x"02";
-		  tmp(7) := NOP & '0' & x"00";
+        tmp(7) := NOP & '0' & x"00";
         RETURN tmp;
     END initMemory;
 
