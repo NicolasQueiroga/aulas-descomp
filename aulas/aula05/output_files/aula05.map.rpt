@@ -1,6 +1,6 @@
 Analysis & Synthesis report for aula05
-Wed Sep 14 09:52:20 2022
-Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+Wed Sep 21 21:32:01 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
@@ -46,7 +46,7 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2022  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -66,8 +66,8 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Sep 14 09:52:20 2022       ;
-; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
+; Analysis & Synthesis Status     ; Successful - Wed Sep 21 21:32:01 2022       ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; aula05                                      ;
 ; Top-level Entity Name           ; Aula05                                      ;
 ; Family                          ; Cyclone V                                   ;
@@ -180,38 +180,38 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                             ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
-; aula05.vhd                       ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd              ;         ;
-; ULASomaSub.vhd                   ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/ULASomaSub.vhd          ;         ;
-; somaConstante.vhd                ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/somaConstante.vhd       ;         ;
-; registradorGenerico.vhd          ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/registradorGenerico.vhd ;         ;
-; muxGenerico2x1.vhd               ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico2x1.vhd      ;         ;
-; memoriaROM.vhd                   ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaROM.vhd          ;         ;
-; edgeDetector.vhd                 ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/edgeDetector.vhd        ;         ;
-; decoderInstru.vhd                ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/decoderInstru.vhd       ;         ;
-; memoriaRAM.vhd                   ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd          ;         ;
-; conversorHex7Seg.vhd             ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/conversorHex7Seg.vhd    ;         ;
-; logicaDesvio.vhd                 ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/logicaDesvio.vhd        ;         ;
-; flipflopGenerico.vhd             ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/flipflopGenerico.vhd    ;         ;
-; muxGenerico4x1.vhd               ; yes             ; User VHDL File  ; C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico4x1.vhd      ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; aula05.vhd                       ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd              ;         ;
+; ULASomaSub.vhd                   ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/ULASomaSub.vhd          ;         ;
+; somaConstante.vhd                ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/somaConstante.vhd       ;         ;
+; registradorGenerico.vhd          ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/registradorGenerico.vhd ;         ;
+; muxGenerico2x1.vhd               ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/muxGenerico2x1.vhd      ;         ;
+; memoriaROM.vhd                   ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaROM.vhd          ;         ;
+; edgeDetector.vhd                 ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/edgeDetector.vhd        ;         ;
+; decoderInstru.vhd                ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/decoderInstru.vhd       ;         ;
+; memoriaRAM.vhd                   ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd          ;         ;
+; conversorHex7Seg.vhd             ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/conversorHex7Seg.vhd    ;         ;
+; logicaDesvio.vhd                 ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/logicaDesvio.vhd        ;         ;
+; flipflopGenerico.vhd             ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/flipflopGenerico.vhd    ;         ;
+; muxGenerico4x1.vhd               ; yes             ; User VHDL File  ; C:/Users/nicol/Documents/insper/descomp/aulas/aula05/muxGenerico4x1.vhd      ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -679,7 +679,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -688,115 +688,115 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Wed Sep 14 09:51:44 2022
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Wed Sep 21 21:31:53 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off aula05 -c aula05
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file aula05.vhd
-    Info (12022): Found design unit 1: Aula05-arquitetura File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 21
-    Info (12023): Found entity 1: Aula05 File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 4
+    Info (12022): Found design unit 1: Aula05-arquitetura File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 21
+    Info (12023): Found entity 1: Aula05 File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ulasomasub.vhd
-    Info (12022): Found design unit 1: ULASomaSub-comportamento File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/ULASomaSub.vhd Line: 15
-    Info (12023): Found entity 1: ULASomaSub File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/ULASomaSub.vhd Line: 5
+    Info (12022): Found design unit 1: ULASomaSub-comportamento File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/ULASomaSub.vhd Line: 15
+    Info (12023): Found entity 1: ULASomaSub File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/ULASomaSub.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file somaconstante.vhd
-    Info (12022): Found design unit 1: somaConstante-comportamento File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/somaConstante.vhd Line: 16
-    Info (12023): Found entity 1: somaConstante File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/somaConstante.vhd Line: 5
+    Info (12022): Found design unit 1: somaConstante-comportamento File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/somaConstante.vhd Line: 16
+    Info (12023): Found entity 1: somaConstante File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/somaConstante.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file registradorgenerico.vhd
-    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/registradorGenerico.vhd Line: 16
-    Info (12023): Found entity 1: registradorGenerico File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/registradorGenerico.vhd Line: 4
+    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/registradorGenerico.vhd Line: 16
+    Info (12023): Found entity 1: registradorGenerico File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/registradorGenerico.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2x1.vhd
-    Info (12022): Found design unit 1: muxGenerico2x1-comportamento File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico2x1.vhd Line: 14
-    Info (12023): Found entity 1: muxGenerico2x1 File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico2x1.vhd Line: 4
+    Info (12022): Found design unit 1: muxGenerico2x1-comportamento File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/muxGenerico2x1.vhd Line: 14
+    Info (12023): Found entity 1: muxGenerico2x1 File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/muxGenerico2x1.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file memoriarom.vhd
-    Info (12022): Found design unit 1: memoriaROM-assincrona File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaROM.vhd Line: 16
-    Info (12023): Found entity 1: memoriaROM File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaROM.vhd Line: 5
+    Info (12022): Found design unit 1: memoriaROM-assincrona File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaROM.vhd Line: 16
+    Info (12023): Found entity 1: memoriaROM File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaROM.vhd Line: 5
 Info (12021): Found 3 design units, including 1 entities, in source file edgedetector.vhd
-    Info (12022): Found design unit 1: edgeDetector-bordaSubida File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/edgeDetector.vhd Line: 11
-    Info (12022): Found design unit 2: edgeDetector-bordaDescida File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/edgeDetector.vhd Line: 22
-    Info (12023): Found entity 1: edgeDetector File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/edgeDetector.vhd Line: 4
+    Info (12022): Found design unit 1: edgeDetector-bordaSubida File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/edgeDetector.vhd Line: 11
+    Info (12022): Found design unit 2: edgeDetector-bordaDescida File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/edgeDetector.vhd Line: 22
+    Info (12023): Found entity 1: edgeDetector File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/edgeDetector.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file decoderinstru.vhd
-    Info (12022): Found design unit 1: decoderInstru-comportamento File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/decoderInstru.vhd Line: 11
-    Info (12023): Found entity 1: decoderInstru File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/decoderInstru.vhd Line: 4
+    Info (12022): Found design unit 1: decoderInstru-comportamento File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/decoderInstru.vhd Line: 11
+    Info (12023): Found entity 1: decoderInstru File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/decoderInstru.vhd Line: 4
 Warning (12019): Can't analyze file -- file aula04.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file memoriaram.vhd
-    Info (12022): Found design unit 1: memoriaRAM-rtl File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 20
-    Info (12023): Found entity 1: memoriaRAM File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 5
+    Info (12022): Found design unit 1: memoriaRAM-rtl File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 20
+    Info (12023): Found entity 1: memoriaRAM File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file conversorhex7seg.vhd
-    Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/conversorHex7Seg.vhd Line: 16
-    Info (12023): Found entity 1: conversorHex7Seg File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/conversorHex7Seg.vhd Line: 4
+    Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/conversorHex7Seg.vhd Line: 16
+    Info (12023): Found entity 1: conversorHex7Seg File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/conversorHex7Seg.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file logicadesvio.vhd
-    Info (12022): Found design unit 1: logicaDesvio-arch_name File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/logicaDesvio.vhd Line: 16
-    Info (12023): Found entity 1: logicaDesvio File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/logicaDesvio.vhd Line: 5
+    Info (12022): Found design unit 1: logicaDesvio-arch_name File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/logicaDesvio.vhd Line: 16
+    Info (12023): Found entity 1: logicaDesvio File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/logicaDesvio.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file flipflopgenerico.vhd
-    Info (12022): Found design unit 1: flipflopGenerico-comportamento File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/flipflopGenerico.vhd Line: 13
-    Info (12023): Found entity 1: flipflopGenerico File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/flipflopGenerico.vhd Line: 4
+    Info (12022): Found design unit 1: flipflopGenerico-comportamento File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/flipflopGenerico.vhd Line: 13
+    Info (12023): Found entity 1: flipflopGenerico File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/flipflopGenerico.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico4x1.vhd
-    Info (12022): Found design unit 1: muxGenerico4x1-arch_name File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico4x1.vhd Line: 13
-    Info (12023): Found entity 1: muxGenerico4x1 File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/muxGenerico4x1.vhd Line: 4
+    Info (12022): Found design unit 1: muxGenerico4x1-arch_name File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/muxGenerico4x1.vhd Line: 13
+    Info (12023): Found entity 1: muxGenerico4x1 File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/muxGenerico4x1.vhd Line: 4
 Info (12127): Elaborating entity "aula05" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at aula05.vhd(27): used implicit default value for signal "REGA_RESET" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 27
-Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:\gravar:detectorSub0" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 71
-Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 79
-Info (12128): Elaborating entity "somaConstante" for hierarchy "somaConstante:incrementaPC" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 88
-Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX1" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 94
-Info (12128): Elaborating entity "logicaDesvio" for hierarchy "logicaDesvio:DESVIO1" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 111
-Info (10041): Inferred latch for "Sel[0]" at logicaDesvio.vhd(19) File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/logicaDesvio.vhd Line: 19
-Info (10041): Inferred latch for "Sel[1]" at logicaDesvio.vhd(19) File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/logicaDesvio.vhd Line: 19
-Info (12128): Elaborating entity "muxGenerico4x1" for hierarchy "muxGenerico4x1:MUX2" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 121
-Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:REGA" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 131
-Info (12128): Elaborating entity "ULASomaSub" for hierarchy "ULASomaSub:ULA1" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 140
-Warning (10541): VHDL Signal Declaration warning at ULASomaSub.vhd(18): used implicit default value for signal "passa" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/ULASomaSub.vhd Line: 18
-Info (12128): Elaborating entity "flipflopGenerico" for hierarchy "flipflopGenerico:FLIPFLOP1" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 149
-Info (12128): Elaborating entity "memoriaROM" for hierarchy "memoriaROM:ROM1" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 158
-Info (12128): Elaborating entity "decoderInstru" for hierarchy "decoderInstru:DECODER_INSTRU" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 164
-Info (12128): Elaborating entity "memoriaRAM" for hierarchy "memoriaRAM:RAM1" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 170
-Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX_7SEG" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 186
-Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "conversorHex7Seg:HEX5_SEVENSEG" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 194
+Warning (10541): VHDL Signal Declaration warning at aula05.vhd(27): used implicit default value for signal "REGA_RESET" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 27
+Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:\gravar:detectorSub0" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 71
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 79
+Info (12128): Elaborating entity "somaConstante" for hierarchy "somaConstante:incrementaPC" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 88
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX1" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 94
+Info (12128): Elaborating entity "logicaDesvio" for hierarchy "logicaDesvio:DESVIO1" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 111
+Info (10041): Inferred latch for "Sel[0]" at logicaDesvio.vhd(19) File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/logicaDesvio.vhd Line: 19
+Info (10041): Inferred latch for "Sel[1]" at logicaDesvio.vhd(19) File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/logicaDesvio.vhd Line: 19
+Info (12128): Elaborating entity "muxGenerico4x1" for hierarchy "muxGenerico4x1:MUX2" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 121
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:REGA" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 131
+Info (12128): Elaborating entity "ULASomaSub" for hierarchy "ULASomaSub:ULA1" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 140
+Warning (10541): VHDL Signal Declaration warning at ULASomaSub.vhd(18): used implicit default value for signal "passa" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/ULASomaSub.vhd Line: 18
+Info (12128): Elaborating entity "flipflopGenerico" for hierarchy "flipflopGenerico:FLIPFLOP1" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 149
+Info (12128): Elaborating entity "memoriaROM" for hierarchy "memoriaROM:ROM1" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 158
+Info (12128): Elaborating entity "decoderInstru" for hierarchy "decoderInstru:DECODER_INSTRU" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 164
+Info (12128): Elaborating entity "memoriaRAM" for hierarchy "memoriaRAM:RAM1" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 170
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX_7SEG" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 186
+Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "conversorHex7Seg:HEX5_SEVENSEG" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 194
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "memoriaRAM:RAM1|ram" is uninferred due to asynchronous read logic File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 26
+    Info (276007): RAM logic "memoriaRAM:RAM1|ram" is uninferred due to asynchronous read logic File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 26
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[0]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[1]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[2]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[3]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[4]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[5]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[6]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
-    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[7]" feeding internal logic into a wire File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[0]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[1]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[2]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[3]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[4]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[5]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[6]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM1|dado_out[7]" feeding internal logic into a wire File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/memoriaRAM.vhd Line: 16
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 14
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 14
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 14
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 14
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 14
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 14
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 14
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 16
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 16
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 14
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 14
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 14
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 14
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 14
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 14
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 14
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 16
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 16
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 12 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 12
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 12
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 12
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 12
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 12
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/nicol/Documents/insper/descomp/aulas/aula05/aula05.vhd Line: 13
 Info (21057): Implemented 255 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 73 output pins
     Info (21061): Implemented 167 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
-    Info: Peak virtual memory: 9267 megabytes
-    Info: Processing ended: Wed Sep 14 09:52:20 2022
-    Info: Elapsed time: 00:00:36
-    Info: Total CPU time (on all processors): 00:00:57
+    Info: Peak virtual memory: 4899 megabytes
+    Info: Processing ended: Wed Sep 21 21:32:01 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:15
 
 

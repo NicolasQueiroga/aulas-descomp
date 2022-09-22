@@ -1,29 +1,20 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY decoder3x8 IS
-  PORT (
-    entrada : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    saida : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+entity decoder3x8 is
+  port ( entrada : in std_logic_vector(2 downto 0);
+         saida : out std_logic_vector(7 downto 0)
   );
-END ENTITY;
+end entity;
 
-ARCHITECTURE comportamento OF decoder3x8 IS
-BEGIN
-  saida(7) <= '1' WHEN (entrada = "111") ELSE
-  '0';
-  saida(6) <= '1' WHEN (entrada = "110") ELSE
-  '0';
-  saida(5) <= '1' WHEN (entrada = "101") ELSE
-  '0';
-  saida(4) <= '1' WHEN (entrada = "100") ELSE
-  '0';
-  saida(3) <= '1' WHEN (entrada = "011") ELSE
-  '0';
-  saida(2) <= '1' WHEN (entrada = "010") ELSE
-  '0';
-  saida(1) <= '1' WHEN (entrada = "001") ELSE
-  '0';
-  saida(0) <= '1' WHEN (entrada = "000") ELSE
-  '0';
-END ARCHITECTURE;
+architecture comportamento of decoder3x8 is
+  begin
+    saida(7) <= '1' when (entrada = "111") else '0';
+    saida(6) <= '1' when (entrada = "110") else '0';
+    saida(5) <= '1' when (entrada = "101") else '0';
+    saida(4) <= '1' when (entrada = "100") else '0';
+    saida(3) <= '1' when (entrada = "011") else '0';
+    saida(2) <= '1' when (entrada = "010") else '0';
+    saida(1) <= '1' when (entrada = "001") else '0';
+    saida(0) <= '1' when (entrada = "000") else '0';
+end architecture;

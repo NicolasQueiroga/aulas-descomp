@@ -4,19 +4,19 @@ USE ieee.std_logic_1164.ALL;
 ENTITY CPU IS
         GENERIC (
                 larguraDados : NATURAL := 8;
-                larguraEnderecos : NATURAL := 8;
+                larguraEnderecos : NATURAL := 8
         );
         PORT (
                 CLK : IN STD_LOGIC;
-                Reset : IN STD_LOGIC;
-                KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-                Instuction_IN : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
-                Data_IN : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-                wr : OUT STD_LOGIC;
-                rd : OUT STD_LOGIC;
-                ROM_Address : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-                Data_Address : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-                Data_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+                -- Reset         : in std_logic;
+                -- Data_IN       : in std_logic_vector(7 downto 0);
+                INSTRUCTION : in std_logic_vector(12 downto 0);
+                        
+                ROM_Address   : out std_logic_vector(8 downto 0)
+                -- Wr            : out std_logic;
+                -- Rd            : out std_logic;
+                -- Data_Address  : out std_logic_vector(8 downto 0);
+                -- Data_OUT      : out std_logic_vector(7 downto 0)
         );
 END ENTITY;
 
@@ -26,7 +26,6 @@ ARCHITECTURE arquitetura OF CPU IS
         SIGNAL proxPC : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL Endereco : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL REGA_RESET : STD_LOGIC;
-        SIGNAL INSTRUCTION : STD_LOGIC_VECTOR (12 DOWNTO 0);
         SIGNAL MUX1_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL MUX2_OUT : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL REGA_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
@@ -60,11 +59,12 @@ ARCHITECTURE arquitetura OF CPU IS
         ALIAS MEM_ENABLE : STD_LOGIC IS INSTRUCTION(8);
         ALIAS MEM_IN : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS REGA_OUT;
         ALIAS MEM_ENABLE_READ : STD_LOGIC IS DECODER_OUT(1);
-        ALIAS MEM_ENABLE_wRITE : STD_LOGIC IS DECODER_OUT(0);
+        ALIAS MEM_ENABLE_WRITE : STD_LOGIC IS DECODER_OUT(0);
 
         ALIAS OP_CODE : STD_LOGIC_VECTOR (3 DOWNTO 0) IS INSTRUCTION(12 DOWNTO 9);
 
 BEGIN
+
         PC : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => 9)
                 PORT MAP(
                         DIN => MUX2_OUT,
@@ -144,11 +144,11 @@ BEGIN
                         RST => '0'
                 );
 
-        ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 9)
-                PORT MAP(
-                        Endereco => Endereco,
-                        Dado => INSTRUCTION
-                );
+        -- ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 9)
+        --         PORT MAP(
+        --                 Endereco => Endereco,
+        --                 Dado => INSTRUCTION
+        --         );
 
         DECODER_INSTRU : ENTITY work.decoderInstru
                 PORT MAP(
@@ -159,7 +159,7 @@ BEGIN
         RAM1 : ENTITY work.memoriaRAM GENERIC MAP (dataWidth => larguraDados, addrWidth => larguraEnderecos)
                 PORT MAP(
                         addr => MEM_ADDRESS,
-                        we => MEM_ENABLE_wRITE,
+                        we => MEM_ENABLE_WRITE,
                         re => MEM_ENABLE_READ,
                         habilita => MEM_ENABLE,
                         dado_in => MEM_IN,
@@ -167,10 +167,6 @@ BEGIN
                         clk => CLK
                 );
 
-        wr <= Sinais_Controle(0);
-        rd <= Sinais_Controle(1);
         ROM_Address <= Endereco;
-        Data_Address <= INSTRUCTION(8 DOWNTO 0);
-        Data_OUT <= REGA_OUTREGA_OUTREGA_OUTREGA_OUT;
 
 END ARCHITECTURE;
