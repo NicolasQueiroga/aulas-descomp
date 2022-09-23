@@ -23,5 +23,5 @@ BEGIN
     subtracao WHEN (seletor = "00") ELSE
     passa WHEN (seletor = "10") ELSE
     entradaB;
-  flagEqual <= '1' WHEN (subtracao = x"00") ELSE '0';
+  flagEqual <= '1' WHEN (saida = x"00") ELSE '0';
 END ARCHITECTURE;

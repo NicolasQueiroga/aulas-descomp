@@ -1,4 +1,4 @@
--- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Copyright (C) 2022  Intel Corporation. All rights reserved.
 -- Your use of Intel Corporation's design tools, logic functions 
 -- and other software and tools, and any partner logic 
 -- functions, and any output files from any of the foregoing 
@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "09/22/2022 00:46:05"
+-- Generated on "09/22/2022 17:24:27"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          Aula07
 -- 

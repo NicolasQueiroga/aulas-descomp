@@ -23,7 +23,16 @@ ARCHITECTURE arquitetura OF Aula07 IS
         SIGNAL ROM_Address : STD_LOGIC_VECTOR(8 DOWNTO 0);
         SIGNAL INSTRUCTION : STD_LOGIC_VECTOR(12 DOWNTO 0);
 
+        SIGNAL MEM_ENABLE_WRITE : STD_LOGIC;
+        SIGNAL MEM_ENABLE_READ : STD_LOGIC;
+        SIGNAL MEM_ADDRESS : STD_LOGIC_VECTOR(8 DOWNTO 0);
+        SIGNAL MEM_IN : STD_LOGIC_VECTOR(7 DOWNTO 0);
+        SIGNAL MEM_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
+        
+        SIGNAL BLOCKS_DECODER_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
+        
         -- aliases para facilitar a leitura do código
+        ALIAS MEM_ENABLE : STD_LOGIC IS BLOCKS_DECODER_OUT(0);
 
 BEGIN
         gravar : IF simulacao GENERATE
@@ -41,14 +50,37 @@ BEGIN
         CPU : ENTITY work.CPU GENERIC MAP(larguraDados => larguraDados, larguraEnderecos => larguraEnderecos) 
                 PORT MAP(
                         CLK => CLK,
+                        Data_IN => MEM_IN,
+                        INSTRUCTION => INSTRUCTION,
+
+                        Data_OUT => MEM_OUT,
                         ROM_Address => ROM_Address,
-                        INSTRUCTION => INSTRUCTION
+                        Data_Address => MEM_ADDRESS,
+                        Wr => MEM_ENABLE_WRITE,
+                        Rd => MEM_ENABLE_READ
                 );
 
         ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 9)
                 PORT MAP(
                         Endereco => ROM_Address,
                         Dado => INSTRUCTION
+                );
+        
+        RAM1 : ENTITY work.memoriaRAM GENERIC MAP (dataWidth => larguraDados, addrWidth => 6)
+                PORT MAP(
+                        addr => MEM_ADDRESS(5 DOWNTO 0),
+                        we => MEM_ENABLE_WRITE,
+                        re => MEM_ENABLE_READ,
+                        habilita => MEM_ENABLE,
+                        dado_in => MEM_OUT,
+                        dado_out => MEM_IN,
+                        clk => CLK
+                );
+
+        BLOCKS_DECODER : ENTITY work.decoder3x8
+                PORT MAP(
+                        entrada => MEM_ADDRESS(8 DOWNTO 6),
+                        saida => BLOCKS_DECODER_OUT
                 );
 
         PC_OUT <= ROM_Address;

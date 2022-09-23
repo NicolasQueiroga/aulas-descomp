@@ -33,7 +33,7 @@ BEGIN
     "0000000XX001" WHEN opcode = STA ELSE
     "01000X0XX000" WHEN opcode = JMP ELSE
     "00001X0XX000" WHEN opcode = JEQ ELSE
-    "000000000100" WHEN opcode = CEQ ELSE
+    "000000000110" WHEN opcode = CEQ ELSE
     "10010X0XX000" WHEN opcode = JSR ELSE
     "00100X0XX000" WHEN opcode = RET ELSE
     "000000000000"; -- NOP para os opcodes Indefinidos

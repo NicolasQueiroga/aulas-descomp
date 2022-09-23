@@ -9,14 +9,14 @@ ENTITY CPU IS
         PORT (
                 CLK : IN STD_LOGIC;
                 -- Reset         : in std_logic;
-                -- Data_IN       : in std_logic_vector(7 downto 0);
+                Data_IN       : in std_logic_vector(7 downto 0);
                 INSTRUCTION : in std_logic_vector(12 downto 0);
                         
-                ROM_Address   : out std_logic_vector(8 downto 0)
-                -- Wr            : out std_logic;
-                -- Rd            : out std_logic;
-                -- Data_Address  : out std_logic_vector(8 downto 0);
-                -- Data_OUT      : out std_logic_vector(7 downto 0)
+                ROM_Address   : out std_logic_vector(8 downto 0);
+                Wr            : out std_logic;
+                Rd            : out std_logic;
+                Data_Address  : out std_logic_vector(8 downto 0);
+                Data_OUT      : out std_logic_vector(7 downto 0)
         );
 END ENTITY;
 
@@ -37,11 +37,13 @@ ARCHITECTURE arquitetura OF CPU IS
         SIGNAL MUX2_7SEG : STD_LOGIC_VECTOR (23 DOWNTO 0);
         SIGNAL DESVIO1_OUT : STD_LOGIC_VECTOR (1 DOWNTO 0);
         SIGNAL END_RETORNO_OUT : STD_LOGIC_VECTOR (8 DOWNTO 0);
+        SIGNAL MEM_ENABLE_READ : STD_LOGIC;
+        SIGNAL MEM_ENABLE_WRITE : STD_LOGIC;
 
         -- aliases para facilitar a leitura do código
         ALIAS MUX1_A : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS MEM_OUT;
         ALIAS MUX1_B : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS INSTRUCTION(larguraDados - 1 DOWNTO 0);
-        ALIAS MUX1_SELECTOR : STD_LOGIC IS DECODER_OUT(5);
+        ALIAS MUX1_SELECTOR : STD_LOGIC IS DECODER_OUT(6);
 
         ALIAS MUX2_A : STD_LOGIC_VECTOR (8 DOWNTO 0) IS proxPC;
         ALIAS MUX2_B : STD_LOGIC_VECTOR (8 DOWNTO 0) IS INSTRUCTION(8 DOWNTO 0);
@@ -58,8 +60,6 @@ ARCHITECTURE arquitetura OF CPU IS
         ALIAS MEM_ADDRESS : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS INSTRUCTION(larguraDados - 1 DOWNTO 0);
         ALIAS MEM_ENABLE : STD_LOGIC IS INSTRUCTION(8);
         ALIAS MEM_IN : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS REGA_OUT;
-        ALIAS MEM_ENABLE_READ : STD_LOGIC IS DECODER_OUT(1);
-        ALIAS MEM_ENABLE_WRITE : STD_LOGIC IS DECODER_OUT(0);
 
         ALIAS OP_CODE : STD_LOGIC_VECTOR (3 DOWNTO 0) IS INSTRUCTION(12 DOWNTO 9);
 
@@ -100,9 +100,9 @@ BEGIN
         DESVIO1 : ENTITY work.LogicaDesvio
                 PORT MAP(
                         JMP => DECODER_OUT(10),
-                        JEQ => DECODER_OUT(7),
-                        JSR => DECODER_OUT(8),
                         RET => DECODER_OUT(9),
+                        JSR => DECODER_OUT(8),
+                        JEQ => DECODER_OUT(7),
                         FLAG_EQ => FLIPFLOP_OUT,
                         Sel => DESVIO1_OUT
                 );
@@ -156,17 +156,21 @@ BEGIN
                         saida => DECODER_OUT
                 );
 
-        RAM1 : ENTITY work.memoriaRAM GENERIC MAP (dataWidth => larguraDados, addrWidth => larguraEnderecos)
-                PORT MAP(
-                        addr => MEM_ADDRESS,
-                        we => MEM_ENABLE_WRITE,
-                        re => MEM_ENABLE_READ,
-                        habilita => MEM_ENABLE,
-                        dado_in => MEM_IN,
-                        dado_out => MEM_OUT,
-                        clk => CLK
-                );
+        -- RAM1 : ENTITY work.memoriaRAM GENERIC MAP (dataWidth => larguraDados, addrWidth => larguraEnderecos)
+        --         PORT MAP(
+        --                 addr => MEM_ADDRESS,
+        --                 we => MEM_ENABLE_WRITE,
+        --                 re => MEM_ENABLE_READ,
+        --                 habilita => MEM_ENABLE,
+        --                 dado_in => MEM_IN,
+        --                 dado_out => MEM_OUT,
+        --                 clk => CLK
+        --         );
 
         ROM_Address <= Endereco;
+        Wr <= DECODER_OUT(0);
+        Rd <= DECODER_OUT(1);
+        Data_Address <= INSTRUCTION(8 DOWNTO 0);
+        Data_OUT <= MEM_IN;
 
 END ARCHITECTURE;
