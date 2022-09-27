@@ -28,12 +28,12 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Sep 22 17:24:26 2022
+    Info: Processing started: Tue Sep 27 19:53:23 2022
 Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off aula07 -c aula07 --vector_source=./Waveform.vwf --testbench_file=./simulation/qsim/Waveform.vwf.vht
 Info (119006): Selected device 5CEBA4F23C7 for design "aula07"
 
 gabytes
-    Info: Processing ended: Thu Sep 22 17:24:27 2022
+    Info: Processing ended: Tue Sep 27 19:53:24 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
@@ -62,14 +62,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Sep 22 17:24:28 2022
+    Info: Processing started: Tue Sep 27 19:53:24 2022
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=./simulation/qsim/ aula07 -c aula07
 Info (119006): Selected device 5CEBA4F23C7 for design "aula07"
 Info (204019): Generated file aula07.vho in folder "C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula07/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 9039 megabytes
-    Info: Processing ended: Thu Sep 22 17:24:28 2022
-    Info: Elapsed time: 00:00:00
+    Info: Peak virtual memory: 9040 megabytes
+    Info: Processing ended: Tue Sep 27 19:53:25 2022
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
@@ -97,7 +97,7 @@ Reading pref.tcl
 
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
 
-# Start time: 17:24:30 on Sep 22,2022
+# Start time: 19:53:27 on Sep 27,2022
 # vcom -work work aula07.vho 
 
 # -- Loading package STANDARD
@@ -124,13 +124,13 @@ Reading pref.tcl
 
 # -- Compiling architecture structure of Aula07
 
-# End time: 17:24:30 on Sep 22,2022, Elapsed time: 0:00:00
+# End time: 19:53:27 on Sep 27,2022, Elapsed time: 0:00:00
 
 # Errors: 0, Warnings: 0
 
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
 
-# Start time: 17:24:30 on Sep 22,2022
+# Start time: 19:53:27 on Sep 27,2022
 # vcom -work work Waveform.vwf.vht 
 
 # -- Loading package STANDARD
@@ -143,12 +143,12 @@ Reading pref.tcl
 
 # -- Compiling architecture Aula07_arch of Aula07_vhd_vec_tst
 
-# End time: 17:24:30 on Sep 22,2022, Elapsed time: 0:00:00
+# End time: 19:53:27 on Sep 27,2022, Elapsed time: 0:00:00
 
 # Errors: 0, Warnings: 0
 
 # vsim -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Aula07_vhd_vec_tst 
-# Start time: 17:24:30 on Sep 22,2022
+# Start time: 19:53:27 on Sep 27,2022
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Intel Starter FPGA Edition-64
 # //  Version 2021.2 win64 Apr 14 2021
@@ -183,10 +183,10 @@ Reading pref.tcl
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#1
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#2
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#3
-# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#4
 # Loading altera.dffeas(vital_dffeas)#1
-# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#5
+# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#4
 # Loading altera.dffeas(vital_dffeas)#2
+# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#5
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#6
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#7
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#8
@@ -198,6 +198,7 @@ Reading pref.tcl
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#14
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#15
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#16
+# Loading altera.dffeas(vital_dffeas)#3
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#17
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#18
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#19
@@ -205,7 +206,6 @@ Reading pref.tcl
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#21
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#22
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#23
-# Loading altera.dffeas(vital_dffeas)#3
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#24
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#25
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#26
@@ -219,10 +219,11 @@ Reading pref.tcl
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#34
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#35
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#36
+# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)#37
 
 # after#35
 
-# End time: 17:24:31 on Sep 22,2022, Elapsed time: 0:00:01
+# End time: 19:53:29 on Sep 27,2022, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
@@ -235,7 +236,7 @@ Reading C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula07/simulation/qsi
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula07/simulation/qsim/aula07_20220922172432.sim.vwf
+Writing the resulting VWF to C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula07/simulation/qsim/aula07_20220927195330.sim.vwf
 
 Finished VCD to VWF conversion.
 

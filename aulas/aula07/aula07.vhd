@@ -12,7 +12,7 @@ ENTITY Aula07 IS
                 KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
                 
                 PC_OUT : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-                DECODER_CMD : OUT STD_LOGIC_VECTOR (12 DOWNTO 0)
+                DECODER_CMD : OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
         );
 END ENTITY;
 
@@ -25,7 +25,7 @@ ARCHITECTURE arquitetura OF Aula07 IS
 
         SIGNAL MEM_ENABLE_WRITE : STD_LOGIC;
         SIGNAL MEM_ENABLE_READ : STD_LOGIC;
-        SIGNAL MEM_ADDRESS : STD_LOGIC_VECTOR(8 DOWNTO 0);
+        SIGNAL MEM_ADDRESS : STD_LOGIC_VECTOR(5 DOWNTO 0);
         SIGNAL MEM_IN : STD_LOGIC_VECTOR(7 DOWNTO 0);
         SIGNAL MEM_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
         
@@ -57,10 +57,11 @@ BEGIN
                         ROM_Address => ROM_Address,
                         Data_Address => MEM_ADDRESS,
                         Wr => MEM_ENABLE_WRITE,
-                        Rd => MEM_ENABLE_READ
+                        Rd => MEM_ENABLE_READ,
+								decoder_out_debug => DECODER_CMD
                 );
 
-        ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 9)
+        ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 4)
                 PORT MAP(
                         Endereco => ROM_Address,
                         Dado => INSTRUCTION
@@ -68,7 +69,7 @@ BEGIN
         
         RAM1 : ENTITY work.memoriaRAM GENERIC MAP (dataWidth => larguraDados, addrWidth => 6)
                 PORT MAP(
-                        addr => MEM_ADDRESS(5 DOWNTO 0),
+                        addr => MEM_ADDRESS,
                         we => MEM_ENABLE_WRITE,
                         re => MEM_ENABLE_READ,
                         habilita => MEM_ENABLE,
@@ -79,11 +80,10 @@ BEGIN
 
         BLOCKS_DECODER : ENTITY work.decoder3x8
                 PORT MAP(
-                        entrada => MEM_ADDRESS(8 DOWNTO 6),
+                        entrada => INSTRUCTION(8 DOWNTO 6),
                         saida => BLOCKS_DECODER_OUT
                 );
 
         PC_OUT <= ROM_Address;
-        DECODER_CMD <= INSTRUCTION;
 
 END ARCHITECTURE;

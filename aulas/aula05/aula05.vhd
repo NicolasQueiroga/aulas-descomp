@@ -41,7 +41,7 @@ ARCHITECTURE arquitetura OF Aula05 IS
         -- aliases para facilitar a leitura do código
         ALIAS MUX1_A : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS MEM_OUT;
         ALIAS MUX1_B : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS INSTRUCTION(larguraDados - 1 DOWNTO 0);
-        ALIAS MUX1_SELECTOR : STD_LOGIC IS DECODER_OUT(5);
+        ALIAS MUX1_SELECTOR : STD_LOGIC IS DECODER_OUT(6);
 
         ALIAS MUX2_A : STD_LOGIC_VECTOR (8 DOWNTO 0) IS proxPC;
         ALIAS MUX2_B : STD_LOGIC_VECTOR (8 DOWNTO 0) IS INSTRUCTION(8 DOWNTO 0);

@@ -29,12 +29,12 @@ BEGIN
     "000000110010" WHEN opcode = LDA ELSE -- operação final não importa/ carrega Y: A
     "000000101010" WHEN opcode = SOMA ELSE -- soma valor da mem com acumulador
     "000000100010" WHEN opcode = SUB ELSE
-    "000001110000" WHEN opcode = LDI ELSE
-    "0000000XX001" WHEN opcode = STA ELSE
-    "01000X0XX000" WHEN opcode = JMP ELSE
-    "00001X0XX000" WHEN opcode = JEQ ELSE
+    "000001101000" WHEN opcode = LDI ELSE
+    "000000001001" WHEN opcode = STA ELSE
+    "010000001000" WHEN opcode = JMP ELSE
+    "000010001000" WHEN opcode = JEQ ELSE
     "000000000110" WHEN opcode = CEQ ELSE
-    "10010X0XX000" WHEN opcode = JSR ELSE
-    "00100X0XX000" WHEN opcode = RET ELSE
+    "100100001000" WHEN opcode = JSR ELSE
+    "001000001000" WHEN opcode = RET ELSE
     "000000000000"; -- NOP para os opcodes Indefinidos
 END ARCHITECTURE;

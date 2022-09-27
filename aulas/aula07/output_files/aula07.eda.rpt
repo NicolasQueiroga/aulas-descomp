@@ -1,5 +1,5 @@
 EDA Netlist Writer report for aula07
-Thu Sep 22 17:24:28 2022
+Tue Sep 27 19:53:25 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Thu Sep 22 17:24:28 2022 ;
+; EDA Netlist Writer Status ; Successful - Tue Sep 27 19:53:25 2022 ;
 ; Revision Name             ; aula07                                ;
 ; Top-level Entity Name     ; Aula07                                ;
 ; Family                    ; Cyclone V                             ;
@@ -95,14 +95,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Sep 22 17:24:28 2022
+    Info: Processing started: Tue Sep 27 19:53:24 2022
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=./simulation/qsim/ aula07 -c aula07
 Info (119006): Selected device 5CEBA4F23C7 for design "aula07"
 Info (204019): Generated file aula07.vho in folder "C:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula07/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 9039 megabytes
-    Info: Processing ended: Thu Sep 22 17:24:28 2022
-    Info: Elapsed time: 00:00:00
+    Info: Peak virtual memory: 9040 megabytes
+    Info: Processing ended: Tue Sep 27 19:53:25 2022
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

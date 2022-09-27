@@ -6,6 +6,15 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
 !s11e MIXED_VERSIONS
 13
 !s112 1.1
@@ -15,17 +24,17 @@ R0
 cModel Technology
 dC:/Users/nicol/Documents/insper/descomp/aulas/aula07/simulation/qsim
 T_opt
-!s110 1663878271
-VQJi169^0^P=>kfCDIRbF22
+!s110 1664319208
+V97CQecGb71`E_>a`i;jb=0
 04 18 11 work aula07_vhd_vec_tst aula07_arch 1
-=1-001c4207b48e-632cc47e-2a6-1914
+=1-001c4207b48e-63337ee8-124-e44
 !s124 OEM10U2 
 o-quiet -auto_acc_if_foreign -work work -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim
 tCvgOpt 0
 n@_opt
 OL;O;2021.2;73
 Eaula07
-Z1 w1663878268
+Z1 w1664319205
 Z2 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 Go?7O^>gO9PUGAbd]57Qz3
 Z3 DPx8 cyclonev 19 cyclonev_components 0 22 KJiN=<?XEUbkUE2[idYZK3
 Z4 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 kfhVHUgSbAm[03BJI^Zk12
@@ -35,19 +44,19 @@ Z7 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
 Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z9 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z10 DPx6 altera 28 altera_primitives_components 0 22 YYoQ82]HzeJG>EHgnbGN33
-!i122 18
+!i122 36
 Z11 dC:/Users/nicolas/Documents/insper/6o/descomp/aulas/aula07/simulation/qsim
 Z12 8aula07.vho
 Z13 Faula07.vho
 l0
 L39 1
-VK_cdZ3?zV0Fj;WBJW8]HW0
-!s100 1=BGHa8Z_BgghZzNBH2Po2
+VTEh[91[@<;[GAZAULb0?S0
+!s100 ;]Kb:_E0B:^WE<IPjijd^0
 Z14 OL;C;2021.2;73
 32
-Z15 !s110 1663878270
+Z15 !s110 1664319207
 !i10b 1
-Z16 !s108 1663878270.000000
+Z16 !s108 1664319207.000000
 Z17 !s90 -work|work|aula07.vho|
 Z18 !s107 aula07.vho|
 !i113 0
@@ -63,12 +72,12 @@ R7
 R8
 R9
 R10
-DEx4 work 6 aula07 0 22 K_cdZ3?zV0Fj;WBJW8]HW0
-!i122 18
-l205
-L48 2058
-VXk1MinHQeXKelQB0nO4kb0
-!s100 HS3aM:K?mW@CX0YP2?Ckh3
+DEx4 work 6 aula07 0 22 TEh[91[@<;[GAZAULb0?S0
+!i122 36
+l188
+L48 1899
+V8Y==;`fnbz_WF2[M3X?>C0
+!s100 6_J?[d2S8gkloBP_6FZa02
 R14
 32
 R15
@@ -80,10 +89,10 @@ R18
 R19
 R20
 Eaula07_vhd_vec_tst
-Z21 w1663878267
+Z21 w1664319204
 R8
 R9
-!i122 19
+!i122 37
 R11
 Z22 8Waveform.vwf.vht
 Z23 FWaveform.vwf.vht
@@ -105,11 +114,11 @@ Aaula07_arch
 R8
 R9
 DEx4 work 18 aula07_vhd_vec_tst 0 22 ?Mo7b][UBR^mEAkU;481X1
-!i122 19
+!i122 37
 l49
 L34 41
-VS:4ANmfgzh[04z^`;cgcC2
-!s100 WG<Y85V@j>GhS01R`d3K93
+VHM4giPa;KLKV3OH:Dk?6a1
+!s100 3Y[QU<kPlTTY=?H=_OC223
 R14
 32
 R15

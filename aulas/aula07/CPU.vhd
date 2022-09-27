@@ -15,8 +15,9 @@ ENTITY CPU IS
                 ROM_Address   : out std_logic_vector(8 downto 0);
                 Wr            : out std_logic;
                 Rd            : out std_logic;
-                Data_Address  : out std_logic_vector(8 downto 0);
-                Data_OUT      : out std_logic_vector(7 downto 0)
+                Data_Address  : out std_logic_vector(5 downto 0);
+                Data_OUT      : out std_logic_vector(7 downto 0);
+					 decoder_out_debug : out std_logic_vector(11 downto 0)
         );
 END ENTITY;
 
@@ -25,14 +26,13 @@ ARCHITECTURE arquitetura OF CPU IS
         -- signals
         SIGNAL proxPC : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL Endereco : STD_LOGIC_VECTOR (8 DOWNTO 0);
-        SIGNAL REGA_RESET : STD_LOGIC;
         SIGNAL MUX1_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL MUX2_OUT : STD_LOGIC_VECTOR (8 DOWNTO 0);
         SIGNAL REGA_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL ALU_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL ALU_FLAG_EQ : STD_LOGIC;
         SIGNAL FLIPFLOP_OUT : STD_LOGIC;
-        SIGNAL MEM_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
+--        SIGNAL MEM_OUT : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0);
         SIGNAL DECODER_OUT : STD_LOGIC_VECTOR (11 DOWNTO 0);
         SIGNAL MUX2_7SEG : STD_LOGIC_VECTOR (23 DOWNTO 0);
         SIGNAL DESVIO1_OUT : STD_LOGIC_VECTOR (1 DOWNTO 0);
@@ -41,7 +41,7 @@ ARCHITECTURE arquitetura OF CPU IS
         SIGNAL MEM_ENABLE_WRITE : STD_LOGIC;
 
         -- aliases para facilitar a leitura do código
-        ALIAS MUX1_A : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS MEM_OUT;
+        ALIAS MUX1_A : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS Data_IN;
         ALIAS MUX1_B : STD_LOGIC_VECTOR (larguraDados - 1 DOWNTO 0) IS INSTRUCTION(larguraDados - 1 DOWNTO 0);
         ALIAS MUX1_SELECTOR : STD_LOGIC IS DECODER_OUT(6);
 
@@ -123,7 +123,7 @@ BEGIN
                         DOUT => REGA_OUT,
                         ENABLE => REGA_ENABLE,
                         CLK => CLK,
-                        RST => REGA_RESET
+                        RST => '0'
                 );
 
         ULA1 : ENTITY work.ULASomaSub GENERIC MAP(larguraDados => larguraDados)
@@ -170,7 +170,8 @@ BEGIN
         ROM_Address <= Endereco;
         Wr <= DECODER_OUT(0);
         Rd <= DECODER_OUT(1);
-        Data_Address <= INSTRUCTION(8 DOWNTO 0);
+        Data_Address <= INSTRUCTION(5 DOWNTO 0);
         Data_OUT <= MEM_IN;
+		  decoder_out_debug <= DECODER_OUT;
 
 END ARCHITECTURE;

@@ -19,6 +19,7 @@ ARCHITECTURE comportamento OF ULASomaSub IS
 BEGIN
   soma <= STD_LOGIC_VECTOR(unsigned(entradaA) + unsigned(entradaB));
   subtracao <= STD_LOGIC_VECTOR(unsigned(entradaA) - unsigned(entradaB));
+  passa <= STD_LOGIC_VECTOR(unsigned(entradaB));
   saida <= soma WHEN (seletor = "01") ELSE
     subtracao WHEN (seletor = "00") ELSE
     passa WHEN (seletor = "10") ELSE

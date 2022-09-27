@@ -8,7 +8,7 @@ ENTITY memoriaROM IS
         addrWidth : NATURAL := 4
     );
     PORT (
-        Endereco : IN STD_LOGIC_VECTOR (addrWidth - 1 DOWNTO 0);
+        Endereco : IN STD_LOGIC_VECTOR (9 - 1 DOWNTO 0);
         Dado : OUT STD_LOGIC_VECTOR (dataWidth - 1 DOWNTO 0)
     );
 END ENTITY;
@@ -40,7 +40,7 @@ ARCHITECTURE assincrona OF memoriaROM IS
         tmp(3) := NOP & '0' & x"00";
         tmp(4) := NOP & '0' & x"00";
         tmp(5) := LDI & '0' & x"05";
-        tmp(6) := STA & '0' & x"00";
+        tmp(6) := STA & '1' & x"00";
         tmp(7) := CEQ & '0' & x"00";
         tmp(8) := JMP & '0' & x"02";
         tmp(9) := NOP & '0' & x"00";
