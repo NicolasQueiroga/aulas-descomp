@@ -32,24 +32,19 @@ ARCHITECTURE assincrona OF memoriaROM IS
     FUNCTION initMemory
         RETURN blocoMemoria IS VARIABLE tmp : blocoMemoria := (OTHERS => (OTHERS => '0'));
     BEGIN
-        -- Palavra de Controle = SelMUX, Habilita_A, Reset_A, Operacao_ULA
-        -- Inicializa os endereços:
-        tmp(0) := JSR & '0' & x"0E";
-        tmp(1) := JMP & '0' & x"05";
-        tmp(2) := JEQ & '0' & x"09";
-        tmp(3) := NOP & '0' & x"00";
-        tmp(4) := NOP & '0' & x"00";
-        tmp(5) := LDI & '0' & x"05";
-        tmp(6) := STA & '1' & x"00";
-        tmp(7) := CEQ & '0' & x"00";
-        tmp(8) := JMP & '0' & x"02";
-        tmp(9) := NOP & '0' & x"00";
-        tmp(10) := LDI & '0' & x"04";
-        tmp(11) := CEQ & '0' & x"00";
-        tmp(12) := JEQ & '0' & x"03";
-        tmp(13) := JMP & '0' & x"0D";
-        tmp(14) := NOP & '0' & x"00";
-        tmp(15) := RET & '0' & x"00";
+        tmp(0) := LDI & '0' & x"01";
+        tmp(1) := STA & '1' & x"00";
+        tmp(2) := SOMA & '0' & x"00";
+        tmp(3) := STA & '1' & x"01";
+        tmp(4) := LDA & '0' & x"00";
+        tmp(5) := STA & '1' & x"01";
+        tmp(6) := STA & '1' & x"02";
+        tmp(7) := LDI & '0' & x"55";
+        tmp(8) := STA & '1' & x"00";
+        tmp(9) := LDI & '0' & x"AA";
+        tmp(10) := STA & '1' & x"00";
+        tmp(11) := JMP & '0' & x"0B";
+
         RETURN tmp;
     END initMemory;
 
@@ -58,17 +53,3 @@ ARCHITECTURE assincrona OF memoriaROM IS
 BEGIN
     Dado <= memROM (to_integer(unsigned(Endereco)));
 END ARCHITECTURE;
-
-
--- tmp(0) := LDI & '0' & x"01";
---         tmp(1) := STA & '1' & x"00";
---         tmp(2) := SOMA & '0' & x"00";
---         tmp(3) := STA & '1' & x"01";
---         tmp(4) := LDA & '0' & x"00";
---         tmp(5) := STA & '1' & x"01";
---         tmp(6) := STA & '1' & x"02";
---         tmp(7) := LDI & '0' & x"55";
---         tmp(8) := STA & '1' & x"00";
---         tmp(9) := LDI & '0' & x"AA";
---         tmp(10) := STA & '1' & x"00";
---         tmp(11) := JMP & '0' & x"0B";

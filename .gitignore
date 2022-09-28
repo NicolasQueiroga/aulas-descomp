@@ -5,3 +5,10 @@ target
 bin
 *.dat
 db
+*.bak
+*.qdf
+*.json
+*.txt
+simulation
+output_files
+incremental_db

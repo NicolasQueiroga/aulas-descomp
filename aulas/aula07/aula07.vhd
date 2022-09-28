@@ -10,7 +10,8 @@ ENTITY Aula07 IS
         PORT (
                 CLOCK_50 : IN STD_LOGIC;
                 KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-                
+
+                LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
                 PC_OUT : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
                 DECODER_CMD : OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
         );
@@ -28,9 +29,10 @@ ARCHITECTURE arquitetura OF Aula07 IS
         SIGNAL MEM_ADDRESS : STD_LOGIC_VECTOR(5 DOWNTO 0);
         SIGNAL MEM_IN : STD_LOGIC_VECTOR(7 DOWNTO 0);
         SIGNAL MEM_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
-        
+
         SIGNAL BLOCKS_DECODER_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
-        
+        SIGNAL ADDRESS_DECODER_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
+
         -- aliases para facilitar a leitura do código
         ALIAS MEM_ENABLE : STD_LOGIC IS BLOCKS_DECODER_OUT(0);
 
@@ -46,8 +48,8 @@ BEGIN
                                 saida => CLK
                         );
                 END GENERATE;
-        
-        CPU : ENTITY work.CPU GENERIC MAP(larguraDados => larguraDados, larguraEnderecos => larguraEnderecos) 
+
+        CPU : ENTITY work.CPU GENERIC MAP(larguraDados => larguraDados, larguraEnderecos => larguraEnderecos)
                 PORT MAP(
                         CLK => CLK,
                         Data_IN => MEM_IN,
@@ -58,7 +60,7 @@ BEGIN
                         Data_Address => MEM_ADDRESS,
                         Wr => MEM_ENABLE_WRITE,
                         Rd => MEM_ENABLE_READ,
-								decoder_out_debug => DECODER_CMD
+                        decoder_out_debug => DECODER_CMD
                 );
 
         ROM1 : ENTITY work.memoriaROM GENERIC MAP (dataWidth => 13, addrWidth => 4)
@@ -66,7 +68,7 @@ BEGIN
                         Endereco => ROM_Address,
                         Dado => INSTRUCTION
                 );
-        
+
         RAM1 : ENTITY work.memoriaRAM GENERIC MAP (dataWidth => larguraDados, addrWidth => 6)
                 PORT MAP(
                         addr => MEM_ADDRESS,
@@ -82,6 +84,24 @@ BEGIN
                 PORT MAP(
                         entrada => INSTRUCTION(8 DOWNTO 6),
                         saida => BLOCKS_DECODER_OUT
+                );
+
+        ADDRESS_DECODER : ENTITY work.decoder3x8
+                PORT MAP(
+                        entrada => INSTRUCTION(2 DOWNTO 0),
+                        saida => ADDRESS_DECODER_OUT
+                );
+
+        LED_LOGIC : ENTITY work.LedLogic
+                PORT MAP(
+                        CLK => CLK,
+                        Wr => MEM_ENABLE_WRITE,
+                        block_decoder => BLOCKS_DECODER_OUT(4),
+                        address_decoder => ADDRESS_DECODER_OUT(2 DOWNTO 0),
+                        data => MEM_OUT,
+                        LEDR => LEDR(7 DOWNTO 0),
+                        LED8 => LEDR(8),
+                        LED9 => LEDR(9)
                 );
 
         PC_OUT <= ROM_Address;
