@@ -8,6 +8,7 @@ ENTITY LedLogic IS
     block_decoder : IN STD_LOGIC;
     address_decoder : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    address_5 : IN STD_LOGIC;
 
     LEDR : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     LED8 : OUT STD_LOGIC;
@@ -29,9 +30,9 @@ ARCHITECTURE comportamento OF LedLogic IS
 
 BEGIN
 
-  AND_LED8 <= Wr AND ADDR_LED8 AND block_decoder;
-  AND_LED9 <= Wr AND ADDR_LED9 AND block_decoder;
-  AND_LEDR <= Wr AND ADDR_LEDR AND block_decoder;
+  AND_LED8 <= Wr AND ADDR_LED8 AND block_decoder AND NOT address_5;
+  AND_LED9 <= Wr AND ADDR_LED9 AND block_decoder AND NOT address_5;
+  AND_LEDR <= Wr AND ADDR_LEDR AND block_decoder AND NOT address_5;
 
   FLIPFLOP_LED8 : ENTITY work.flipFlopGenerico
     PORT MAP(
@@ -51,7 +52,7 @@ BEGIN
       RST => '0'
     );
 
-  FLIPFLOP_LEDR : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => 8)
+  REG_LEDR : ENTITY work.registradorGenerico GENERIC MAP (larguraDados => 8)
     PORT MAP(
       DIN => FLIP_FLOP_LEDR,
       DOUT => LEDR,

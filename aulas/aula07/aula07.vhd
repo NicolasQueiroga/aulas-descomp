@@ -12,6 +12,7 @@ ENTITY Aula07 IS
                 KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 
                 LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+                HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
                 PC_OUT : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
                 DECODER_CMD : OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
         );
@@ -99,9 +100,26 @@ BEGIN
                         block_decoder => BLOCKS_DECODER_OUT(4),
                         address_decoder => ADDRESS_DECODER_OUT(2 DOWNTO 0),
                         data => MEM_OUT,
+                        address_5 => MEM_ADDRESS(5),
                         LEDR => LEDR(7 DOWNTO 0),
                         LED8 => LEDR(8),
                         LED9 => LEDR(9)
+                );
+        
+        SEVENSEG_LOGIC : ENTITY work.SevenSegLogic
+                PORT MAP(
+                        CLK => CLK,
+                        Wr => MEM_ENABLE_WRITE,
+                        block_decoder => BLOCKS_DECODER_OUT(4),
+                        address_decoder => ADDRESS_DECODER_OUT(5 DOWNTO 0),
+                        data => MEM_OUT(3 DOWNTO 0),
+                        address_5 => MEM_ADDRESS(5),
+                        HEX0 => HEX0,
+                        HEX1 => HEX1,
+                        HEX2 => HEX2,
+                        HEX3 => HEX3,
+                        HEX4 => HEX4,
+                        HEX5 => HEX5
                 );
 
         PC_OUT <= ROM_Address;
